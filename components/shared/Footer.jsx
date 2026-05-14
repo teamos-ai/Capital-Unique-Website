@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FOOTER_NAV, LEGAL_NAV } from "@/lib/nav";
 import { COMPANY } from "@/lib/company-info";
 
@@ -28,11 +29,13 @@ function FacebookIcon(props) {
   );
 }
 
+// Built from COMPANY.social — only renders icons where the URL is non-null,
+// so TBA channels don't appear as broken "#" links.
 const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "#", icon: LinkedInIcon },
-  { label: "Instagram", href: "#", icon: InstagramIcon },
-  { label: "Facebook", href: "#", icon: FacebookIcon },
-];
+  { label: "LinkedIn", href: COMPANY.social.linkedin, icon: LinkedInIcon },
+  { label: "Instagram", href: COMPANY.social.instagram, icon: InstagramIcon },
+  { label: "Facebook", href: COMPANY.social.facebook, icon: FacebookIcon },
+].filter((s) => Boolean(s.href));
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -45,10 +48,16 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <Link
               href="/"
-              aria-label="Capital Unique home"
-              className="font-serif text-2xl font-semibold tracking-tight text-foreground hover:text-cu-brandy transition-colors w-fit"
+              aria-label={`${COMPANY.name} home`}
+              className="inline-flex w-fit items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-cu-surface-abyss"
             >
-              Capital Unique
+              <Image
+                src="/brand/logo-horizontal.png"
+                alt={COMPANY.name}
+                width={200}
+                height={40}
+                className="h-9 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-muted-foreground max-w-md">
               Receive insights on private finance, market shifts, and Capital Unique
@@ -188,18 +197,22 @@ export function Footer() {
               </a>
             </p>
           </div>
-          <div className="flex items-center gap-2">
-            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-              <Link
-                key={label}
-                href={href}
-                aria-label={label}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-cu-surface-vault transition-colors"
-              >
-                <Icon className="h-4 w-4" />
-              </Link>
-            ))}
-          </div>
+          {SOCIAL_LINKS.length > 0 && (
+            <div className="flex items-center gap-2">
+              {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${COMPANY.name} on ${label}`}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-cu-surface-vault transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </footer>
