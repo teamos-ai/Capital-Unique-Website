@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export function AboutCTA() {
   return (
-    <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
+    <section className="bg-cu-surface-abyss section-pad px-6 lg:px-10">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,12 +23,8 @@ export function AboutCTA() {
         />
 
         <div className="relative z-10">
-          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            Direct conversation
-          </p>
-          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            Ready to speak with John
-          </h2>
+          <p className="heading-eyebrow mb-5">Direct conversation</p>
+          <h2 className="heading-section">Ready to speak with John</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             A conversation with Capital Unique begins with understanding your
             situation, without obligation or pressure.

@@ -70,18 +70,14 @@ export function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="overflow-hidden bg-background px-6 py-20 lg:px-10 lg:py-28"
+      className="overflow-hidden bg-background section-pad px-6 lg:px-10"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-y-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-x-16">
         {/* Left: section heading */}
         <div className="flex flex-col justify-center">
-          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            What clients say
-          </p>
-          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            What clients say
-          </h2>
-          <p className="mt-6 max-w-md text-lg text-muted-foreground">
+          <p className="heading-eyebrow mb-5">Testimonials</p>
+          <h2 className="heading-section">What clients say</h2>
+          <p className="mt-6 reading-width text-lg text-muted-foreground">
             Those who&apos;ve worked with us speak to the difference clarity and
             speed make.
           </p>

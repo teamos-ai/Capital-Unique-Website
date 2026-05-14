@@ -1,5 +1,9 @@
 "use client";
 
+// AboutDirectAccess — flat stacked list (no cards) for the principal-led pillars.
+// Demonstrates the new StackedList pattern without importing it directly,
+// to keep the section's specific layout under our control.
+
 import { motion } from "motion/react";
 import { UserCheck, MessageSquare, Scale } from "lucide-react";
 
@@ -23,51 +27,53 @@ const PILLARS = [
 
 export function AboutDirectAccess() {
   return (
-    <section className="bg-background px-6 py-20 lg:px-10 lg:py-28">
-      <div className="mx-auto max-w-6xl">
+    <section className="bg-background section-pad px-6 lg:px-10">
+      <div className="mx-auto max-w-6xl grid grid-cols-1 gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        {/* Left: heading */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mx-auto max-w-3xl text-center"
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            Principal-led
-          </p>
-          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            One decision-maker. End to end.
-          </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+          <p className="heading-eyebrow mb-5">Principal-led</p>
+          <h2 className="heading-section">One decision-maker. End to end.</h2>
+          <p className="mt-6 text-lg text-muted-foreground reading-width">
             Capital Unique is led by John Codrington, who personally oversees
             every engagement. There are no hand-offs, committees, or
             intermediaries.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
+        {/* Right: stacked pillars (no cards) */}
+        <ol className="flex flex-col">
           {PILLARS.map((pillar, i) => (
-            <motion.div
+            <motion.li
               key={pillar.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
-              whileHover={{ y: -4 }}
-              className="rounded-2xl border border-border bg-cu-surface-vault p-8 transition-colors hover:bg-cu-surface-char"
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
+              className={`flex gap-5 py-7 ${
+                i === PILLARS.length - 1 ? "" : "border-b border-border/60"
+              }`}
             >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
-                <pillar.icon size={20} strokeWidth={1.5} />
+              <div className="flex-shrink-0 pt-1">
+                <pillar.icon
+                  size={22}
+                  strokeWidth={1.5}
+                  className="text-cu-brandy"
+                />
               </div>
-              <h3 className="font-serif text-xl font-semibold leading-tight tracking-tight md:text-2xl">
-                {pillar.title}
-              </h3>
-              <p className="mt-3 text-base text-muted-foreground">
-                {pillar.body}
-              </p>
-            </motion.div>
+              <div className="flex-1">
+                <h3 className="heading-card">{pillar.title}</h3>
+                <p className="mt-2 text-base text-muted-foreground reading-width">
+                  {pillar.body}
+                </p>
+              </div>
+            </motion.li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

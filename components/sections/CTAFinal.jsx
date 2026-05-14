@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export function CTAFinal() {
   return (
-    <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
+    <section className="bg-cu-surface-abyss section-pad px-6 lg:px-10">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,12 +23,8 @@ export function CTAFinal() {
         />
 
         <div className="relative z-10">
-          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            Next step
-          </p>
-          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            Ready to move forward
-          </h2>
+          <p className="heading-eyebrow mb-5">Next step</p>
+          <h2 className="heading-section">Ready to move forward</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             Let&apos;s discuss your scenario and explore what&apos;s possible
             together.

@@ -84,8 +84,12 @@ export default function ContactPage() {
                     type="text"
                     placeholder="Full name"
                     required
-                    className="w-full rounded-md border border-border bg-input-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
+                    minLength={2}
+                    className="input-base"
                   />
+                  <p className="input-error-message">
+                    Please enter your full name.
+                  </p>
                 </div>
                 <div>
                   <label htmlFor="contact-email" className="sr-only">
@@ -97,8 +101,11 @@ export default function ContactPage() {
                     type="email"
                     placeholder="Email address"
                     required
-                    className="w-full rounded-md border border-border bg-input-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
+                    className="input-base"
                   />
+                  <p className="input-error-message">
+                    Please enter a valid email address.
+                  </p>
                 </div>
               </div>
               <div>
@@ -110,7 +117,7 @@ export default function ContactPage() {
                   name="phone"
                   type="tel"
                   placeholder="Phone (optional)"
-                  className="w-full rounded-md border border-border bg-input-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
+                  className="input-base"
                 />
               </div>
               <div>
@@ -123,8 +130,12 @@ export default function ContactPage() {
                   rows={6}
                   placeholder="Brief context about your scenario, timing, and what you're working toward."
                   required
-                  className="w-full rounded-md border border-border bg-input-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
+                  minLength={20}
+                  className="input-base"
                 />
+                <p className="input-error-message">
+                  Please provide at least a sentence or two of context.
+                </p>
               </div>
               <button
                 type="submit"

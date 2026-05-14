@@ -20,13 +20,13 @@ export function CTABlock({
       : "bg-cu-surface-vault";
 
   return (
-    <section className={`${bgClass} px-6 py-20 lg:px-10 lg:py-28`}>
+    <section className={`${bgClass} section-pad px-6 lg:px-10`}>
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-cu-surface-vault px-8 py-16 text-center md:px-16 md:py-20"
+        className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl border border-border bg-cu-surface-vault px-8 py-14 text-center md:px-16 md:py-16"
       >
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
@@ -36,12 +36,8 @@ export function CTABlock({
           }}
         />
         <div className="relative z-10">
-          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            {eyebrow}
-          </p>
-          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            {heading}
-          </h2>
+          <p className="heading-eyebrow mb-5">{eyebrow}</p>
+          <h2 className="heading-section">{heading}</h2>
           {body && (
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
               {body}

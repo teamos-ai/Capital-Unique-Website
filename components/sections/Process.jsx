@@ -33,18 +33,14 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
+    <section className="bg-cu-surface-abyss section-pad px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           {/* Left: sticky header */}
           <div className="md:sticky md:top-32 md:self-start">
-            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-              The Process
-            </p>
-            <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              How funding works
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
+            <p className="heading-eyebrow mb-5">The Process</p>
+            <h2 className="heading-section">How funding works</h2>
+            <p className="mt-6 text-lg text-muted-foreground reading-width">
               We start by understanding your objectives and assessing the
               opportunity with care. From there, we structure the right solution
               and guide the process through to funding with clarity at every
@@ -77,19 +73,17 @@ export function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.05, ease: "easeOut" }}
-                className="rounded-2xl border border-border bg-cu-surface-vault p-8 transition-colors hover:bg-cu-surface-char"
+                className="rounded-2xl border border-border bg-cu-surface-vault p-7 transition-colors hover:bg-cu-surface-char"
               >
                 <div className="mb-5 flex items-center gap-4">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
                     <step.icon size={20} strokeWidth={1.5} />
                   </div>
-                  <span className="font-serif text-3xl font-semibold tracking-tight text-cu-neutral-light">
+                  <span className="font-serif text-2xl font-semibold tracking-tight text-cu-neutral-light tabular-nums">
                     {step.n}
                   </span>
                 </div>
-                <h3 className="font-serif text-2xl font-semibold leading-tight tracking-tight">
-                  {step.title}
-                </h3>
+                <h3 className="heading-card">{step.title}</h3>
                 <p className="mt-3 text-base text-muted-foreground">
                   {step.body}
                 </p>

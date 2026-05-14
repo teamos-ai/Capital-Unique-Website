@@ -36,6 +36,19 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Escape closes desktop dropdown + mobile drawer
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onEscape = (e) => {
+      if (e.key === "Escape") {
+        setOpenDropdown(null);
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
+  }, []);
+
   // Lock body scroll when mobile drawer open
   useEffect(() => {
     if (mobileOpen) {
@@ -72,7 +85,7 @@ export function Navbar() {
           <Link
             href="/"
             aria-label="Capital Unique home"
-            className="relative inline-flex items-center"
+            className="relative inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Image
               src="/brand/logo-horizontal.png"
@@ -87,7 +100,10 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav
+            className="hidden lg:flex items-center gap-1"
+            aria-label="Primary"
+          >
             {PRIMARY_NAV.map((item) => (
               <DesktopNavItem
                 key={item.label}
@@ -103,7 +119,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href={PRIMARY_CTA.href}
-              className={`hidden lg:inline-flex items-center rounded-md bg-cu-brandy text-white shadow-sm hover:bg-cu-brandy-light transition-all ease-out ${
+              className={`hidden lg:inline-flex items-center rounded-md bg-cu-brandy text-white shadow-sm hover:bg-cu-brandy-light transition-all ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                 isScrolled ? "px-4 py-2 text-sm" : "px-5 py-2.5 text-sm"
               } font-medium`}
             >
@@ -114,7 +130,7 @@ export function Navbar() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
-              className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-cu-surface-vault transition-colors"
+              className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-cu-surface-vault transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -134,7 +150,10 @@ export function Navbar() {
                 isScrolled ? "rounded-b-2xl" : ""
               } bg-background`}
             >
-              <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-6">
+              <nav
+                aria-label="Mobile primary"
+                className="mx-auto flex max-w-7xl flex-col gap-1 px-5 py-6"
+              >
                 {PRIMARY_NAV.map((item) => (
                   <MobileNavItem
                     key={item.label}
@@ -159,23 +178,54 @@ export function Navbar() {
 }
 
 function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
+  const wrapperRef = useRef(null);
+
+  // If focus moves outside the wrapper entirely, close the menu.
+  // (Used when user tabs out of the button or its panel.)
+  const handleBlurWithin = (e) => {
+    if (!wrapperRef.current) return;
+    if (!wrapperRef.current.contains(e.relatedTarget)) {
+      onClose();
+    }
+  };
+
   if (!item.children) {
     return (
       <Link
         href={item.href}
-        className="rounded-md px-3 py-2 text-sm font-medium text-foreground/85 hover:text-foreground hover:bg-cu-surface-vault transition-colors"
+        className="rounded-md px-3 py-2 text-sm font-medium text-foreground/85 hover:text-foreground hover:bg-cu-surface-vault transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
       >
         {item.label}
       </Link>
     );
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      isOpen ? onClose() : onOpen();
+    } else if (e.key === "ArrowDown" && !isOpen) {
+      e.preventDefault();
+      onOpen();
+    }
+  };
+
   return (
-    <div className="relative" onMouseEnter={onOpen} onMouseLeave={onClose}>
+    <div
+      ref={wrapperRef}
+      className="relative"
+      onMouseEnter={onOpen}
+      onMouseLeave={onClose}
+      onFocus={onOpen}
+      onBlur={handleBlurWithin}
+    >
       <button
         type="button"
-        className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/85 hover:text-foreground hover:bg-cu-surface-vault transition-colors"
+        className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/85 hover:text-foreground hover:bg-cu-surface-vault transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
         aria-expanded={isOpen}
+        aria-haspopup="true"
+        onClick={() => (isOpen ? onClose() : onOpen())}
+        onKeyDown={handleKeyDown}
       >
         {item.label}
         <motion.span
@@ -194,6 +244,7 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.18 }}
             className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3"
+            role="menu"
           >
             <div
               className={`rounded-xl border border-border bg-cu-surface-vault p-2 shadow-2xl shadow-black/40 backdrop-blur-xl ${
@@ -209,7 +260,8 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="flex flex-col gap-0.5 rounded-md px-3 py-2.5 text-sm text-foreground/85 hover:text-foreground hover:bg-cu-surface-char transition-colors"
+                    role="menuitem"
+                    className="flex flex-col gap-0.5 rounded-md px-3 py-2.5 text-sm text-foreground/85 hover:text-foreground hover:bg-cu-surface-char transition-colors focus-visible:outline-none focus-visible:bg-cu-surface-char focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
                   >
                     <span className="font-medium">{child.label}</span>
                     {child.description && (
@@ -236,7 +288,7 @@ function MobileNavItem({ item, onNavigate }) {
       <Link
         href={item.href}
         onClick={onNavigate}
-        className="rounded-md px-3 py-3 text-base font-medium text-foreground/90 hover:bg-cu-surface-vault"
+        className="rounded-md px-3 py-3 text-base font-medium text-foreground/90 hover:bg-cu-surface-vault focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
       >
         {item.label}
       </Link>
@@ -248,7 +300,7 @@ function MobileNavItem({ item, onNavigate }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center justify-between rounded-md px-3 py-3 text-base font-medium text-foreground/90 hover:bg-cu-surface-vault"
+        className="flex items-center justify-between rounded-md px-3 py-3 text-base font-medium text-foreground/90 hover:bg-cu-surface-vault focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
         aria-expanded={open}
       >
         {item.label}
@@ -271,7 +323,7 @@ function MobileNavItem({ item, onNavigate }) {
                   key={child.href}
                   href={child.href}
                   onClick={onNavigate}
-                  className="rounded-md px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-cu-surface-vault"
+                  className="rounded-md px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-cu-surface-vault focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
                 >
                   {child.label}
                 </Link>

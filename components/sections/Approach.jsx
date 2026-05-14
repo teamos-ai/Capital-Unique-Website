@@ -12,24 +12,20 @@ const FADE_IN = {
 
 export function Approach() {
   return (
-    <section className="bg-background px-6 py-20 lg:px-10 lg:py-28">
+    <section className="bg-background section-pad px-6 lg:px-10">
       <div className="mx-auto max-w-7xl">
-        {/* Section header */}
+        {/* Section header — left-aligned */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={FADE_IN}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mx-auto max-w-2xl text-center"
+          className="max-w-2xl"
         >
-          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            Approach
-          </p>
-          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            Built for those who think differently
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
+          <p className="heading-eyebrow mb-5">Approach</p>
+          <h2 className="heading-section">Built for those who think differently</h2>
+          <p className="mt-6 text-lg text-muted-foreground reading-width-wide">
             Capital Unique exists where traditional banking ends. We understand
             complex commercial deals, unconventional scenarios, and the investors
             who fund them.
@@ -37,7 +33,7 @@ export function Approach() {
         </motion.div>
 
         {/* Bento grid */}
-        <div className="mt-16 grid grid-cols-1 gap-5 lg:mt-20 lg:grid-cols-[1.4fr_1fr] lg:gap-6">
+        <div className="mt-14 grid grid-cols-1 gap-5 lg:mt-16 lg:grid-cols-[1.4fr_1fr] lg:gap-6">
           {/* Top-left: Borrowers (large with image) */}
           <BentoTile
             tone="large"
@@ -102,7 +98,7 @@ function BentoTile({
       viewport={{ once: true, margin: "-50px" }}
       variants={FADE_IN}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -3 }}
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-cu-surface-vault transition-colors hover:bg-cu-surface-char"
     >
       {(tone === "large" || tone === "large-wide") && (
@@ -117,12 +113,8 @@ function BentoTile({
         {tone === "icon" && Icon && (
           <Icon className="mb-2 h-6 w-6 text-cu-brandy" strokeWidth={1.5} />
         )}
-        <p className="text-xs uppercase tracking-[0.2em] text-cu-brandy">
-          {eyebrow}
-        </p>
-        <h3 className="font-serif text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
-          {title}
-        </h3>
+        <p className="heading-eyebrow">{eyebrow}</p>
+        <h3 className="heading-card">{title}</h3>
         <p className="text-base text-muted-foreground">{body}</p>
       </div>
     </motion.div>
@@ -155,7 +147,7 @@ function BentoImage({ src, alt, placeholderLabel, aspect }) {
                 "radial-gradient(ellipse at 30% 70%, var(--cu-brandy-darker) 0%, transparent 60%)",
             }}
           />
-          <p className="relative z-10 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <p className="heading-eyebrow text-muted-foreground">
             {placeholderLabel}
           </p>
         </div>

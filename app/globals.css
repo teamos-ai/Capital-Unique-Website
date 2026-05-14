@@ -5,6 +5,108 @@
 @source "../{app,components,lib}/**/*.{js,jsx,ts,tsx}";
 
 @layer components {
+  /* ─── Marketing typography scale ───────────────────────────
+     Extends the design system base (theme.css h1=48 / h2=32 / h3=24)
+     with fluid marketing-grade sizes. Apply via class — pages should
+     never reach for raw text-* utilities for headings. */
+  .heading-hero {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-feature-settings: 'ss01';
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  .heading-section {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-feature-settings: 'ss01';
+    font-size: clamp(2rem, 3.5vw + 0.75rem, 3.25rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+  }
+  .heading-card {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-feature-settings: 'ss01';
+    font-size: clamp(1.25rem, 1.2vw + 0.85rem, 1.5rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+  }
+  .heading-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cu-brandy);
+  }
+
+  /* ─── Section spacing rhythm ──────────────────────────────
+     Use these to vary vertical rhythm across sections. Avoids the
+     monotonous py-20-everywhere problem. */
+  .section-pad-hero {
+    padding-top: clamp(5rem, 8vw, 8rem);
+    padding-bottom: clamp(5rem, 8vw, 8rem);
+  }
+  .section-pad {
+    padding-top: clamp(4rem, 6vw, 6rem);
+    padding-bottom: clamp(4rem, 6vw, 6rem);
+  }
+  .section-pad-tight {
+    padding-top: clamp(2.5rem, 4vw, 4rem);
+    padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  }
+
+  /* ─── Reading width caps ──────────────────────────────────
+     Body text wider than ~75ch is fatiguing. Use these to keep
+     long-form readable. */
+  .reading-width {
+    max-width: 65ch;
+  }
+  .reading-width-wide {
+    max-width: 75ch;
+  }
+
+  /* ─── Form input states ───────────────────────────────────
+     Demonstrates validation styling so the eventual GHL forms
+     have a styling target. */
+  .input-base {
+    width: 100%;
+    border-radius: 0.375rem;
+    border: 1px solid var(--border);
+    background-color: var(--input-background);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: var(--foreground);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .input-base::placeholder {
+    color: var(--muted-foreground);
+  }
+  .input-base:focus {
+    outline: none;
+    border-color: var(--cu-brandy-light);
+    box-shadow: 0 0 0 3px oklch(from var(--cu-brandy-light) l c h / 0.18);
+  }
+  .input-base:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: oklch(0.55 0.18 25);
+    box-shadow: 0 0 0 3px oklch(0.55 0.18 25 / 0.12);
+  }
+  .input-base:valid:not(:placeholder-shown):not(:focus) {
+    border-color: oklch(from var(--cu-brandy-light) l c h / 0.55);
+  }
+  .input-error-message {
+    display: none;
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+    color: oklch(0.65 0.16 25);
+  }
+  .input-base:invalid:not(:placeholder-shown):not(:focus) ~ .input-error-message {
+    display: block;
+  }
+
+  /* ─── Long-form legal page prose ─────────────────────────── */
   .legal-prose {
     font-size: 1rem;
     line-height: 1.7;

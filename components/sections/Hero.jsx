@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const HEADLINE_WORDS = ["Capital", "Intelligently", "Applied."];
@@ -21,21 +21,21 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-background"
+      className="relative overflow-hidden bg-background section-pad-hero px-6 lg:px-10"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-y-16 px-6 pb-20 pt-20 md:pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-x-16 lg:px-10 lg:pb-28 lg:pt-32 xl:gap-x-24">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-y-16 lg:grid-cols-[1.1fr_1fr] lg:gap-x-16 xl:gap-x-24">
         {/* Left: copy + CTAs */}
         <div className="flex flex-col justify-center max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mb-6 text-xs uppercase tracking-[0.25em] text-cu-brandy"
+            className="heading-eyebrow mb-6"
           >
             Australian non-bank capital
           </motion.p>
 
-          <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="heading-hero">
             {HEADLINE_WORDS.map((word, i) => (
               <motion.span
                 key={i}
@@ -49,7 +49,7 @@ export function Hero() {
                 className="inline-block"
               >
                 {word}
-                {i < HEADLINE_WORDS.length - 1 && " "}
+                {i < HEADLINE_WORDS.length - 1 && " "}
               </motion.span>
             ))}
           </h1>
@@ -58,7 +58,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-            className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl"
+            className="mt-8 reading-width-wide text-lg text-muted-foreground md:text-xl"
           >
             We provide non-bank lending for complex scenarios where traditional finance
             falls short. Whether you&apos;re building, investing, or growing, we move
@@ -120,9 +120,7 @@ function BrandPlaceholder({ label }) {
             "radial-gradient(ellipse at 70% 30%, var(--cu-brandy-darker) 0%, transparent 50%)",
         }}
       />
-      <p className="relative z-10 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-        {label}
-      </p>
+      <p className="heading-eyebrow text-muted-foreground">{label}</p>
     </div>
   );
 }

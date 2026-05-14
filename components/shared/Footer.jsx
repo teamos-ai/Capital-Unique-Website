@@ -119,9 +119,24 @@ export function Footer() {
           </div>
         </div>
 
-        {/* General advice mini-disclaimer — visible on every page */}
+        {/* General advice mini-disclaimer — full text on desktop, terse on mobile */}
         <div className="mt-12 rounded-xl border border-border bg-cu-surface-vault px-5 py-4">
-          <p className="text-xs leading-relaxed text-muted-foreground">
+          {/* Mobile: terse */}
+          <p className="text-xs leading-relaxed text-muted-foreground sm:hidden">
+            <span className="font-medium text-foreground/85">
+              General information only.
+            </span>{" "}
+            Not financial advice.{" "}
+            <Link
+              href="/disclaimer"
+              className="underline underline-offset-2 hover:text-foreground"
+            >
+              See Disclaimer
+            </Link>
+            .
+          </p>
+          {/* Desktop: full */}
+          <p className="hidden text-xs leading-relaxed text-muted-foreground sm:block">
             <span className="font-medium text-foreground/85">
               General information only.
             </span>{" "}
