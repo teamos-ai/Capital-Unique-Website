@@ -28,24 +28,6 @@ const ARTICLES = [
     category: "Investing",
     href: "#article-3",
   },
-  {
-    title: "Navigating capital in complex scenarios",
-    body: "When standard frameworks fall short and structured judgement matters.",
-    category: "Strategy",
-    href: "#article-4",
-  },
-  {
-    title: "Stay informed on private finance",
-    body: "Cycles, market conditions, and what they mean for capital decisions.",
-    category: "Markets",
-    href: "#article-5",
-  },
-  {
-    title: "Thought on capital",
-    body: "Clear perspectives on private finance and complex lending scenarios.",
-    category: "Strategy",
-    href: "#article-6",
-  },
 ];
 
 export default function ArticlesPage() {

@@ -138,6 +138,22 @@ export default function PrivateCapitalPage() {
         background="abyss"
       />
 
+      <section className="bg-background px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-4xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
+            When complexity demands it
+          </p>
+          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
+            This works when complexity demands it
+          </h2>
+          <p className="mt-8 text-lg text-muted-foreground">
+            Your situation sits outside standard lending frameworks. You hold
+            assets in structures banks cannot easily assess. You need discretion
+            and direct assessment, not standardised processes.
+          </p>
+        </div>
+      </section>
+
       <CTABlock
         eyebrow="Begin with structure"
         heading="Clarity begins with structure"

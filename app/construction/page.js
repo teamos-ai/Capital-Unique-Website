@@ -49,6 +49,31 @@ const FIT = [
   },
 ];
 
+// TODO: replace placeholder cards with real construction project examples
+// when content is ready. Doc lists this section but no specific project items.
+const PROJECT_TYPES = [
+  {
+    iconName: "Hammer",
+    title: "Residential builds",
+    body: "Single-dwelling and small multi-unit residential construction with verifiable progress milestones.",
+  },
+  {
+    iconName: "Building",
+    title: "Multi-stage developments",
+    body: "Larger projects requiring layered capital across acquisition, build, and exit phases.",
+  },
+  {
+    iconName: "Wrench",
+    title: "Commercial fitouts and refurbishments",
+    body: "Adaptive reuse, fitout, and refurbishment work where timing and trade coordination matter.",
+  },
+  {
+    iconName: "Layers",
+    title: "Cost-overrun and gap funding",
+    body: "Capital to bridge gaps in active builds where the original lender cannot extend or move quickly enough.",
+  },
+];
+
 const PROCESS = [
   {
     n: "01",
@@ -101,11 +126,21 @@ export default function ConstructionPage() {
       </section>
 
       <FeatureGrid
+        eyebrow="What we fund"
+        heading="Construction projects we fund"
+        body="These are the builds we see most often. If your project sits here, we understand the timing, the risks, and the structure it needs."
+        items={PROJECT_TYPES}
+        columns={2}
+        background="background"
+      />
+
+      <FeatureGrid
         eyebrow="How we assess"
         heading="How we assess construction capital"
         body="We don't use formulas. We assess reality. The build. The timing. The risk—this is what guides every decision."
         items={ASSESS}
         columns={2}
+        background="abyss"
       />
 
       <section className="bg-background px-6 py-20 lg:px-10 lg:py-28">

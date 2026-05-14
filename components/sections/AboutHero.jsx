@@ -59,9 +59,9 @@ export function AboutHero() {
             transition={{ duration: 0.7, delay: 0.55, ease: "easeOut" }}
             className="mt-8 max-w-xl text-lg text-muted-foreground md:text-xl"
           >
-            Capital Unique provides non-bank lending for complex scenarios where
-            traditional finance falls short. Whether you&apos;re building, investing,
-            or growing, we move with clarity and speed.
+            We provide non-bank lending for complex scenarios where traditional
+            finance falls short. Whether you&apos;re building, investing, or growing,
+            we move with clarity and speed.
           </motion.p>
 
           <motion.div

@@ -36,12 +36,12 @@ export function AboutDirectAccess() {
             Principal-led
           </p>
           <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            Direct access, every time
+            One decision-maker. End to end.
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            Capital Unique is led by John Codrington. One decision-maker, end to
-            end—because complex capital decisions deserve a person, not a
-            process.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+            Capital Unique is led by John Codrington, who personally oversees
+            every engagement. There are no hand-offs, committees, or
+            intermediaries.
           </p>
         </motion.div>
 
