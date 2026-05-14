@@ -48,10 +48,10 @@ export default function CharlesAIPage() {
   return (
     <>
       <PageHero
-        eyebrow="Charles A.I · Coming soon"
+        eyebrow="Charles A.I · In active development"
         heading="Workshop your deal with Charles."
         body="Describe your scenario and let Charles A.I map the structure, timing, and constraints. Arrive at your conversation with Capital Unique already clear on what matters."
-        primaryCta={{ label: "Join the waitlist", href: "#waitlist" }}
+        primaryCta={{ label: "Request early access", href: "#early-access" }}
         secondaryCta={{ label: "Speak with John", href: "/contact" }}
       />
 
@@ -129,8 +129,8 @@ export default function CharlesAIPage() {
         eyebrow="Start informed"
         heading="Decide with confidence"
         body="Charles A.I helps you do the thinking upfront—so calls are shorter, clearer, and more decisive. Use it to explore options, test assumptions, and understand what's possible before committing time to a formal discussion."
-        primaryCta={{ label: "Join the waitlist", href: "#waitlist" }}
-        secondaryCta={{ label: "Speak with John instead", href: "/contact" }}
+        primaryCta={{ label: "Request early access", href: "#early-access" }}
+        secondaryCta={{ label: "Speak with John", href: "/contact" }}
       />
     </>
   );

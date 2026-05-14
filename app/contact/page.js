@@ -1,10 +1,10 @@
 import { PageHero } from "@/components/shared/PageHero";
-import { Mail, MessageSquare, Phone } from "lucide-react";
+import { Mail, MessageSquare, Phone, Clock } from "lucide-react";
 
 export const metadata = {
   title: "Contact",
   description:
-    "Speak directly with Capital Unique. A conversation begins with understanding your situation, without obligation or pressure.",
+    "Speak directly with John Codrington at Capital Unique. A conversation begins with understanding your situation, without obligation or pressure.",
 };
 
 const CHANNELS = [
@@ -19,15 +19,15 @@ const CHANNELS = [
     icon: Mail,
     title: "Email John directly",
     body: "Detailed scenarios, supporting documents, or questions before a conversation.",
-    href: "mailto:hello@capitalunique.com.au",
-    cta: "hello@capitalunique.com.au",
+    href: "mailto:hello@capitalunique.com",
+    cta: "hello@capitalunique.com",
   },
   {
     icon: Phone,
     title: "Book a call",
     body: "A focused conversation about your scenario. Direct access to John, no intermediaries.",
     href: "#book",
-    cta: "Open booking",
+    cta: "Schedule a conversation",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         heading="A direct conversation"
-        body="A conversation with Capital Unique begins with understanding your situation, without obligation or pressure."
+        body="A conversation with Capital Unique begins with understanding your situation, without obligation or pressure. John reviews every enquiry personally."
       />
 
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
@@ -51,8 +51,8 @@ export default function ContactPage() {
               Tell us about your scenario
             </h2>
             <p className="mt-5 text-base text-muted-foreground">
-              Brief context is enough to get the conversation started. We respond
-              within one business day.
+              A few sentences are enough to start. We respond within one business
+              day, in confidence.
             </p>
 
             {/*
@@ -133,13 +133,20 @@ export default function ContactPage() {
                 Send message
               </button>
               <p className="text-xs text-muted-foreground">
-                Submissions are received in confidence. We respond within one
-                business day.
+                Submissions are received in confidence. By sending, you agree to
+                our{" "}
+                <a
+                  href="/privacy"
+                  className="underline underline-offset-2 hover:text-foreground"
+                >
+                  Privacy Policy
+                </a>
+                .
               </p>
             </form>
           </div>
 
-          {/* Channels */}
+          {/* Channels + office info */}
           <aside className="flex flex-col gap-5">
             <p className="text-xs uppercase tracking-[0.25em] text-cu-brandy">
               Other ways to reach us
@@ -162,6 +169,29 @@ export default function ContactPage() {
                 </p>
               </a>
             ))}
+
+            {/* Office info */}
+            <div className="rounded-2xl border border-border bg-cu-surface-abyss p-6">
+              <div className="flex items-start gap-3">
+                <Clock
+                  size={18}
+                  strokeWidth={1.5}
+                  className="mt-0.5 flex-shrink-0 text-cu-brandy"
+                />
+                <div>
+                  <p className="text-sm font-medium text-foreground">
+                    Hours and location
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Monday to Friday, 9:00–18:00 AEST/AEDT.
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Based in Victoria. We work with borrowers and investors
+                    across Australia.
+                  </p>
+                </div>
+              </div>
+            </div>
           </aside>
         </div>
       </section>

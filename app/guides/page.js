@@ -130,9 +130,9 @@ export default function GuidesPage() {
       </section>
 
       <CTABlock
-        eyebrow="Get specific advice"
-        heading="Need scenario-specific guidance"
-        body="These guides provide education and frameworks, not personal financial advice. For scenarios specific to your circumstances, our team is ready to discuss your situation directly."
+        eyebrow="Beyond the framework"
+        heading="When your scenario doesn't fit a guide"
+        body="Frameworks help you think. Real scenarios deserve a direct conversation. We're ready when you are."
         primaryCta={{ label: "Speak with John", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />

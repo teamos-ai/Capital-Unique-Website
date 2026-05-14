@@ -15,9 +15,9 @@ function LinkedInIcon(props) {
 }
 
 export const metadata = {
-  title: "Waitlist confirmed",
+  title: "Early access requested",
   description:
-    "You're on the Charles A.I waitlist. We'll let you know the moment it's ready.",
+    "Your request for early access to Charles A.I has been received. We'll be in touch as the first cohort opens.",
 };
 
 export default function WaitlistConfirmedPage() {
@@ -36,15 +36,15 @@ export default function WaitlistConfirmedPage() {
             <CheckCircle2 size={28} strokeWidth={1.5} />
           </div>
           <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            You&apos;re in
+            Request received
           </p>
           <h1 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-            Waitlist confirmed
+            Early access requested
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            You&apos;ll be among the first to know when Charles A.I is ready.
-            We&apos;re building it carefully — no announcement until it actually
-            helps you do the thinking.
+            We&apos;ll be in touch as the first cohort opens. Charles A.I is being
+            built carefully — no announcement until it actually helps you do
+            the thinking.
           </p>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
             In the meantime, if your scenario is time-sensitive, you can speak

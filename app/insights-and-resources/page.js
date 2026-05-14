@@ -120,8 +120,8 @@ export default function InsightsPage() {
 
       <CTABlock
         eyebrow="Stay informed"
-        heading="Get the latest insights"
-        body="Subscribe to receive new guides, calculators, and articles as they're published."
+        heading="New thinking, when there's something to say"
+        body="Subscribe for new guides, calculators, and articles as they're published. Quiet, considered, no spam."
         primaryCta={{ label: "Subscribe", href: "#newsletter" }}
         secondaryCta={{ label: "Speak with John", href: "/contact" }}
       />
