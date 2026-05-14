@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/company-info";
 export const metadata = {
   title: "Terms of Use",
   description:
-    "The terms governing your use of the Capital Unique website. Governed by the laws of Victoria, Australia.",
+    "The terms governing your use of the Capital Unique website. Governed by the laws of New South Wales, Australia.",
 };
 
 export default function TermsPage() {
@@ -165,10 +165,10 @@ export default function TermsPage() {
 
       <h2>12. Governing law</h2>
       <p>
-        These Terms are governed by the laws of Victoria, Australia. Any
-        dispute arising out of or in connection with these Terms or your use of
-        the Site is subject to the exclusive jurisdiction of the courts of
-        Victoria and the Federal Court of Australia.
+        These Terms are governed by the laws of {COMPANY.governingLaw.state},
+        Australia. Any dispute arising out of or in connection with these
+        Terms or your use of the Site is subject to the exclusive jurisdiction
+        of {COMPANY.governingLaw.courts}.
       </p>
 
       <h2>13. Changes to these Terms</h2>
@@ -191,9 +191,7 @@ export default function TermsPage() {
           Postal: {COMPANY.postalAddress.full}
           <br />
           Phone:{" "}
-          <a href={COMPANY.phoneOfficeHref}>{COMPANY.phoneOffice}</a>{" "}
-          (office) ·{" "}
-          <a href={COMPANY.phoneMobileHref}>{COMPANY.phoneMobile}</a> (mobile)
+          <a href={COMPANY.phoneOfficeHref}>{COMPANY.phoneOffice}</a>
           <br />
           Email:{" "}
           <a href={COMPANY.emailHref}>{COMPANY.email}</a>

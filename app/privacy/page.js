@@ -237,9 +237,7 @@ export default function PrivacyPage() {
           Postal: {COMPANY.postalAddress.full}
           <br />
           Phone:{" "}
-          <a href={COMPANY.phoneOfficeHref}>{COMPANY.phoneOffice}</a>{" "}
-          (office) ·{" "}
-          <a href={COMPANY.phoneMobileHref}>{COMPANY.phoneMobile}</a> (mobile)
+          <a href={COMPANY.phoneOfficeHref}>{COMPANY.phoneOffice}</a>
           <br />
           Fax: {COMPANY.fax}
           <br />

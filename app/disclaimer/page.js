@@ -158,9 +158,7 @@ export default function DisclaimerPage() {
           Postal: {COMPANY.postalAddress.full}
           <br />
           Phone:{" "}
-          <a href={COMPANY.phoneOfficeHref}>{COMPANY.phoneOffice}</a>{" "}
-          (office) ·{" "}
-          <a href={COMPANY.phoneMobileHref}>{COMPANY.phoneMobile}</a> (mobile)
+          <a href={COMPANY.phoneOfficeHref}>{COMPANY.phoneOffice}</a>
           <br />
           Email:{" "}
           <a href={COMPANY.emailHref}>{COMPANY.email}</a>
