@@ -1,0 +1,348 @@
+﻿@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────────────────────────────
+   Capital Unique · "The Vault" Dark Luxury Theme
+   Direction B · v2.2 (true-black de-tinted neutrals)
+
+   Neutrals are pure cool — no hue / no chroma. The earlier brand-tinted
+   approach was reverted because the warm cast undermined the "true
+   dark mode" feel the brand calls for. Accent families remain in OKLCH
+   (perceptually uniform) and unchanged:
+     • Brandy Punch (warm primary, hover/link/active)
+     ��� Inkwell      (cool counter-tone — desaturated navy)
+     • Amber        (semantic warning, chroma capped at high L)
+   The previous Marigold family stayed dropped — too close to Brandy
+   Punch in hue space.
+
+   Direction A's Platinum / Cloud Burst / Ship Cove tokens are gone.
+   If they need to be revived as a side-by-side comparison, restore
+   them under a `:root[data-direction="a"]` scope, not :root.
+───────────────────────────────────────────────────────────────────── */
+
+:root {
+  --font-size: 16px;
+
+  /* ── NEUTRALS (pure cool — no chroma) ────��──────────────��────────
+     Surfaces 00-05 are wired below; these are the canonical scale. */
+  --cu-neutral-lightest: #F2F2F2;
+  --cu-neutral-lighter:  #D9D9D9;
+  --cu-neutral-light:    #B5B5B5;
+  --cu-neutral:          #878787;   /* canonical mid */
+  --cu-neutral-dark:     #525252;
+  --cu-neutral-darker:   #1A1A1A;   /* "Char"  */
+  --cu-neutral-darkest:  #080808;   /* "Void"  */
+
+  /* ── BRANDY PUNCH (primary accent, 7-step) ───���──────────────���──── */
+  --cu-brandy-lightest: oklch(0.94 0.020 50);
+  --cu-brandy-lighter:  oklch(0.86 0.045 50);
+  --cu-brandy-light:    oklch(0.74 0.085 50);    /* hover / link  */
+  --cu-brandy-punch:    oklch(0.62 0.135 50);    /* BASE — #CD722D-equiv */
+  --cu-brandy-dark:     oklch(0.50 0.105 50);
+  --cu-brandy-darker:   oklch(0.30 0.060 50);
+  --cu-brandy-darkest:  oklch(0.22 0.040 50);
+
+  /* ─��� INKWELL (cool counter-tone, semantic + brand cohesion) ───── */
+  --cu-inkwell-lightest: oklch(0.94 0.012 235);
+  --cu-inkwell-lighter:  oklch(0.82 0.030 235);
+  --cu-inkwell-light:    oklch(0.66 0.060 235);
+  --cu-inkwell:          oklch(0.48 0.090 245);  /* refined navy */
+  --cu-inkwell-dark:     oklch(0.34 0.070 245);
+  --cu-inkwell-darker:   oklch(0.22 0.040 245);
+  --cu-inkwell-darkest:  oklch(0.15 0.025 245);
+
+  /* ── AMBER (semantic warning — chroma capped at high L for refinement) */
+  --cu-amber-lightest: oklch(0.97 0.040 90);
+  --cu-amber-lighter:  oklch(0.92 0.080 90);
+  --cu-amber-light:    oklch(0.82 0.110 90);
+  --cu-amber:          oklch(0.78 0.130 90);     /* ≈ refined #FFC400 */
+  --cu-amber-dark:     oklch(0.62 0.115 85);
+  --cu-amber-darker:   oklch(0.40 0.075 85);
+  --cu-amber-darkest:  oklch(0.28 0.050 85);
+
+  /* ── SURFACES (named; pure cool ladder) ───────────��───────────── */
+  --cu-surface-void:   #080808;   /* Surface 00 — canvas / page bg  */
+  --cu-surface-abyss:  #0D0D0D;   /* Surface 01 — sidebar           */
+  --cu-surface-vault:  #111111;   /* Surface 02 — card / popover    */
+  --cu-surface-char:   #1A1A1A;   /* Surface 03 — secondary surface */
+  --cu-surface-ember:  #222222;   /* Surface 04 — muted / input bg  */
+  --cu-surface-smoke:  #525252;   /* Surface 05 — quiet text floor  */
+
+  /* ── SEMANTIC ALIASES — Light mode (pure cool) ���──────────────���─ */
+  --background:           var(--cu-neutral-lightest);   /* #F2F2F2 */
+  --foreground:           var(--cu-neutral-darkest);    /* #080808 */
+  --card:                 #FFFFFF;
+  --card-foreground:      var(--cu-neutral-darkest);
+  --popover:              var(--card);
+  --popover-foreground:   var(--cu-neutral-darkest);
+  --primary:              var(--cu-brandy-punch);
+  --primary-foreground:   #FFFFFF;
+  --secondary:            var(--cu-neutral-lighter);
+  --secondary-foreground: var(--cu-neutral-darkest);
+  --muted:                #ECECEC;
+  --muted-foreground:     var(--cu-neutral-dark);
+  --accent:               var(--cu-brandy-punch);
+  --accent-foreground:    #FFFFFF;
+  --destructive:          oklch(0.52 0.180 25);
+  --destructive-foreground: #FFFFFF;
+  --warning:              var(--cu-amber);
+  --warning-foreground:   var(--cu-neutral-darkest);
+  --info:                 var(--cu-inkwell);
+  --info-foreground:      #FFFFFF;
+  --border:               rgba(8, 8, 8, 0.12);
+  --input:                transparent;
+  --input-background:     #F3F3F3;
+  --switch-background:    #CCCCCC;
+  --font-weight-medium:   500;
+  --font-weight-normal:   400;
+  --ring:                 var(--cu-brandy-light);
+  --radius:               0.5rem;
+
+  /* Charts — Brandy / Inkwell / Amber rotation */
+  --chart-1: var(--cu-brandy-punch);
+  --chart-2: var(--cu-inkwell);
+  --chart-3: var(--cu-amber);
+  --chart-4: var(--cu-brandy-light);
+  --chart-5: var(--cu-inkwell-light);
+
+  /* Sidebar (light) */
+  --sidebar:                       #EEEEEE;
+  --sidebar-foreground:            var(--cu-neutral-darkest);
+  --sidebar-primary:               var(--cu-brandy-punch);
+  --sidebar-primary-foreground:    #FFFFFF;
+  --sidebar-accent:                var(--cu-neutral-lighter);
+  --sidebar-accent-foreground:     var(--cu-neutral-darkest);
+  --sidebar-border:                rgba(8, 8, 8, 0.08);
+  --sidebar-ring:                  var(--cu-brandy-light);
+}
+
+/* ──────��──────────────��──────────────��────────
+   DARK MODE — "The Vault"
+───────────��──────────────��──────────────��─── */
+.dark {
+  --background:           var(--cu-neutral-darkest);
+  --foreground:           var(--cu-neutral-lightest);
+  --card:                 var(--cu-surface-vault);
+  --card-foreground:      var(--cu-neutral-lightest);
+  --popover:              var(--cu-surface-vault);
+  --popover-foreground:   var(--cu-neutral-lightest);
+  --primary:              var(--cu-brandy-punch);
+  --primary-foreground:   var(--cu-neutral-darkest);
+  --secondary:            var(--cu-surface-char);
+  --secondary-foreground: var(--cu-neutral-lightest);
+  --muted:                var(--cu-surface-ember);
+  --muted-foreground:     var(--cu-neutral);
+  --accent:               var(--cu-brandy-punch);
+  --accent-foreground:    var(--cu-neutral-darkest);
+  --destructive:          oklch(0.42 0.150 25);
+  --destructive-foreground: oklch(0.92 0.030 25);
+  --warning:              var(--cu-amber);
+  --warning-foreground:   var(--cu-neutral-darkest);
+  --info:                 var(--cu-inkwell-light);
+  --info-foreground:      var(--cu-neutral-darkest);
+  --border:               oklch(1 0 0 / 0.08);
+  --input:                oklch(1 0 0 / 0.06);
+  --input-background:     var(--cu-surface-ember);
+  --switch-background:    var(--cu-neutral-dark);
+  --ring:                 var(--cu-brandy-light);
+
+  /* Sidebar (dark) */
+  --sidebar:                       var(--cu-surface-abyss);
+  --sidebar-foreground:            var(--cu-neutral-lightest);
+  --sidebar-primary:               var(--cu-brandy-punch);
+  --sidebar-primary-foreground:    var(--cu-neutral-darkest);
+  --sidebar-accent:                var(--cu-surface-char);
+  --sidebar-accent-foreground:     var(--cu-neutral-lightest);
+  --sidebar-border:                oklch(1 0 0 / 0.06);
+  --sidebar-ring:                  var(--cu-brandy-light);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* CU brand tokens exposed to Tailwind */
+  --color-cu-brandy:          var(--cu-brandy-punch);
+  --color-cu-brandy-light:    var(--cu-brandy-light);
+  --color-cu-brandy-lighter:  var(--cu-brandy-lighter);
+  --color-cu-brandy-lightest: var(--cu-brandy-lightest);
+  --color-cu-brandy-dark:     var(--cu-brandy-dark);
+  --color-cu-brandy-darker:   var(--cu-brandy-darker);
+  --color-cu-brandy-darkest:  var(--cu-brandy-darkest);
+
+  --color-cu-inkwell:         var(--cu-inkwell);
+  --color-cu-inkwell-light:   var(--cu-inkwell-light);
+  --color-cu-inkwell-lighter: var(--cu-inkwell-lighter);
+  --color-cu-inkwell-dark:    var(--cu-inkwell-dark);
+
+  --color-cu-amber:           var(--cu-amber);
+  --color-cu-amber-light:     var(--cu-amber-light);
+  --color-cu-amber-dark:      var(--cu-amber-dark);
+
+  --color-cu-neutral-lightest: var(--cu-neutral-lightest);
+  --color-cu-neutral-lighter:  var(--cu-neutral-lighter);
+  --color-cu-neutral-light:    var(--cu-neutral-light);
+  --color-cu-neutral:          var(--cu-neutral);
+  --color-cu-neutral-dark:     var(--cu-neutral-dark);
+  --color-cu-neutral-darker:   var(--cu-neutral-darker);
+  --color-cu-neutral-darkest:  var(--cu-neutral-darkest);
+
+  --color-cu-surface-void:  var(--cu-surface-void);
+  --color-cu-surface-abyss: var(--cu-surface-abyss);
+  --color-cu-surface-vault: var(--cu-surface-vault);
+  --color-cu-surface-char:  var(--cu-surface-char);
+  --color-cu-surface-ember: var(--cu-surface-ember);
+  --color-cu-surface-smoke: var(--cu-surface-smoke);
+}
+
+/* ──��──────────────��──────────────��────────────
+   Semantic spacing & radius scales
+   IMPORTANT: declared in `:root`, NOT in `@theme inline`.
+   Putting them inside @theme would make Tailwind v4 generate
+   `max-w-xs/sm/md/lg/xl/2xl` and `w-xs/sm/...` utilities from
+   the `--spacing-*` namespace, which would shadow Tailwind's
+   default keyword max-width values (causing word-by-word wraps
+   on every paragraph). Keep them as plain CSS variables —
+   components reference them via `var(--spacing-md)` etc.
+────────────���──────────────���──────────────���── */
+:root {
+  /* Spacing scale — 4pt base, semantic names. Pixel values in comments. */
+  --spacing-cu-3xs:     0.25rem;  /*   4px */
+  --spacing-cu-2xs:     0.5rem;   /*   8px */
+  --spacing-cu-xs:      0.75rem;  /*  12px */
+  --spacing-cu-sm:      1rem;     /*  16px */
+  --spacing-cu-md:      1.5rem;   /*  24px */
+  --spacing-cu-lg:      2rem;     /*  32px */
+  --spacing-cu-xl:      3rem;     /*  48px */
+  --spacing-cu-2xl:     4rem;     /*  64px */
+  --spacing-cu-section: 6rem;     /*  96px — section vertical padding */
+  --spacing-cu-hero:    8rem;     /* 128px ��� hero vertical padding */
+
+  /* Border radius — semantic names. Same caveat as spacing: kept out of
+     @theme inline to avoid shadowing Tailwind's default rounded-* sizes. */
+  --radius-cu-xs:   0.25rem;   /*  4px */
+  --radius-cu-sm:   0.375rem;  /*  6px */
+  --radius-cu-md:   0.5rem;    /*  8px (default radius) */
+  --radius-cu-lg:   0.75rem;   /* 12px */
+  --radius-cu-xl:   1rem;      /* 16px */
+  --radius-cu-2xl:  1.5rem;    /* 24px */
+  --radius-cu-pill: 9999px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-feature-settings: 'ss01';
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  label {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+}
+
+/* ────────��──────────────��──────────────��──────
+   Reduced-motion respect (impeccable a11y rule)
+   Users who set `prefers-reduced-motion: reduce`
+   get a near-instant transition on everything.
+────���──────────────���──────────────���────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
