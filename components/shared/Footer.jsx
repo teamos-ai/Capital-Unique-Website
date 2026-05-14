@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FOOTER_NAV } from "@/lib/nav";
+import { FOOTER_NAV, LEGAL_NAV } from "@/lib/nav";
 
 function LinkedInIcon(props) {
   return (
@@ -119,10 +119,50 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col-reverse items-start gap-6 border-t border-border pt-8 lg:flex-row lg:items-center lg:justify-between">
-          <p className="text-xs text-muted-foreground">
-            © {CURRENT_YEAR} Capital Unique. All rights reserved.
+        {/* General advice mini-disclaimer — visible on every page */}
+        <div className="mt-12 rounded-xl border border-border bg-cu-surface-vault px-5 py-4">
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            <span className="font-medium text-foreground/85">
+              General information only.
+            </span>{" "}
+            Information on this site is general in nature and does not
+            constitute personal financial, legal, or tax advice. Capital Unique
+            does not hold an Australian Credit Licence and does not provide
+            consumer credit, credit assistance, or financial product advice.
+            Services are limited to wholesale and commercial scenarios. See our{" "}
+            <Link
+              href="/disclaimer"
+              className="underline underline-offset-2 hover:text-foreground"
+            >
+              Disclaimer
+            </Link>
+            .
           </p>
+        </div>
+
+        {/* Legal nav row */}
+        <nav
+          aria-label="Legal"
+          className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-border pt-6"
+        >
+          {LEGAL_NAV.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-6 flex flex-col-reverse items-start gap-6 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="text-xs text-muted-foreground">
+            <p>© {CURRENT_YEAR} Capital Unique. All rights reserved.</p>
+            <p className="mt-1">
+              ABN 54 695 032 243 · ACN 695 032 243 · Victoria, Australia
+            </p>
+          </div>
           <div className="flex items-center gap-2">
             {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
               <Link
