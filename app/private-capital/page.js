@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
+import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
   title: "Private Capital",
@@ -98,12 +99,12 @@ export default function PrivateCapitalPage() {
         </div>
       </section>
 
-      <FeatureGrid
+      <StackedList
         eyebrow="How it differs"
         heading="How private capital differs from bank lending"
         body="Banks operate within policy. Private capital operates within structure. The distinction matters when your circumstances demand flexibility, discretion, or assessment beyond standard lending rules."
         items={DIFFERENTIATORS}
-        columns={2}
+        background="background"
       />
 
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">

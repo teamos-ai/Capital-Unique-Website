@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
+import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
   title: "Business",
@@ -118,12 +119,11 @@ export default function BusinessPage() {
         columns={2}
       />
 
-      <FeatureGrid
+      <StackedList
         eyebrow="How we work"
         heading="How we structure business capital"
         body="Business capital requires more than financial metrics. It demands understanding of your operation, timing constraints, and what actually works for your situation."
         items={APPROACH}
-        columns={2}
         background="abyss"
       />
 

@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
+import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
   title: "Construction",
@@ -108,19 +109,17 @@ export default function ConstructionPage() {
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
-      <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
-        <div className="mx-auto max-w-4xl">
-          <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            How it works
-          </p>
-          <h2 className="font-serif text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
+      <section className="bg-cu-surface-abyss section-pad px-6 lg:px-10">
+        <div className="mx-auto max-w-3xl">
+          <p className="heading-eyebrow mb-5">How it works</p>
+          <h2 className="heading-section">
             Construction capital is staged, not fixed
           </h2>
-          <p className="mt-8 text-lg text-muted-foreground">
+          <p className="mt-8 text-lg text-muted-foreground reading-width">
             Unlike traditional lending, construction capital moves with your
             project. Funds release in draws aligned to completion milestones,
-            cost verification, and delivery risk—not approval formulas or credit
-            scores alone. This is how active builds actually get funded.
+            cost verification, and delivery risk—not approval formulas or
+            credit scores alone. This is how active builds actually get funded.
           </p>
         </div>
       </section>
@@ -134,12 +133,11 @@ export default function ConstructionPage() {
         background="background"
       />
 
-      <FeatureGrid
+      <StackedList
         eyebrow="How we assess"
         heading="How we assess construction capital"
         body="We don't use formulas. We assess reality. The build. The timing. The risk—this is what guides every decision."
         items={ASSESS}
-        columns={2}
         background="abyss"
       />
 

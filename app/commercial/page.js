@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
+import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
   title: "Commercial",
@@ -105,12 +106,11 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <FeatureGrid
+      <StackedList
         eyebrow="How we approach"
         heading="How we approach commercial capital"
         body="Commercial capital works when assessment is grounded in business reality, not policy. We structure solutions around what your operation can actually service."
         items={APPROACH}
-        columns={2}
         background="abyss"
       />
 

@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
+import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
   title: "Agriculture",
@@ -112,11 +113,10 @@ export default function AgriculturePage() {
         columns={4}
       />
 
-      <FeatureGrid
+      <StackedList
         eyebrow="How we think"
         heading="How we think about agricultural capital"
         items={THINKING}
-        columns={2}
         background="abyss"
       />
 

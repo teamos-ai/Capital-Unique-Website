@@ -99,7 +99,7 @@ function BentoTile({
       variants={FADE_IN}
       transition={{ duration: 0.6, ease: "easeOut" }}
       whileHover={{ y: -3 }}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-cu-surface-vault transition-colors hover:bg-cu-surface-char"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-cu-surface-vault transition-[background-color,border-color] duration-300 hover:bg-cu-surface-char hover:border-cu-brandy-darker"
     >
       {(tone === "large" || tone === "large-wide") && (
         <BentoImage

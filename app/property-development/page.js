@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
+import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
   title: "Property Development",
@@ -101,12 +102,11 @@ export default function PropertyDevelopmentPage() {
         columns={2}
       />
 
-      <FeatureGrid
+      <StackedList
         eyebrow="How we structure"
         heading="How we structure property capital"
         body="Good capital removes friction. Bad capital creates it. We structure funding around what actually limits your project—time, value, and risk."
         items={APPROACH}
-        columns={4}
         background="abyss"
       />
 
