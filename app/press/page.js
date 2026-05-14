@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
-import { Download, Mail, ExternalLink } from "lucide-react";
+import { Download, Mail, Phone, ExternalLink } from "lucide-react";
+import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
   title: "Press & Media",
@@ -69,15 +70,31 @@ export default function PressPage() {
                 John Codrington
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Founder, Capital Unique
+                Founder, {COMPANY.name}
               </p>
-              <a
-                href="mailto:hello@capitalunique.com"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-cu-brandy hover:text-cu-brandy-light"
-              >
-                <Mail size={14} />
-                hello@capitalunique.com
-              </a>
+              <div className="mt-6 flex flex-col gap-3">
+                <a
+                  href={COMPANY.emailHref}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-cu-brandy hover:text-cu-brandy-light"
+                >
+                  <Mail size={14} />
+                  {COMPANY.email}
+                </a>
+                <a
+                  href={COMPANY.phoneOfficeHref}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-cu-brandy hover:text-cu-brandy-light"
+                >
+                  <Phone size={14} />
+                  {COMPANY.phoneOffice} (office)
+                </a>
+                <a
+                  href={COMPANY.phoneMobileHref}
+                  className="inline-flex items-center gap-2 text-sm font-medium text-cu-brandy hover:text-cu-brandy-light"
+                >
+                  <Phone size={14} />
+                  {COMPANY.phoneMobile} (mobile)
+                </a>
+              </div>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-cu-brandy">

@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
-import { Mail, MessageSquare, Phone, Clock } from "lucide-react";
+import { Mail, MessageSquare, Phone, MapPin, Clock, Smartphone, Printer } from "lucide-react";
+import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
   title: "Contact",
@@ -19,15 +20,15 @@ const CHANNELS = [
     icon: Mail,
     title: "Email John directly",
     body: "Detailed scenarios, supporting documents, or questions before a conversation.",
-    href: "mailto:hello@capitalunique.com",
-    cta: "hello@capitalunique.com",
+    href: COMPANY.emailHref,
+    cta: COMPANY.email,
   },
   {
     icon: Phone,
-    title: "Book a call",
-    body: "A focused conversation about your scenario. Direct access to John, no intermediaries.",
-    href: "#book",
-    cta: "Schedule a conversation",
+    title: "Call the office",
+    body: "Direct access to John during business hours. No call centre, no triage.",
+    href: COMPANY.phoneOfficeHref,
+    cta: COMPANY.phoneOffice,
   },
 ];
 
@@ -182,23 +183,95 @@ export default function ContactPage() {
             ))}
 
             {/* Office info */}
-            <div className="rounded-2xl border border-border bg-cu-surface-abyss p-6">
+            <div className="rounded-2xl border border-border bg-cu-surface-abyss p-6 space-y-5">
+              {/* Hours */}
               <div className="flex items-start gap-3">
                 <Clock
                   size={18}
                   strokeWidth={1.5}
                   className="mt-0.5 flex-shrink-0 text-cu-brandy"
                 />
-                <div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-foreground">Hours</p>
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {COMPANY.hours.long}
+                  </p>
+                </div>
+              </div>
+
+              <div className="h-px bg-border/60" />
+
+              {/* Sydney office */}
+              <div className="flex items-start gap-3">
+                <MapPin
+                  size={18}
+                  strokeWidth={1.5}
+                  className="mt-0.5 flex-shrink-0 text-cu-brandy"
+                />
+                <div className="flex-1">
                   <p className="text-sm font-medium text-foreground">
-                    Hours and location
+                    {COMPANY.officeAddress.label}
                   </p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Monday to Friday, 9:00–18:00 AEST/AEDT.
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {COMPANY.officeAddress.line1}
+                    <br />
+                    {COMPANY.officeAddress.line2}
                   </p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Based in Victoria. We work with borrowers and investors
-                    across Australia.
+                </div>
+              </div>
+
+              {/* Postal address */}
+              <div className="flex items-start gap-3">
+                <MapPin
+                  size={18}
+                  strokeWidth={1.5}
+                  className="mt-0.5 flex-shrink-0 text-cu-brandy"
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-foreground">
+                    {COMPANY.postalAddress.label}
+                  </p>
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {COMPANY.postalAddress.line1}
+                    <br />
+                    {COMPANY.postalAddress.line2}
+                  </p>
+                </div>
+              </div>
+
+              <div className="h-px bg-border/60" />
+
+              {/* Mobile */}
+              <div className="flex items-start gap-3">
+                <Smartphone
+                  size={18}
+                  strokeWidth={1.5}
+                  className="mt-0.5 flex-shrink-0 text-cu-brandy"
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-foreground">Mobile</p>
+                  <p className="mt-1.5 text-sm">
+                    <a
+                      href={COMPANY.phoneMobileHref}
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {COMPANY.phoneMobile}
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              {/* Fax */}
+              <div className="flex items-start gap-3">
+                <Printer
+                  size={18}
+                  strokeWidth={1.5}
+                  className="mt-0.5 flex-shrink-0 text-cu-brandy"
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-foreground">Fax</p>
+                  <p className="mt-1.5 text-sm text-muted-foreground">
+                    {COMPANY.fax}
                   </p>
                 </div>
               </div>

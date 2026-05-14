@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FOOTER_NAV, LEGAL_NAV } from "@/lib/nav";
+import { COMPANY } from "@/lib/company-info";
 
 function LinkedInIcon(props) {
   return (
@@ -173,9 +174,18 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col-reverse items-start gap-6 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="text-xs text-muted-foreground">
-            <p>© {CURRENT_YEAR} Capital Unique. All rights reserved.</p>
+            <p>© {CURRENT_YEAR} {COMPANY.name}. All rights reserved.</p>
             <p className="mt-1">
-              ABN 54 695 032 243 · ACN 695 032 243 · Victoria, Australia
+              ABN {COMPANY.abn} · ACN {COMPANY.acn}
+            </p>
+            <p className="mt-1">
+              {COMPANY.officeAddress.full} ·{" "}
+              <a
+                href={COMPANY.phoneOfficeHref}
+                className="hover:text-foreground"
+              >
+                {COMPANY.phoneOffice}
+              </a>
             </p>
           </div>
           <div className="flex items-center gap-2">

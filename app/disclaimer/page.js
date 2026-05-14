@@ -1,4 +1,5 @@
 import { LegalLayout } from "@/components/shared/LegalLayout";
+import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
   title: "Disclaimer",
@@ -150,10 +151,19 @@ export default function DisclaimerPage() {
       </p>
       <ul>
         <li>
-          Capital Unique
+          <strong>{COMPANY.name}</strong>
+          <br />
+          Office: {COMPANY.officeAddress.full}
+          <br />
+          Postal: {COMPANY.postalAddress.full}
+          <br />
+          Phone:{" "}
+          <a href={COMPANY.phoneOfficeHref}>{COMPANY.phoneOffice}</a>{" "}
+          (office) ·{" "}
+          <a href={COMPANY.phoneMobileHref}>{COMPANY.phoneMobile}</a> (mobile)
           <br />
           Email:{" "}
-          <a href="mailto:hello@capitalunique.com">hello@capitalunique.com</a>
+          <a href={COMPANY.emailHref}>{COMPANY.email}</a>
         </li>
       </ul>
     </LegalLayout>
