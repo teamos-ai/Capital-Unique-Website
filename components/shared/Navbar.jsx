@@ -177,19 +177,30 @@ export function Navbar() {
   );
 }
 
-// Shared classes for desktop nav items. The "glow" is a soft warm
-// box-shadow + brandy tint, applied on hover and while the dropdown is
-// open. Subtle on purpose — distinctive without being flashy.
+// Editorial leading-dot indicator. A 6px brandy square sits to the left
+// of nav item text, hidden at rest, slides in on hover or while a
+// dropdown is open. Restrained, signage-style — no glow, no fill, no
+// background tint. The text colour shifts microscopically (foreground/85
+// -> foreground) for a small extra cue without making the whole element
+// feel "selected".
 const NAV_ITEM_BASE =
-  "inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-[color,background-color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light";
+  "group relative inline-flex items-center rounded-md pl-7 pr-3 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light";
 
-const NAV_ITEM_RESTING = "text-foreground/85";
+const NAV_ITEM_RESTING = "text-foreground/85 hover:text-foreground";
+const NAV_ITEM_ACTIVE = "text-foreground";
 
-const NAV_ITEM_GLOW =
-  "text-cu-brandy bg-cu-brandy-darkest/40 shadow-[0_0_28px_-6px_var(--cu-brandy-darker)]";
-
-const NAV_ITEM_HOVER =
-  "hover:text-cu-brandy hover:bg-cu-brandy-darkest/30 hover:shadow-[0_0_24px_-6px_var(--cu-brandy-darker)]";
+function NavDot({ active }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`absolute left-3 top-1/2 -translate-y-1/2 h-1.5 w-1.5 rounded-sm bg-cu-brandy transition-[opacity,transform] duration-[180ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        active
+          ? "opacity-100 translate-x-0"
+          : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
+      }`}
+    />
+  );
+}
 
 function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
   const wrapperRef = useRef(null);
@@ -207,8 +218,9 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
     return (
       <Link
         href={item.href}
-        className={`${NAV_ITEM_BASE} ${NAV_ITEM_RESTING} ${NAV_ITEM_HOVER}`}
+        className={`${NAV_ITEM_BASE} ${NAV_ITEM_RESTING}`}
       >
+        <NavDot active={false} />
         {item.label}
       </Link>
     );
@@ -236,13 +248,14 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
       <button
         type="button"
         className={`${NAV_ITEM_BASE} ${
-          isOpen ? NAV_ITEM_GLOW : `${NAV_ITEM_RESTING} ${NAV_ITEM_HOVER}`
+          isOpen ? NAV_ITEM_ACTIVE : NAV_ITEM_RESTING
         }`}
         aria-expanded={isOpen}
         aria-haspopup="true"
         onClick={() => (isOpen ? onClose() : onOpen())}
         onKeyDown={handleKeyDown}
       >
+        <NavDot active={isOpen} />
         {item.label}
       </button>
       <AnimatePresence>
