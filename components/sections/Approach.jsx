@@ -40,7 +40,7 @@ export function Approach() {
             eyebrow="Borrowers"
             title="For borrowers seeking finance"
             body="Fast decisions on deals banks decline, with transparent terms and no unnecessary friction."
-            imageSrc="/images/people/clients-couple-car-002.png"
+            imageSrc="/images/people/clients-couple-car-001.jpeg"
             imageAlt="Borrowers seeking flexible capital"
             placeholderLabel="Bento — Borrowers · 16:9"
           />
