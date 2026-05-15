@@ -18,7 +18,7 @@ const SITEMAP = [
     ],
   },
   {
-    heading: "Sectors",
+    heading: "Services",
     links: [
       { label: "Business", href: "/business" },
       { label: "Commercial", href: "/commercial" },
@@ -35,7 +35,7 @@ const SITEMAP = [
       { label: "Articles", href: "/articles" },
       { label: "Guides", href: "/guides" },
       { label: "Calculators", href: "/calculators" },
-      { label: "Lead magnets", href: "/lead-magnets" },
+      { label: "Free tools", href: "/free-tools" },
     ],
   },
   {

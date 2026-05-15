@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { LEAD_MAGNETS, getLeadMagnetBySlug } from "@/lib/lead-magnets";
+import { FREE_TOOLS, getFreeToolBySlug } from "@/lib/free-tools";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 function FileIcon(props) {
@@ -24,23 +24,23 @@ function FileIcon(props) {
 }
 
 export function generateStaticParams() {
-  return LEAD_MAGNETS.map((m) => ({ slug: m.slug }));
+  return FREE_TOOLS.map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const magnet = getLeadMagnetBySlug(slug);
-  if (!magnet) return { title: "Guide not found" };
+  const tool = getFreeToolBySlug(slug);
+  if (!tool) return { title: "Guide not found" };
   return {
-    title: magnet.title,
-    description: magnet.description,
+    title: tool.title,
+    description: tool.description,
   };
 }
 
-export default async function LeadMagnetPage({ params }) {
+export default async function FreeToolPage({ params }) {
   const { slug } = await params;
-  const magnet = getLeadMagnetBySlug(slug);
-  if (!magnet) notFound();
+  const tool = getFreeToolBySlug(slug);
+  if (!tool) notFound();
 
   return (
     <article className="bg-background">
@@ -49,21 +49,21 @@ export default async function LeadMagnetPage({ params }) {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-cu-brandy">
-                {magnet.eyebrow}
+                {tool.eyebrow}
               </p>
               <h1 className="mt-5 font-serif text-4xl font-semibold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-                {magnet.title}
+                {tool.title}
               </h1>
               <p className="mt-6 text-lg text-muted-foreground">
-                {magnet.description}
+                {tool.description}
               </p>
               <p className="mt-8 text-sm text-muted-foreground">
                 <span className="text-foreground/80">Audience:</span>{" "}
-                {magnet.audience}
+                {tool.audience}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
                 <span className="text-foreground/80">Length:</span>{" "}
-                {magnet.pages} pages · PDF
+                {tool.pages} pages · PDF
               </p>
 
               <div className="mt-8 flex items-start gap-3 rounded-xl border border-border bg-cu-surface-vault p-4">
@@ -73,7 +73,7 @@ export default async function LeadMagnetPage({ params }) {
                 </p>
               </div>
               <ul className="mt-4 space-y-3">
-                {magnet.bullets.map((bullet) => (
+                {tool.bullets.map((bullet) => (
                   <li
                     key={bullet}
                     className="flex items-start gap-3 text-base text-muted-foreground"
@@ -101,36 +101,36 @@ export default async function LeadMagnetPage({ params }) {
                 </p>
 
                 {/*
-                  GHL Lead Magnet Form — placeholder.
+                  GHL Free Tool Form — placeholder.
                   When the GHL form is created, replace the form below with:
                   <iframe
-                    src={`https://api.leadconnectorhq.com/widget/form/${magnet.ghlFormId}`}
+                    src={`https://api.leadconnectorhq.com/widget/form/${tool.ghlFormId}`}
                     style={{ width: "100%", border: "none", minHeight: "320px" }}
-                    title={`Get ${magnet.title}`}
+                    title={`Get ${tool.title}`}
                   />
                 */}
                 <form
                   className="mt-6 grid grid-cols-1 gap-3"
                   action="#"
                   method="post"
-                  data-ghl-form-placeholder={`lead-magnet-${magnet.slug}`}
+                  data-ghl-form-placeholder={`free-tool-${tool.slug}`}
                 >
-                  <label htmlFor="lm-name" className="sr-only">
+                  <label htmlFor="ft-name" className="sr-only">
                     Full name
                   </label>
                   <input
-                    id="lm-name"
+                    id="ft-name"
                     name="name"
                     type="text"
                     placeholder="Full name"
                     required
                     className="w-full rounded-md border border-border bg-input-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
                   />
-                  <label htmlFor="lm-email" className="sr-only">
+                  <label htmlFor="ft-email" className="sr-only">
                     Email address
                   </label>
                   <input
-                    id="lm-email"
+                    id="ft-email"
                     name="email"
                     type="email"
                     placeholder="Email address"
@@ -182,7 +182,7 @@ export default async function LeadMagnetPage({ params }) {
               <ArrowRight size={14} />
             </Link>
             <Link
-              href="/lead-magnets"
+              href="/free-tools"
               className="inline-flex items-center rounded-md border border-border bg-cu-surface-vault px-6 py-3 text-sm font-medium text-foreground hover:bg-cu-surface-char transition-colors"
             >
               All guides
