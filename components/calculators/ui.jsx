@@ -93,6 +93,73 @@ export function Field({
   );
 }
 
+// ── Select ──────────────────────────────────────────────────────────
+export function SelectField({ label, value, onChange, options, hint }) {
+  const id = useId();
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="block text-sm font-medium text-foreground/90"
+      >
+        {label}
+      </label>
+      <select
+        id={id}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-2 w-full appearance-none rounded-md border border-border bg-input-background px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
+      >
+        {options.map((o) => (
+          <option key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+      {hint && (
+        <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+          {hint}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ── Segmented control ───────────────────────────────────────────────
+export function SegmentedControl({ label, value, onChange, options, hint }) {
+  return (
+    <div>
+      {label && (
+        <p className="mb-2 text-sm font-medium text-foreground/90">{label}</p>
+      )}
+      <div className="flex flex-wrap gap-1.5 rounded-md border border-border bg-input-background p-1">
+        {options.map((o) => {
+          const active = o.value === value;
+          return (
+            <button
+              key={o.value}
+              type="button"
+              onClick={() => onChange(o.value)}
+              className={`flex-1 rounded px-3 py-2 text-xs font-medium transition-colors ${
+                active
+                  ? "bg-cu-brandy text-white"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {o.label}
+            </button>
+          );
+        })}
+      </div>
+      {hint && (
+        <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+          {hint}
+        </p>
+      )}
+    </div>
+  );
+}
+
 // ── Layout ──────────────────────────────────────────────────────────
 // Two-column shell: inputs on the left, results panel on the right.
 export function CalcLayout({ inputs, results }) {

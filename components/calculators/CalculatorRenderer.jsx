@@ -6,6 +6,12 @@ import { CommercialDscr } from "./CommercialDscr";
 import { ConstructionDrawdown } from "./ConstructionDrawdown";
 import { TrueCostOfCapital } from "./TrueCostOfCapital";
 import { InvestorYield } from "./InvestorYield";
+import { HomeLoanRepayment } from "./HomeLoanRepayment";
+import { HomeLoanBorrowing } from "./HomeLoanBorrowing";
+import { BudgetPlanner } from "./BudgetPlanner";
+import { StampDuty } from "./StampDuty";
+import { HomeEquity } from "./HomeEquity";
+import { ForeignExchange } from "./ForeignExchange";
 
 const MAP = {
   "development-feasibility": DevelopmentFeasibility,
@@ -14,6 +20,12 @@ const MAP = {
   "construction-drawdown": ConstructionDrawdown,
   "true-cost-of-capital": TrueCostOfCapital,
   "investor-yield": InvestorYield,
+  "home-loan-repayment": HomeLoanRepayment,
+  "home-loan-borrowing": HomeLoanBorrowing,
+  "budget-planner": BudgetPlanner,
+  "stamp-duty": StampDuty,
+  "home-equity": HomeEquity,
+  "foreign-exchange": ForeignExchange,
 };
 
 export function CalculatorRenderer({ slug }) {

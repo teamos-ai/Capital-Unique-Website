@@ -9,6 +9,12 @@ import {
   HardHat,
   Receipt,
   TrendingUp,
+  Home,
+  House,
+  Landmark,
+  PiggyBank,
+  ScrollText,
+  ArrowRightLeft,
   ArrowRight,
 } from "lucide-react";
 
@@ -19,6 +25,12 @@ const ICONS = {
   HardHat,
   Receipt,
   TrendingUp,
+  Home,
+  House,
+  Landmark,
+  PiggyBank,
+  ScrollText,
+  ArrowRightLeft,
 };
 
 export const metadata = {
