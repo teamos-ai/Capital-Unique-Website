@@ -1,6 +1,6 @@
-import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
+import { CharlesCommandBar } from "@/components/charles/CharlesCommandBar";
 
 export const metadata = {
   title: "Charles A.I",
@@ -48,8 +48,8 @@ export default function CharlesAIPage() {
   return (
     <>
       <section className="bg-background section-pad-hero px-6 lg:px-10">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-border bg-cu-surface-vault py-1.5 pl-2 pr-4">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border bg-cu-surface-vault py-1.5 pl-2 pr-4">
             <span className="relative inline-flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cu-brandy opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-cu-brandy" />
@@ -61,26 +61,13 @@ export default function CharlesAIPage() {
               In active development
             </span>
           </div>
-          <h1 className="heading-hero">Workshop your deal with Charles.</h1>
-          <p className="mt-7 reading-width-wide text-lg text-muted-foreground md:text-xl">
-            Describe your scenario and let Charles A.I map the structure,
-            timing, and constraints. Arrive at your conversation with Capital
-            Unique already clear on what matters.
+          <h1 className="heading-hero">Your shortcut to the right capital.</h1>
+          <p className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
+            No vague advice. No forms to wade through. Describe your scenario —
+            Charles maps the structure, timing and constraints before you speak
+            with John.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#early-access"
-              className="inline-flex items-center rounded-md bg-cu-brandy px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-cu-brandy-light transition-colors"
-            >
-              Request early access
-            </a>
-            <a
-              href="/contact"
-              className="inline-flex items-center rounded-md border border-border bg-cu-surface-vault px-6 py-3 text-sm font-medium text-foreground hover:bg-cu-surface-char transition-colors"
-            >
-              Speak with John
-            </a>
-          </div>
+          <CharlesCommandBar />
         </div>
       </section>
 
