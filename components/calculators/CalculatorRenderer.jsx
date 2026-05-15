@@ -12,6 +12,7 @@ import { BudgetPlanner } from "./BudgetPlanner";
 import { StampDuty } from "./StampDuty";
 import { HomeEquity } from "./HomeEquity";
 import { ForeignExchange } from "./ForeignExchange";
+import { PersonaProvider } from "./persona";
 
 const MAP = {
   "development-feasibility": DevelopmentFeasibility,
@@ -31,5 +32,9 @@ const MAP = {
 export function CalculatorRenderer({ slug }) {
   const Comp = MAP[slug];
   if (!Comp) return null;
-  return <Comp />;
+  return (
+    <PersonaProvider slug={slug}>
+      <Comp />
+    </PersonaProvider>
+  );
 }

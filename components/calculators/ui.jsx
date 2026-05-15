@@ -1,6 +1,8 @@
 "use client";
 
 import { useId } from "react";
+import Image from "next/image";
+import { usePersona } from "./persona";
 
 // ── Formatters ──────────────────────────────────────────────────────
 const AUD = new Intl.NumberFormat("en-AU", {
@@ -172,6 +174,7 @@ export function CalcLayout({ inputs, results }) {
 }
 
 export function ResultsPanel({ children }) {
+  const persona = usePersona();
   return (
     <div className="relative overflow-hidden rounded-2xl border border-border bg-cu-surface-vault p-7 md:p-9">
       <div
@@ -181,7 +184,18 @@ export function ResultsPanel({ children }) {
             "radial-gradient(ellipse at 50% 0%, var(--cu-brandy-darkest) 0%, transparent 62%)",
         }}
       />
-      <div className="relative z-10">{children}</div>
+      {persona && (
+        <div className="absolute right-5 top-5 z-20 h-14 w-14 overflow-hidden rounded-xl border border-border bg-cu-surface-char shadow-lg shadow-black/10 ring-1 ring-black/5 md:right-7 md:top-7 md:h-[72px] md:w-[72px] dark:shadow-black/40 dark:ring-white/5">
+          <Image
+            src={persona.src}
+            alt={persona.alt}
+            fill
+            sizes="72px"
+            className="object-cover object-top"
+          />
+        </div>
+      )}
+      <div className="relative z-10 pr-20 md:pr-24">{children}</div>
     </div>
   );
 }
