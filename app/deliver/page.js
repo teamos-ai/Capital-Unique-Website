@@ -1,7 +1,7 @@
 import { DocumentDelivery } from "@/components/deliver/DocumentDelivery";
 
 export const metadata = {
-  title: "Deliver files to John",
+  title: "DocSend",
   description:
     "Securely send documents directly to John Codrington at Capital Unique. Drag and drop statements, contracts, or deal files — private and encrypted in transit.",
   robots: { index: false, follow: false },

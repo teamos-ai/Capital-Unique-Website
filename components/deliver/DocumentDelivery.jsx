@@ -69,7 +69,7 @@ export function DocumentDelivery() {
     <div className="mx-auto w-full max-w-2xl">
       {/* Recipient */}
       <div className="flex flex-col items-center text-center">
-        <p className="heading-eyebrow mb-6">Secure document delivery</p>
+        <p className="heading-eyebrow mb-6">DocSend · Secure delivery</p>
         <div className="relative h-20 w-20 overflow-hidden rounded-full border border-border ring-4 ring-cu-surface-vault">
           <Image
             src="/images/people/owner-seated-cafe.jpeg"
