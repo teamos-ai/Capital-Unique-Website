@@ -283,11 +283,13 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
                     key={child.href}
                     href={child.href}
                     role="menuitem"
-                    className="flex flex-col gap-0.5 rounded-md px-3 py-2.5 text-sm text-foreground/85 hover:text-foreground hover:bg-cu-surface-char transition-colors focus-visible:outline-none focus-visible:bg-cu-surface-char focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
+                    className="group/menuitem flex flex-col gap-0.5 rounded-md px-3 py-2.5 text-sm text-foreground/85 hover:bg-cu-surface-char transition-colors focus-visible:outline-none focus-visible:bg-cu-surface-char focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
                   >
-                    <span className="font-medium">{child.label}</span>
+                    <span className="font-medium transition-colors duration-150 group-hover/menuitem:text-cu-brandy group-focus-visible/menuitem:text-cu-brandy">
+                      {child.label}
+                    </span>
                     {child.description && (
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-muted-foreground transition-colors duration-150 group-hover/menuitem:text-cu-brandy/70 group-focus-visible/menuitem:text-cu-brandy/70">
                         {child.description}
                       </span>
                     )}
