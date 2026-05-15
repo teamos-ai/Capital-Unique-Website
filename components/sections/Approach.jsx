@@ -40,7 +40,7 @@ export function Approach() {
             eyebrow="Borrowers"
             title="For borrowers seeking finance"
             body="Fast decisions on deals banks decline, with transparent terms and no unnecessary friction."
-            imageSrc="/images/home/bento-borrowers.webp"
+            imageSrc="/images/people/clients-couple-car-002.png"
             imageAlt="Borrowers seeking flexible capital"
             placeholderLabel="Bento — Borrowers · 16:9"
           />
@@ -70,7 +70,7 @@ export function Approach() {
               eyebrow="Partners"
               title="Deploy capital with clarity"
               body="Structured deals, managed risk, genuine partnerships built to endure."
-              imageSrc="/images/home/bento-partners.webp"
+              imageSrc="/images/home/client-handshake-restaurant.png"
               imageAlt="Capital deployed with structure and clarity"
               placeholderLabel="Bento — Partners · 16:9"
             />
