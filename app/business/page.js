@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
+  alternates: { canonical: "/business" },
   title: "Business",
   description:
     "Capital structured for real business conditions. Capital shaped around complexity—timing, cash flow, assets, and structure—rather than standard bank criteria.",

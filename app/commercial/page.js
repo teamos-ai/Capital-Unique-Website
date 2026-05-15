@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
+  alternates: { canonical: "/commercial" },
   title: "Commercial",
   description:
     "Commercial finance for operating businesses. Capital structured around how your business actually runs.",

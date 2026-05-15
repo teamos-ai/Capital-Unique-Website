@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/thank-you" },
+  robots: { index: false, follow: false },
   title: "Thank you",
   description:
     "Your message has been received. Capital Unique responds within one business day.",

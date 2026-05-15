@@ -5,6 +5,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/overview" },
   title: "Overview",
   description:
     "Capital designed around your strategy. Tailored funding solutions for businesses, developers, and investors who value clarity, speed, and structure.",

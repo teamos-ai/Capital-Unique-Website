@@ -2,6 +2,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 
 export const metadata = {
+  alternates: { canonical: "/faq" },
   title: "Frequently Asked Questions",
   description:
     "Common questions about Capital Unique, non-bank lending, and how our capital advisory services work.",

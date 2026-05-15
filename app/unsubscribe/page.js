@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Mail, ArrowRight } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/unsubscribe" },
+  robots: { index: false, follow: false },
   title: "Unsubscribe",
   description:
     "Unsubscribe from Capital Unique marketing emails and newsletters.",

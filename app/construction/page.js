@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
+  alternates: { canonical: "/construction" },
   title: "Construction",
   description:
     "Construction capital for active projects. Staged funding aligned to your build timeline, draws, and delivery risk.",

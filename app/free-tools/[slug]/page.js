@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FREE_TOOLS, getFreeToolBySlug } from "@/lib/free-tools";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { graph, breadcrumbSchema } from "@/lib/schema";
 
 function FileIcon(props) {
   return (
@@ -34,6 +36,7 @@ export async function generateMetadata({ params }) {
   return {
     title: tool.title,
     description: tool.description,
+    alternates: { canonical: `/free-tools/${slug}` },
   };
 }
 
@@ -44,6 +47,15 @@ export default async function FreeToolPage({ params }) {
 
   return (
     <article className="bg-background">
+      <JsonLd
+        data={graph(
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Free Tools", path: "/free-tools" },
+            { name: tool.title, path: `/free-tools/${slug}` },
+          ])
+        )}
+      />
       <header className="bg-cu-surface-abyss px-6 pb-16 pt-20 lg:px-10 lg:pb-20 lg:pt-32">
         <div className="mx-auto max-w-5xl">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">

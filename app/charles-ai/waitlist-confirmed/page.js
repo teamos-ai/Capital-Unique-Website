@@ -29,6 +29,8 @@ const SOCIAL_FOLLOW = (() => {
 })();
 
 export const metadata = {
+  alternates: { canonical: "/charles-ai/waitlist-confirmed" },
+  robots: { index: false, follow: false },
   title: "Early access requested",
   description:
     "Your request for early access to Charles A.I has been received. We'll be in touch as the first cohort opens.",

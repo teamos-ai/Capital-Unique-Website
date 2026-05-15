@@ -2,6 +2,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 
 export const metadata = {
+  alternates: { canonical: "/our-work" },
   title: "Our Work",
   description:
     "Recent capital deployed by Capital Unique across property, business, and private capital scenarios in Australia. Anonymised case studies of structured outcomes.",

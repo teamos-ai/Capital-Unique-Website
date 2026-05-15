@@ -5,6 +5,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/insights-and-resources" },
   title: "Insights & Resources",
   description:
     "In-depth guides, practical calculators, and calm expert articles on private finance and capital strategy.",

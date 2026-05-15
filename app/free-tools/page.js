@@ -25,6 +25,7 @@ function FileIcon(props) {
 }
 
 export const metadata = {
+  alternates: { canonical: "/free-tools" },
   title: "Free Tools",
   description:
     "Free, considered guides and frameworks on non-bank capital and private lending in Australia. For borrowers and investors who want to think clearly before they act.",

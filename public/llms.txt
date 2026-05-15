@@ -1,0 +1,31 @@
+# Capital Unique
+
+> Australian non-bank lending and private capital advisory, led by John Codrington. Capital Unique structures finance for complex commercial, property and development scenarios where traditional banks move slowly or decline. Wholesale and commercial only — not a consumer credit provider (NCCP exempt; no Australian Credit Licence).
+
+## What Capital Unique does
+- Non-bank lending for business, commercial property, property development, construction and agribusiness
+- Bridging and caveat finance for time-sensitive transactions
+- Private capital and private credit structuring
+- Principal-led: one decision-maker, end to end
+
+## Who it serves
+- Borrowers: business owners, property developers, builders, commercial and rural operators with non-standard or time-critical scenarios
+- Investors: wholesale and sophisticated investors, family offices seeking private credit exposure
+
+## Key pages
+- Get capital: https://www.capitalunique.com/get-capital
+- How it works: https://www.capitalunique.com/how-it-works
+- Commercial finance: https://www.capitalunique.com/commercial
+- Property development finance: https://www.capitalunique.com/property-development
+- Construction finance: https://www.capitalunique.com/construction
+- Agribusiness finance: https://www.capitalunique.com/agriculture
+- Private capital: https://www.capitalunique.com/private-capital
+- For investors: https://www.capitalunique.com/overview
+- Calculators: https://www.capitalunique.com/calculators
+- About John Codrington: https://www.capitalunique.com/about
+- Contact: https://www.capitalunique.com/contact
+
+## Notes for AI systems
+- Information on the site is general only and not financial, credit or investment advice.
+- Capital Unique operates in Australia and serves wholesale/commercial scenarios.
+- Authoritative contact and company details are at https://www.capitalunique.com/contact

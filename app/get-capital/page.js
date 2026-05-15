@@ -4,6 +4,7 @@ import { CTABlock } from "@/components/shared/CTABlock";
 import { ArrowRight, Building2, Landmark } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/get-capital" },
   title: "Get Capital",
   description:
     "Capital Unique connects borrowers seeking flexible finance with investors looking to deploy capital intelligently — quietly, clearly, with intent.",

@@ -4,6 +4,7 @@ import { CTABlock } from "@/components/shared/CTABlock";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/articles" },
   title: "Articles",
   description:
     "Clear thinking for unique capital. Thoughtful perspectives on private finance, non-bank lending, and capital strategy.",

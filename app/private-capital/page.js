@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
+  alternates: { canonical: "/private-capital" },
   title: "Private Capital",
   description:
     "Private capital for complex scenarios. Structured, discreet financing for non-standard requirements that fall outside traditional bank lending.",

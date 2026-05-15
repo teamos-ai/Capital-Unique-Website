@@ -3,6 +3,7 @@ import { Mail, MessageSquare, Phone, MapPin, Clock, Smartphone, Printer } from "
 import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description:
     "Speak directly with John Codrington at Capital Unique. A conversation begins with understanding your situation, without obligation or pressure.",

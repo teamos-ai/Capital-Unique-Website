@@ -2,6 +2,7 @@ import { LegalLayout } from "@/components/shared/LegalLayout";
 import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy",
   description:
     "How Capital Unique collects, uses, and protects your personal information under the Australian Privacy Act 1988.",

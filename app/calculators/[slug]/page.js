@@ -4,6 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { CALCULATORS, getCalculatorBySlug } from "@/lib/calculators";
 import { CalculatorRenderer } from "@/components/calculators/CalculatorRenderer";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { graph, breadcrumbSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return CALCULATORS.map((c) => ({ slug: c.slug }));
@@ -16,6 +18,7 @@ export async function generateMetadata({ params }) {
   return {
     title: calc.title,
     description: calc.description,
+    alternates: { canonical: `/calculators/${slug}` },
   };
 }
 
@@ -26,6 +29,15 @@ export default async function CalculatorPage({ params }) {
 
   return (
     <>
+      <JsonLd
+        data={graph(
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Calculators", path: "/calculators" },
+            { name: calc.title, path: `/calculators/${slug}` },
+          ])
+        )}
+      />
       <section className="bg-background section-pad-hero px-6 lg:px-10">
         <div className="mx-auto max-w-6xl">
           <Link

@@ -4,6 +4,7 @@ import { CTABlock } from "@/components/shared/CTABlock";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/guides" },
   title: "Guides",
   description:
     "Get the fundamentals. Straightforward frameworks designed to help you understand structure, risk, and decision-making in non-standard capital scenarios.",

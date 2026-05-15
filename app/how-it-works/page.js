@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { Eye, Compass, FileCheck, Send } from "lucide-react";
 
 export const metadata = {
+  alternates: { canonical: "/how-it-works" },
   title: "How it works",
   description:
     "Four clear steps from conversation to capital deployment. No surprises, no hidden stages.",

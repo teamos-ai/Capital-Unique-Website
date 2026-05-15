@@ -3,6 +3,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { CharlesCommandBar } from "@/components/charles/CharlesCommandBar";
 
 export const metadata = {
+  alternates: { canonical: "/charles-ai" },
   title: "Charles A.I",
   description:
     "Workshop your deal with Charles A.I. Map structure, timing, and constraints before speaking with Capital Unique.",

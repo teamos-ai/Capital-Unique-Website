@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
+  alternates: { canonical: "/agriculture" },
   title: "Agriculture",
   description:
     "Capital for rural operations. Seasonal. Asset-backed. Built for how farming actually works.",

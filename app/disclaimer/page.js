@@ -2,6 +2,7 @@ import { LegalLayout } from "@/components/shared/LegalLayout";
 import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
+  alternates: { canonical: "/disclaimer" },
   title: "Disclaimer",
   description:
     "General information disclaimer for the Capital Unique website. Information is general only and not personal financial advice.",

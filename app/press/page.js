@@ -4,6 +4,7 @@ import { Download, Mail, Phone, ExternalLink } from "lucide-react";
 import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
+  alternates: { canonical: "/press" },
   title: "Press & Media",
   description:
     "Press contact, brand assets, and approved background for journalists writing about Capital Unique and the non-bank capital market in Australia.",

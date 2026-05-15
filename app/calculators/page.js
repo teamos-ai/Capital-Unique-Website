@@ -34,6 +34,7 @@ const ICONS = {
 };
 
 export const metadata = {
+  alternates: { canonical: "/calculators" },
   title: "Calculators",
   description:
     "Practical modelling tools for non-bank capital in Australia — development feasibility, DSCR, bridging cost, construction drawdown, true cost of capital and investor yield.",

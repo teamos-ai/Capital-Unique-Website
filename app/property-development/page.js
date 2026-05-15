@@ -4,6 +4,7 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
 export const metadata = {
+  alternates: { canonical: "/property-development" },
   title: "Property Development",
   description:
     "Capital for development. Clear structures for complex property deals. Structure matters more than rates when your deal doesn't fit a standard box.",

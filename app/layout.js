@@ -1,21 +1,36 @@
 import "./globals.css";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { SITE_URL, SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION } from "@/lib/site";
+import { graph, organizationSchema, websiteSchema } from "@/lib/schema";
 
 export const metadata = {
-  metadataBase: new URL("https://capital-unique-website.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Capital Unique — Capital Intelligently Applied",
-    template: "%s · Capital Unique",
+    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    template: `%s · ${SITE_NAME}`,
   },
-  description:
-    "Australian non-bank lending and capital advisory for complex scenarios where traditional finance falls short.",
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Capital Unique — Capital Intelligently Applied",
-    description:
-      "Non-bank lending for complex scenarios. Fast assessment on deals others decline.",
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
     type: "website",
-    siteName: "Capital Unique",
+    siteName: SITE_NAME,
+    locale: "en_AU",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 };
 
@@ -30,6 +45,7 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body className="flex min-h-screen flex-col">
+        <JsonLd data={graph(organizationSchema(), websiteSchema())} />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
