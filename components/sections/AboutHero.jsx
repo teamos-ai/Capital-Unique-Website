@@ -58,12 +58,12 @@ export function AboutHero() {
         >
           {!imageError && (
             <Image
-              src="/images/about/john-codrington.jpg"
+              src="/images/people/owner-seated-cafe.jpeg"
               alt="John Codrington, founder of Capital Unique"
               fill
               priority
               sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
+              className="object-cover object-center"
               onError={() => setImageError(true)}
             />
           )}
