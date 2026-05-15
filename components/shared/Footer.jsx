@@ -49,14 +49,22 @@ export function Footer() {
             <Link
               href="/"
               aria-label={`${COMPANY.name} home`}
-              className="inline-flex w-fit items-center rounded-md bg-cu-inkwell-darkest px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-cu-surface-abyss dark:bg-transparent dark:px-0 dark:py-0"
+              className="inline-flex w-fit items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-cu-surface-abyss"
             >
+              {/* Silver logo in light mode, original logo in dark mode */}
+              <Image
+                src="/brand/logo-horizontal-light.png"
+                alt={COMPANY.name}
+                width={200}
+                height={40}
+                className="block h-9 w-auto object-contain dark:hidden"
+              />
               <Image
                 src="/brand/logo-horizontal.png"
                 alt={COMPANY.name}
                 width={200}
                 height={40}
-                className="h-9 w-auto object-contain"
+                className="hidden h-9 w-auto object-contain dark:block"
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-md">

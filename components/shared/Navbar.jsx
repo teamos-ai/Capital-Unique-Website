@@ -86,15 +86,26 @@ export function Navbar() {
           <Link
             href="/"
             aria-label="Capital Unique home"
-            className="relative inline-flex items-center rounded-md bg-cu-inkwell-darkest px-3 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-transparent dark:px-0 dark:py-0"
+            className="relative inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
+            {/* Silver logo in light mode, original logo in dark mode */}
+            <Image
+              src="/brand/logo-horizontal-light.png"
+              alt="Capital Unique"
+              width={160}
+              height={32}
+              priority
+              className={`block w-auto object-contain transition-all duration-300 ease-out dark:hidden ${
+                isScrolled ? "h-7" : "h-8 md:h-9"
+              }`}
+            />
             <Image
               src="/brand/logo-horizontal.png"
               alt="Capital Unique"
               width={160}
               height={32}
               priority
-              className={`w-auto object-contain transition-all duration-300 ease-out ${
+              className={`hidden w-auto object-contain transition-all duration-300 ease-out dark:block ${
                 isScrolled ? "h-7" : "h-8 md:h-9"
               }`}
             />
