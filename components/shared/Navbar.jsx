@@ -177,6 +177,20 @@ export function Navbar() {
   );
 }
 
+// Shared classes for desktop nav items. The "glow" is a soft warm
+// box-shadow + brandy tint, applied on hover and while the dropdown is
+// open. Subtle on purpose — distinctive without being flashy.
+const NAV_ITEM_BASE =
+  "inline-flex items-center rounded-md px-3 py-2 text-sm font-medium transition-[color,background-color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light";
+
+const NAV_ITEM_RESTING = "text-foreground/85";
+
+const NAV_ITEM_GLOW =
+  "text-cu-brandy bg-cu-brandy-darkest/40 shadow-[0_0_28px_-6px_var(--cu-brandy-darker)]";
+
+const NAV_ITEM_HOVER =
+  "hover:text-cu-brandy hover:bg-cu-brandy-darkest/30 hover:shadow-[0_0_24px_-6px_var(--cu-brandy-darker)]";
+
 function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
   const wrapperRef = useRef(null);
 
@@ -193,7 +207,7 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
     return (
       <Link
         href={item.href}
-        className="rounded-md px-3 py-2 text-sm font-medium text-foreground/85 hover:text-foreground hover:bg-cu-surface-vault transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
+        className={`${NAV_ITEM_BASE} ${NAV_ITEM_RESTING} ${NAV_ITEM_HOVER}`}
       >
         {item.label}
       </Link>
@@ -221,20 +235,15 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
     >
       <button
         type="button"
-        className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/85 hover:text-foreground hover:bg-cu-surface-vault transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
+        className={`${NAV_ITEM_BASE} ${
+          isOpen ? NAV_ITEM_GLOW : `${NAV_ITEM_RESTING} ${NAV_ITEM_HOVER}`
+        }`}
         aria-expanded={isOpen}
         aria-haspopup="true"
         onClick={() => (isOpen ? onClose() : onOpen())}
         onKeyDown={handleKeyDown}
       >
         {item.label}
-        <motion.span
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.18 }}
-          className="inline-flex"
-        >
-          <ChevronDown size={14} />
-        </motion.span>
       </button>
       <AnimatePresence>
         {isOpen && (
