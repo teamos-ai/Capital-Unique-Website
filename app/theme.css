@@ -156,6 +156,58 @@
   --sidebar-ring:                  var(--cu-brandy-light);
 }
 
+/* ───────────────────────────────────────────────
+   LIGHT MODE — "The Ledger"
+   Active when <html> has no `.dark` class. Per brand
+   direction the warm Brandy accent is swapped for the
+   cool Inkwell counter-tone, and the dark surface
+   ladder inverts to neutral white tones.
+
+   This works by remapping the RAW token scales in this
+   scope only. Because every `cu-brandy-*` / `cu-surface-*`
+   Tailwind utility resolves to these vars at runtime,
+   the whole site flips with zero per-component edits.
+   Inkwell values are the locked design-system tokens —
+   no new colours introduced.
+─────────────────────────────────────────────── */
+html:not(.dark) {
+  /* Brandy → Inkwell. Mapped semantically (kept usable
+     at each step) rather than literally inverted, so
+     hover/links go darker and chip backgrounds go pale. */
+  --cu-brandy-lightest: var(--cu-inkwell-light);
+  --cu-brandy-lighter:  var(--cu-inkwell);
+  --cu-brandy-light:    var(--cu-inkwell-dark);
+  --cu-brandy-punch:    var(--cu-inkwell);
+  --cu-brandy-dark:     var(--cu-inkwell-dark);
+  --cu-brandy-darker:   var(--cu-inkwell-lighter);
+  --cu-brandy-darkest:  var(--cu-inkwell-lightest);
+
+  /* Dark surface ladder → neutral white tones.
+     void = page canvas … smoke = quiet text floor. */
+  --cu-surface-void:   #FBFBFC;
+  --cu-surface-abyss:  #F3F4F6;
+  --cu-surface-vault:  #FFFFFF;
+  --cu-surface-char:   #ECEDF0;
+  --cu-surface-ember:  #F3F4F6;
+  --cu-surface-smoke:  #6B7280;
+
+  /* Semantic aliases for light (explicit, not inherited). */
+  --background:           #FBFBFC;
+  --foreground:           #0C0D0F;
+  --card:                 #FFFFFF;
+  --card-foreground:      #0C0D0F;
+  --popover:              #FFFFFF;
+  --popover-foreground:   #0C0D0F;
+  --secondary:            #ECEDF0;
+  --secondary-foreground: #0C0D0F;
+  --muted:                #ECEDF0;
+  --muted-foreground:     #565A63;
+  --border:               rgba(12, 13, 15, 0.12);
+  --input:                transparent;
+  --input-background:     #F3F4F6;
+  --ring:                 var(--cu-inkwell);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -205,10 +257,13 @@
   --color-cu-brandy-darker:   var(--cu-brandy-darker);
   --color-cu-brandy-darkest:  var(--cu-brandy-darkest);
 
-  --color-cu-inkwell:         var(--cu-inkwell);
-  --color-cu-inkwell-light:   var(--cu-inkwell-light);
-  --color-cu-inkwell-lighter: var(--cu-inkwell-lighter);
-  --color-cu-inkwell-dark:    var(--cu-inkwell-dark);
+  --color-cu-inkwell-lightest: var(--cu-inkwell-lightest);
+  --color-cu-inkwell-lighter:  var(--cu-inkwell-lighter);
+  --color-cu-inkwell-light:    var(--cu-inkwell-light);
+  --color-cu-inkwell:          var(--cu-inkwell);
+  --color-cu-inkwell-dark:     var(--cu-inkwell-dark);
+  --color-cu-inkwell-darker:   var(--cu-inkwell-darker);
+  --color-cu-inkwell-darkest:  var(--cu-inkwell-darkest);
 
   --color-cu-amber:           var(--cu-amber);
   --color-cu-amber-light:     var(--cu-amber-light);

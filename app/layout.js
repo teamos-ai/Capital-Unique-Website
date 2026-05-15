@@ -19,9 +19,16 @@ export const metadata = {
   },
 };
 
+// Set the theme class before first paint so there's no flash.
+// Default is dark; an explicit stored choice overrides it.
+const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem('cu-theme');var d=t?t==='dark':true;document.documentElement.classList.toggle('dark',d);}catch(e){document.documentElement.classList.add('dark');}})();`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>

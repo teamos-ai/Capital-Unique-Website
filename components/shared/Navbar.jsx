@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { PRIMARY_NAV, PRIMARY_CTA } from "@/lib/nav";
+import { ThemeToggle } from "./ThemeToggle";
 
 const SCROLL_THRESHOLD = 24;
 
@@ -85,7 +86,7 @@ export function Navbar() {
           <Link
             href="/"
             aria-label="Capital Unique home"
-            className="relative inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="relative inline-flex items-center rounded-md bg-cu-inkwell-darkest px-3 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-transparent dark:px-0 dark:py-0"
           >
             <Image
               src="/brand/logo-horizontal.png"
@@ -115,8 +116,9 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Right: CTA + mobile toggle */}
+          {/* Right: theme toggle + CTA + mobile toggle */}
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href={PRIMARY_CTA.href}
               className={`hidden lg:inline-flex items-center rounded-md bg-cu-brandy text-white shadow-sm hover:bg-cu-brandy-light transition-all ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
