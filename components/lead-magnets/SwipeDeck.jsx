@@ -9,6 +9,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import {
+  ArrowLeft,
   ArrowRight,
   ImageIcon,
   ClipboardList,
@@ -122,8 +123,9 @@ function Card({
             type="button"
             onClick={() => !atStart && onSwipe(-1)}
             disabled={atStart}
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
           >
+            <ArrowLeft size={15} />
             Back
           </button>
           <button
