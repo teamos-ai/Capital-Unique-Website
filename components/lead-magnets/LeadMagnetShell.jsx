@@ -214,3 +214,37 @@ export function KeyRow({ k, v }) {
     </div>
   );
 }
+
+// Staged checklist — each item is a tickable action + a one-line why.
+export function ChecklistGroup({ stage, n, items }) {
+  return (
+    <section className="mb-8 rounded-2xl border border-border bg-cu-surface-vault p-6 md:p-7">
+      <div className="flex items-center gap-3">
+        <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-cu-brandy-darkest font-mono text-xs text-cu-brandy">
+          {n}
+        </span>
+        <h2 className="font-serif text-xl font-semibold tracking-tight text-foreground md:text-2xl">
+          {stage}
+        </h2>
+      </div>
+      <ul className="mt-5 space-y-4">
+        {items.map((it, i) => (
+          <li key={i} className="flex gap-3">
+            <span
+              aria-hidden
+              className="mt-0.5 h-4 w-4 shrink-0 rounded-[4px] border border-cu-brandy/60"
+            />
+            <span>
+              <span className="block text-sm font-medium text-foreground">
+                {it.do}
+              </span>
+              <span className="mt-0.5 block text-sm leading-relaxed text-muted-foreground">
+                {it.why}
+              </span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
