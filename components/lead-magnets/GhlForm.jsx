@@ -6,7 +6,7 @@ import { ghlFormId, ghlFormSrc, GHL_FORM_HOST } from "@/lib/ghl-forms";
 // Embeds the GHL hosted form. The GHL form itself is configured (in
 // GHL) to redirect on submit to the gated content page — so capture
 // and unlock happen in one step.
-export function GhlForm({ slug, formName }) {
+export function GhlForm({ slug, formName, minHeight = 651 }) {
   const id = ghlFormId(slug);
   const src = ghlFormSrc(slug);
   if (!id || !src) return null;
@@ -25,12 +25,12 @@ export function GhlForm({ slug, formName }) {
         data-deactivation-type="neverDeactivate"
         data-deactivation-value=""
         data-form-name={formName}
-        data-height="651"
+        data-height={String(minHeight)}
         data-layout-iframe-id={`inline-${id}`}
         data-form-id={id}
         style={{
           width: "100%",
-          height: "651px",
+          height: `${minHeight}px`,
           border: "none",
           borderRadius: "8px",
         }}
