@@ -9,8 +9,8 @@ import {
   useReducedMotion,
 } from "motion/react";
 import {
-  ArrowLeft,
   ArrowRight,
+  ImageIcon,
   ClipboardList,
   FileCheck2,
   MessageCircleQuestion,
@@ -19,8 +19,8 @@ import {
   Layers,
 } from "lucide-react";
 
-// Icons are passed as strings (component refs can't cross the
-// server→client boundary), resolved here.
+// Icons arrive as strings (component refs can't cross the
+// server→client boundary) and are resolved here.
 const ICONS = {
   ClipboardList,
   FileCheck2,
@@ -30,23 +30,32 @@ const ICONS = {
   Layers,
 };
 
-// A single physical, throwable playing card.
-function Card({ card, index, total, icon, dir, onSwipe, atStart, atEnd }) {
+// One physical, throwable playing card.
+function Card({
+  card,
+  index,
+  total,
+  icon,
+  badge,
+  dir,
+  onSwipe,
+  atStart,
+  atEnd,
+}) {
   const Icon = ICONS[icon] || Layers;
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-260, 260], [-13, 13]);
   const reduce = useReducedMotion();
 
   const variants = {
-    // Rises from the back of the stack.
     enter: { scale: 0.92, y: 26, opacity: 0 },
     center: { scale: 1, y: 0, opacity: 1, x: 0 },
-    // Thrown off the page in the swipe direction.
+    // Next (d>0) flies RIGHT; Back (d<0) flies LEFT.
     exit: (d) => ({
-      x: d > 0 ? -720 : 720,
-      rotate: d > 0 ? -16 : 16,
+      x: d > 0 ? 760 : -760,
+      rotate: d > 0 ? 18 : -18,
       opacity: 0,
-      transition: { duration: reduce ? 0.15 : 0.32, ease: "easeIn" },
+      transition: { duration: reduce ? 0.15 : 0.34, ease: "easeIn" },
     }),
   };
 
@@ -64,78 +73,75 @@ function Card({ card, index, total, icon, dir, onSwipe, atStart, atEnd }) {
       style={{ x, rotate }}
       whileTap={{ cursor: "grabbing" }}
       onDragEnd={(_, info) => {
-        const flungLeft = info.offset.x < -100 || info.velocity.x < -550;
-        const flungRight = info.offset.x > 100 || info.velocity.x > 550;
-        if (flungLeft && !atEnd) onSwipe(1);
-        else if (flungRight && !atStart) onSwipe(-1);
+        const right = info.offset.x > 100 || info.velocity.x > 550;
+        const left = info.offset.x < -100 || info.velocity.x < -550;
+        if (right && !atEnd) onSwipe(1); // drag right → Next
+        else if (left && !atStart) onSwipe(-1); // drag left → Back
       }}
-      className="absolute inset-0 flex cursor-grab touch-pan-y flex-col overflow-hidden rounded-[1.75rem] border border-border bg-cu-surface-vault p-7 shadow-2xl shadow-black/10 dark:shadow-black/50 md:p-8"
+      className="absolute inset-0 flex cursor-grab touch-pan-y flex-col overflow-hidden rounded-[1.75rem] border border-border bg-cu-surface-vault shadow-2xl shadow-black/10 dark:shadow-black/50"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, var(--cu-brandy-darkest) 0%, transparent 60%)",
-        }}
-      />
-
-      {/* Progress segments */}
-      <div className="relative z-10 flex gap-1.5">
-        {Array.from({ length: total }).map((_, i) => (
-          <span
-            key={i}
-            className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${
-              i <= index ? "bg-cu-brandy" : "bg-border"
-            }`}
+      {/* Image region (placeholder until an image is supplied) */}
+      <div className="relative h-[55%] w-full shrink-0 bg-cu-surface-char">
+        {card.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={card.image}
+            alt={card.title}
+            className="h-full w-full object-cover"
           />
-        ))}
-      </div>
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-b from-cu-surface-char to-cu-surface-ember text-muted-foreground">
+            <ImageIcon size={26} strokeWidth={1.4} />
+            <span className="text-[11px] uppercase tracking-[0.2em]">
+              Image
+            </span>
+          </div>
+        )}
 
-      {/* Icon tile + counter */}
-      <div className="relative z-10 mt-7 flex items-center justify-between">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-cu-brandy-darkest text-cu-brandy">
-          <Icon size={20} strokeWidth={1.6} />
-        </span>
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
-          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-        </span>
+        {/* Badge pill — straddles the image / content seam, counts up */}
+        <div className="absolute inset-x-0 -bottom-[18px] z-20 flex justify-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-cu-surface-vault px-4 py-1.5 text-sm font-medium text-foreground shadow-md shadow-black/10 dark:shadow-black/40">
+            <Icon size={15} strokeWidth={1.7} className="text-cu-brandy" />
+            {badge} #{index + 1}
+          </span>
+        </div>
       </div>
-
-      {/* Header */}
-      <h3 className="relative z-10 mt-6 font-serif text-xl font-semibold leading-tight tracking-tight text-foreground md:text-2xl">
-        {card.title}
-      </h3>
 
       {/* Content */}
-      <div className="relative z-10 mt-3 flex-1 overflow-y-auto pr-1 text-[0.95rem] leading-relaxed text-muted-foreground">
-        {card.body}
-      </div>
+      <div className="flex flex-1 flex-col px-6 pb-6 pt-10 text-center md:px-8">
+        <h3 className="font-serif text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-[1.7rem]">
+          {card.title}
+        </h3>
+        <div className="mt-3 flex-1 overflow-y-auto text-[0.95rem] leading-relaxed text-muted-foreground">
+          {card.body}
+        </div>
 
-      {/* Footer controls */}
-      <div className="relative z-10 mt-5 flex items-center justify-between">
-        <button
-          type="button"
-          onClick={() => !atStart && onSwipe(-1)}
-          disabled={atStart}
-          className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
-        >
-          Back
-        </button>
-        <button
-          type="button"
-          onClick={() => !atEnd && onSwipe(1)}
-          disabled={atEnd}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-cu-brandy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cu-brandy-light disabled:opacity-40"
-        >
-          {atEnd ? "Done" : "Next"}
-          {!atEnd && <ArrowRight size={15} />}
-        </button>
+        {/* Footer */}
+        <div className="mt-5 flex items-center justify-between">
+          <button
+            type="button"
+            onClick={() => !atStart && onSwipe(-1)}
+            disabled={atStart}
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
+          >
+            Back
+          </button>
+          <button
+            type="button"
+            onClick={() => !atEnd && onSwipe(1)}
+            disabled={atEnd}
+            className="inline-flex items-center gap-1.5 rounded-lg bg-cu-brandy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cu-brandy-light disabled:opacity-40"
+          >
+            {atEnd ? "Done" : "Next"}
+            {!atEnd && <ArrowRight size={15} />}
+          </button>
+        </div>
       </div>
     </motion.div>
   );
 }
 
-export function SwipeDeck({ title, intro, cards, icon }) {
+export function SwipeDeck({ title, intro, cards, icon, badge = "Swipe" }) {
   const total = cards.length;
   const [[index, dir], set] = useState([0, 0]);
 
@@ -160,7 +166,7 @@ export function SwipeDeck({ title, intro, cards, icon }) {
       )}
 
       <div
-        className="relative mx-auto mt-10 w-full max-w-[24rem] outline-none"
+        className="relative mx-auto mt-10 w-full max-w-[25rem] outline-none"
         role="group"
         aria-roledescription="carousel"
         aria-label={title}
@@ -189,6 +195,7 @@ export function SwipeDeck({ title, intro, cards, icon }) {
               index={index}
               total={total}
               icon={icon}
+              badge={badge}
               dir={dir}
               onSwipe={go}
               atStart={index === 0}
@@ -197,7 +204,7 @@ export function SwipeDeck({ title, intro, cards, icon }) {
           </AnimatePresence>
         </div>
 
-        {/* Dots + hint */}
+        {/* Progress dots + hint */}
         <div className="mt-6 flex items-center justify-center gap-1.5" aria-hidden>
           {cards.map((_, i) => (
             <span
@@ -209,7 +216,7 @@ export function SwipeDeck({ title, intro, cards, icon }) {
           ))}
         </div>
         <p className="mt-3 text-center text-xs text-muted-foreground">
-          Swipe / fling the card, or use the buttons
+          Swipe right for next, left to go back — or use the buttons
         </p>
         <p className="sr-only" aria-live="polite">
           Card {index + 1} of {total}: {cards[index].title}

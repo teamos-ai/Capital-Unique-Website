@@ -12,6 +12,7 @@ export default function DealSubmissionSwipeFile() {
 
       <SwipeDeck
         icon="ClipboardList"
+        badge="Deal Summary"
         title="Deck 1 — The one-page deal summary"
         intro="Five swipes. This is the whole deal on a single page. If it doesn't fit, it isn't clear enough yet."
         cards={[
@@ -69,6 +70,7 @@ export default function DealSubmissionSwipeFile() {
 
       <SwipeDeck
         icon="MessageCircleQuestion"
+        badge="Question"
         title="Deck 2 — Questions to ask a non-bank lender"
         intro="Eight swipes. Ask these before you engage. The answers tell you who you're dealing with."
         cards={[
@@ -85,6 +87,7 @@ export default function DealSubmissionSwipeFile() {
 
       <SwipeDeck
         icon="FileCheck2"
+        badge="Document"
         title="Deck 3 — The deal-ready document list"
         intro="Twelve swipes. Have these ready before you submit and you remove the lender's reasons to slow down."
         cards={[

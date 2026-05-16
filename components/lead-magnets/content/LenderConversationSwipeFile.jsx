@@ -12,6 +12,7 @@ export default function LenderConversationSwipeFile() {
 
       <SwipeDeck
         icon="MessagesSquare"
+        badge="Script"
         title="Deck — The lender conversation, swipe by swipe"
         intro="Eight swipes. Adapt the wording; keep the structure."
         cards={[
