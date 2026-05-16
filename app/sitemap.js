@@ -1,5 +1,7 @@
 import { SITE_URL } from "@/lib/site";
 import { CALCULATORS } from "@/lib/calculators";
+import { LEAD_MAGNETS } from "@/lib/lead-magnets";
+import { ghlFormId } from "@/lib/ghl-forms";
 
 // Indexable routes only. Utility/no-index pages (deliver, thank-you,
 // unsubscribe, charles-ai/waitlist-confirmed) are deliberately excluded.
@@ -47,8 +49,15 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  // Lead-magnet detail pages (/guides/[slug], /free-tools/[slug]) are
-  // gated + noindex by design and are deliberately excluded. The
-  // public /guides and /free-tools listing pages remain in `base`.
-  return [...base, ...calc];
+  // Public lead-magnet landing pages (/get/[slug]) — indexed, these
+  // carry the SEO/AEO value. The gated content pages they unlock
+  // (/guides/[slug], /free-tools/[slug]) stay noindex and excluded.
+  const landings = LEAD_MAGNETS.filter((m) => ghlFormId(m.slug)).map((m) => ({
+    url: `${SITE_URL}/get/${m.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...base, ...calc, ...landings];
 }
