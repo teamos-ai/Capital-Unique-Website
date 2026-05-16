@@ -81,7 +81,7 @@ function Card({
       className="absolute inset-0 flex cursor-grab touch-pan-y flex-col overflow-hidden rounded-[1.75rem] border border-border bg-cu-surface-vault shadow-2xl shadow-black/10 dark:shadow-black/50"
     >
       {/* Image region (placeholder until an image is supplied) */}
-      <div className="relative h-[55%] w-full shrink-0 bg-cu-surface-char">
+      <div className="relative h-[40%] w-full shrink-0 bg-cu-surface-char">
         {card.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -108,16 +108,16 @@ function Card({
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col px-6 pb-6 pt-10 text-center md:px-8">
-        <h3 className="font-serif text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-[1.7rem]">
+      <div className="flex min-h-0 flex-1 flex-col px-6 pb-6 pt-9 md:px-8">
+        <h3 className="shrink-0 text-center font-serif text-[1.4rem] font-semibold leading-tight tracking-tight text-foreground md:text-2xl">
           {card.title}
         </h3>
-        <div className="mt-3 flex-1 overflow-y-auto text-[0.95rem] leading-relaxed text-muted-foreground">
+        <div className="mt-3 min-h-0 flex-1 overflow-y-auto pr-1 text-left text-[0.95rem] leading-relaxed text-muted-foreground [scrollbar-width:thin]">
           {card.body}
         </div>
 
-        {/* Footer */}
-        <div className="mt-5 flex items-center justify-between">
+        {/* Footer (always pinned) */}
+        <div className="mt-5 flex shrink-0 items-center justify-between border-t border-border pt-4">
           <button
             type="button"
             onClick={() => !atStart && onSwipe(-1)}
