@@ -1,36 +1,41 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useTransform,
+  useReducedMotion,
+} from "motion/react";
 import { ArrowLeft, ArrowRight, BookOpen, ImageIcon } from "lucide-react";
 
-// A real page-flip book (react-pageflip / StPageFlip). SSR-safe: the
-// flip engine measures the DOM, so we render a branded static cover
-// on the server / before mount, then mount the book on the client.
+// Desktop: a real horizontal page-flip book (react-pageflip).
+// Mobile (< 768px): a vertical up/down page-turn that fills the tall
+// screen properly. SSR-safe: render a branded static cover until
+// mounted, then pick the layout for the viewport.
 //
-// props:
-//   cover = { kicker, title, subtitle }   — branded front page
+//   cover = { kicker, title, subtitle }
 //   pages = [{ kicker?, title, body }]
 export function BookReader({ cover, pages }) {
-  const bookRef = useRef(null);
   const [mounted, setMounted] = useState(false);
-  const [page, setPage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    const mq = window.matchMedia("(max-width: 767px)");
+    const apply = () => setIsMobile(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
 
   const sheets = [
     { type: "cover", ...cover },
     ...pages.map((p) => ({ type: "page", ...p })),
   ];
-  const total = sheets.length;
 
-  const flip = (dir) => {
-    const api = bookRef.current?.pageFlip?.();
-    if (!api) return;
-    dir > 0 ? api.flipNext() : api.flipPrev();
-  };
-
-  // Static branded cover for SSR / pre-hydration (no layout jump).
   if (!mounted) {
     return (
       <div className="mx-auto w-full max-w-[26rem]">
@@ -41,6 +46,25 @@ export function BookReader({ cover, pages }) {
       </div>
     );
   }
+
+  return isMobile ? (
+    <VerticalBook cover={cover} sheets={sheets} />
+  ) : (
+    <HorizontalBook cover={cover} sheets={sheets} />
+  );
+}
+
+/* ── Desktop: horizontal two-page flip book ───────────────────── */
+function HorizontalBook({ cover, sheets }) {
+  const bookRef = useRef(null);
+  const [page, setPage] = useState(0);
+  const total = sheets.length;
+
+  const flip = (dir) => {
+    const api = bookRef.current?.pageFlip?.();
+    if (!api) return;
+    dir > 0 ? api.flipNext() : api.flipPrev();
+  };
 
   return (
     <div
@@ -53,18 +77,7 @@ export function BookReader({ cover, pages }) {
         if (e.key === "ArrowLeft") flip(-1);
       }}
     >
-      <div className="mb-4 flex items-center gap-3">
-        <div className="h-1 flex-1 overflow-hidden rounded-full bg-border">
-          <div
-            className="h-full rounded-full bg-cu-brandy transition-[width] duration-500"
-            style={{ width: `${((page + 1) / total) * 100}%` }}
-          />
-        </div>
-        <span className="shrink-0 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          {String(page + 1).padStart(2, "0")} /{" "}
-          {String(total).padStart(2, "0")}
-        </span>
-      </div>
+      <Progress page={page} total={total} />
 
       <HTMLFlipBook
         ref={bookRef}
@@ -85,42 +98,187 @@ export function BookReader({ cover, pages }) {
         className="cu-book"
         onFlip={(e) => setPage(e.data)}
       >
-        {sheets.map((s, i) =>
-          s.type === "cover" ? (
-            <div key={i} className="cu-page">
+        {sheets.map((s, i) => (
+          <div key={i} className="cu-page">
+            {s.type === "cover" ? (
               <CoverFace cover={cover} />
-            </div>
-          ) : (
-            <div key={i} className="cu-page">
+            ) : (
               <PageFace sheet={s} index={i} total={total} />
-            </div>
-          )
-        )}
+            )}
+          </div>
+        ))}
       </HTMLFlipBook>
 
-      <div className="mt-5 flex items-center justify-between">
-        <button
-          type="button"
-          onClick={() => flip(-1)}
-          disabled={page === 0}
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
-        >
-          <ArrowLeft size={15} />
-          Back
-        </button>
-        <p className="text-xs text-muted-foreground">
-          Drag the corner, swipe, arrows, or the buttons
-        </p>
-        <button
-          type="button"
-          onClick={() => flip(1)}
-          disabled={page >= total - 1}
-          className="inline-flex items-center gap-1.5 rounded-lg bg-cu-brandy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cu-brandy-light disabled:opacity-40"
-        >
-          {page >= total - 1 ? "End" : "Next"}
-          {page < total - 1 && <ArrowRight size={15} />}
-        </button>
+      <Controls
+        atStart={page === 0}
+        atEnd={page >= total - 1}
+        onPrev={() => flip(-1)}
+        onNext={() => flip(1)}
+        hint="Drag the corner, swipe, arrows, or the buttons"
+      />
+    </div>
+  );
+}
+
+/* ── Mobile: vertical up/down page-turn ────────────────────────── */
+function VerticalBook({ cover, sheets }) {
+  const total = sheets.length;
+  const [[index, dir], set] = useState([0, 0]);
+
+  const go = useCallback(
+    (delta) =>
+      set(([i]) => {
+        const next = Math.min(Math.max(i + delta, 0), total - 1);
+        return next === i ? [i, 0] : [next, delta];
+      }),
+    [total]
+  );
+
+  const sheet = sheets[index];
+
+  return (
+    <div
+      className="mx-auto w-full max-w-[26rem] select-none outline-none"
+      role="group"
+      aria-roledescription="book"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") go(1);
+        if (e.key === "ArrowUp" || e.key === "ArrowLeft") go(-1);
+      }}
+    >
+      <Progress page={index} total={total} />
+
+      <div
+        className="relative h-[72vh] max-h-[640px] min-h-[440px]"
+        style={{ perspective: 1600 }}
+      >
+        {/* stacked sheet behind */}
+        <div
+          aria-hidden
+          className="absolute inset-x-2 top-2 bottom-0 rounded-2xl border border-border bg-cu-surface-vault shadow-xl shadow-black/10 dark:shadow-black/40"
+        />
+        <AnimatePresence initial={false} custom={dir}>
+          <VPage
+            key={index}
+            sheet={sheet}
+            cover={cover}
+            index={index}
+            total={total}
+            dir={dir}
+            onTurn={go}
+            atStart={index === 0}
+            atEnd={index === total - 1}
+          />
+        </AnimatePresence>
       </div>
+
+      <Controls
+        atStart={index === 0}
+        atEnd={index === total - 1}
+        onPrev={() => go(-1)}
+        onNext={() => go(1)}
+        hint="Swipe up for next, down to go back — or the buttons"
+      />
+    </div>
+  );
+}
+
+function VPage({ sheet, cover, index, total, dir, onTurn, atStart, atEnd }) {
+  const reduce = useReducedMotion();
+  const y = useMotionValue(0);
+  const rotateX = useTransform(
+    y,
+    [-300, 300],
+    [reduce ? 0 : -14, reduce ? 0 : 14]
+  );
+
+  const variants = {
+    enter: (d) => ({
+      y: d > 0 ? 70 : -70,
+      rotateX: reduce ? 0 : d > 0 ? -22 : 22,
+      opacity: 0,
+    }),
+    center: { y: 0, rotateX: 0, opacity: 1 },
+    exit: (d) => ({
+      y: d > 0 ? "-108%" : "108%",
+      rotateX: reduce ? 0 : d > 0 ? 30 : -30,
+      opacity: 0,
+      transition: { duration: reduce ? 0.15 : 0.42, ease: "easeInOut" },
+    }),
+  };
+
+  return (
+    <motion.div
+      custom={dir}
+      variants={variants}
+      initial="enter"
+      animate="center"
+      exit="exit"
+      transition={{ type: "spring", stiffness: 260, damping: 30 }}
+      drag="y"
+      dragSnapToOrigin
+      dragElastic={0.5}
+      style={{ y, rotateX, transformOrigin: "center top" }}
+      whileTap={{ cursor: "grabbing" }}
+      onDragEnd={(_, info) => {
+        const up = info.offset.y < -90 || info.velocity.y < -500;
+        const down = info.offset.y > 90 || info.velocity.y > 500;
+        if (up && !atEnd) onTurn(1);
+        else if (down && !atStart) onTurn(-1);
+      }}
+      className="absolute inset-0 cursor-grab touch-pan-x"
+    >
+      {sheet.type === "cover" ? (
+        <CoverFace cover={cover} />
+      ) : (
+        <PageFace sheet={sheet} index={index} total={total} />
+      )}
+    </motion.div>
+  );
+}
+
+/* ── Shared bits ──────────────────────────────────────────────── */
+function Progress({ page, total }) {
+  return (
+    <div className="mb-4 flex items-center gap-3">
+      <div className="h-1 flex-1 overflow-hidden rounded-full bg-border">
+        <div
+          className="h-full rounded-full bg-cu-brandy transition-[width] duration-500"
+          style={{ width: `${((page + 1) / total) * 100}%` }}
+        />
+      </div>
+      <span className="shrink-0 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        {String(page + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+      </span>
+    </div>
+  );
+}
+
+function Controls({ atStart, atEnd, onPrev, onNext, hint }) {
+  return (
+    <div className="mt-5 flex items-center justify-between gap-3">
+      <button
+        type="button"
+        onClick={onPrev}
+        disabled={atStart}
+        className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
+      >
+        <ArrowLeft size={15} />
+        Back
+      </button>
+      <p className="hidden flex-1 text-center text-xs text-muted-foreground sm:block">
+        {hint}
+      </p>
+      <button
+        type="button"
+        onClick={onNext}
+        disabled={atEnd}
+        className="inline-flex items-center gap-1.5 rounded-lg bg-cu-brandy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cu-brandy-light disabled:opacity-40"
+      >
+        {atEnd ? "End" : "Next"}
+        {!atEnd && <ArrowRight size={15} />}
+      </button>
     </div>
   );
 }
@@ -128,7 +286,7 @@ export function BookReader({ cover, pages }) {
 // Branded front cover — same card language as the swipe deck.
 function CoverFace({ cover }) {
   return (
-    <div className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-cu-surface-vault">
+    <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-cu-surface-vault">
       <div className="relative h-[52%] w-full shrink-0 bg-gradient-to-b from-cu-surface-char to-cu-surface-ember">
         <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
           <ImageIcon size={28} strokeWidth={1.4} />
