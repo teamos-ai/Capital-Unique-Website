@@ -162,3 +162,28 @@
     font-style: italic;
   }
 }
+
+/* ─── Brand scrollbars ────────────────────────────────────────────
+   --cu-brandy-punch resolves to Brandy orange in dark mode and
+   Inkwell navy ("blue") in light mode (see theme.css), so a single
+   token gives the requested behaviour automatically. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--cu-brandy-punch) transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--cu-brandy-punch);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--cu-brandy-light);
+}
