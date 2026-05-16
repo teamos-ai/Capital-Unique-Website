@@ -176,14 +176,14 @@ export function SwipeDeck({ title, intro, cards, icon, badge = "Swipe" }) {
           if (e.key === "ArrowLeft") go(-1);
         }}
       >
-        {/* Stacked playing cards behind */}
+        {/* Solid stacked playing cards behind (a real deck) */}
         <div
           aria-hidden
-          className="absolute inset-0 aspect-[5/7] origin-bottom rotate-[3deg] scale-[0.965] rounded-[1.75rem] border border-border bg-cu-surface-vault opacity-50"
+          className="absolute inset-0 aspect-[5/7] origin-bottom rotate-[3deg] scale-[0.96] rounded-[1.75rem] border border-border bg-cu-surface-vault shadow-xl shadow-black/10 dark:shadow-black/40"
         />
         <div
           aria-hidden
-          className="absolute inset-0 aspect-[5/7] origin-bottom -rotate-[3.5deg] scale-[0.93] rounded-[1.75rem] border border-border bg-cu-surface-vault opacity-30"
+          className="absolute inset-0 aspect-[5/7] origin-bottom -rotate-[3.5deg] scale-[0.92] rounded-[1.75rem] border border-border bg-cu-surface-vault shadow-xl shadow-black/10 dark:shadow-black/40"
         />
 
         {/* Active card */}
