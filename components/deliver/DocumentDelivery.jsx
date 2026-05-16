@@ -10,7 +10,7 @@ import { GhlForm } from "@/components/lead-magnets/GhlForm";
 // GHL_DOCSEND_FORM_CSS (lib/ghl-form-css.js) pasted into the form.
 export function DocumentDelivery() {
   return (
-    <div className="mx-auto w-full max-w-2xl">
+    <div className="mx-auto w-full max-w-3xl">
       {/* Recipient */}
       <div className="flex flex-col items-center text-center">
         <p className="heading-eyebrow mb-6">DocSend · Secure delivery</p>
