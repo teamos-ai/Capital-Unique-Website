@@ -4,6 +4,12 @@ import { BookReader } from "../BookReader";
 export default function WhenTheBankSaysNo() {
   return (
     <BookReader
+      cover={{
+        kicker: "A Developer's Guide",
+        title: "When the Bank Says No",
+        subtitle:
+          "Funding non-bank development & construction finance — the stack, the drivers, the fast yes.",
+      }}
       pages={[
         {
           kicker: "When the Bank Says No",

@@ -4,6 +4,12 @@ import { BookReader } from "../BookReader";
 export default function BorrowersGuide() {
   return (
     <BookReader
+      cover={{
+        kicker: "The Borrower's Guide",
+        title: "The Borrower's Guide to Non-Bank Capital",
+        subtitle:
+          "How non-bank lending actually works in Australia — and when it's the right call.",
+      }}
       pages={[
         {
           kicker: "The Borrower's Guide",

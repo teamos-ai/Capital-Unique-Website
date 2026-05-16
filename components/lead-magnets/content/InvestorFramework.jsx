@@ -4,6 +4,11 @@ import { BookReader } from "../BookReader";
 export default function InvestorFramework() {
   return (
     <BookReader
+      cover={{
+        kicker: "Wholesale investors only",
+        title: "Private Lending: A Wholesale Investor's Framework",
+        subtitle: "Income, risk and what to watch for in Australian private credit.",
+      }}
       pages={[
         {
           kicker: "Wholesale investors only",
