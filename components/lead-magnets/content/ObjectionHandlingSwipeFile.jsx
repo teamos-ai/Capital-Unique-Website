@@ -1,4 +1,5 @@
-import { Lead, SwipeDeck, Callout } from "../LeadMagnetShell";
+import { Lead, Callout } from "../LeadMagnetShell";
+import { SwipeDeck } from "../SwipeDeck";
 
 export default function ObjectionHandlingSwipeFile() {
   return (

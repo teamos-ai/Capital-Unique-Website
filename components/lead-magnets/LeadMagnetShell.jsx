@@ -160,39 +160,7 @@ export function List({ items, numbered = false }) {
   );
 }
 
-// Swipe deck — numbered cards, carousel-style on screen.
-export function SwipeDeck({ title, intro, cards }) {
-  return (
-    <section className="mb-14">
-      <h2 className="font-serif text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-3xl">
-        {title}
-      </h2>
-      {intro && (
-        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-          {intro}
-        </p>
-      )}
-      <div className="mt-6 space-y-4">
-        {cards.map((c, i) => (
-          <div
-            key={i}
-            className="rounded-2xl border border-border bg-cu-surface-vault p-6"
-          >
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-cu-brandy-darkest font-mono text-xs text-cu-brandy">
-                {i + 1}
-              </span>
-              <p className="font-medium text-foreground">{c.title}</p>
-            </div>
-            <div className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
-              {c.body}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+// (SwipeDeck moved to ./SwipeDeck.jsx — interactive, client-side.)
 
 // Cheat-sheet zone + key/value rows.
 export function CheatZone({ title, children }) {
