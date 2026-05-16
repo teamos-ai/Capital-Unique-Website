@@ -12,6 +12,7 @@ export default function ObjectionHandlingSwipeFile() {
       </Lead>
 
       <SwipeDeck
+        icon="ShieldQuestion"
         title="Deck — The 10 objections, answered"
         intro="Ten swipes. The objection, then the response that resolves it."
         cards={[
