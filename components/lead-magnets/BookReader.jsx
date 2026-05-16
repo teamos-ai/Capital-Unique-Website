@@ -44,7 +44,7 @@ export function BookReader({ cover, pages }) {
 
   return (
     <div
-      className="mx-auto w-full max-w-[26rem] select-none outline-none"
+      className="mx-auto w-full max-w-4xl select-none outline-none"
       role="group"
       aria-roledescription="book"
       tabIndex={0}
@@ -69,13 +69,13 @@ export function BookReader({ cover, pages }) {
       <HTMLFlipBook
         ref={bookRef}
         width={420}
-        height={580}
+        height={560}
         size="stretch"
-        minWidth={300}
-        maxWidth={620}
-        minHeight={440}
-        maxHeight={720}
-        maxShadowOpacity={0.4}
+        minWidth={315}
+        maxWidth={460}
+        minHeight={460}
+        maxHeight={680}
+        maxShadowOpacity={0.5}
         drawShadow
         showCover
         flippingTime={650}
@@ -161,7 +161,7 @@ function CoverFace({ cover }) {
 
 function PageFace({ sheet, index, total }) {
   return (
-    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-[1.25rem] border border-border bg-cu-surface-vault">
+    <div className="relative flex h-full w-full flex-col overflow-hidden rounded-lg border border-border bg-cu-surface-vault">
       <div
         aria-hidden
         className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-cu-brandy/40 via-cu-brandy/10 to-transparent"
