@@ -20,9 +20,11 @@ export function CtaBackdrop() {
         sizes="100vw"
         className="object-cover object-center"
       />
-      {/* Dark tint so the front CTA box stands out (both themes) */}
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/70" />
+      {/* Light touch only — let the warm tones show through. The
+          opaque CTA card carries its own contrast, so just a faint
+          edge vignette to seat it on the section. */}
+      <div className="absolute inset-0 bg-black/15" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/35" />
     </div>
   );
 }
