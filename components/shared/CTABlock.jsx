@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { CtaBackdrop } from "./CtaBackdrop";
 
 export function CTABlock({
   eyebrow = "Next step",
@@ -20,7 +21,10 @@ export function CTABlock({
       : "bg-cu-surface-vault";
 
   return (
-    <section className={`${bgClass} section-pad px-6 lg:px-10`}>
+    <section
+      className={`relative overflow-hidden ${bgClass} section-pad px-6 lg:px-10`}
+    >
+      <CtaBackdrop />
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

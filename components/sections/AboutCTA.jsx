@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { CtaBackdrop } from "@/components/shared/CtaBackdrop";
 
 export function AboutCTA() {
   return (
-    <section className="bg-cu-surface-abyss section-pad px-6 lg:px-10">
+    <section className="relative overflow-hidden bg-cu-surface-abyss section-pad px-6 lg:px-10">
+      <CtaBackdrop />
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

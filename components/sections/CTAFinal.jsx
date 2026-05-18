@@ -1,25 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { CtaBackdrop } from "@/components/shared/CtaBackdrop";
 
 export function CTAFinal() {
   return (
     <section className="relative overflow-hidden bg-cu-surface-abyss section-pad px-6 lg:px-10">
-      {/* Faded background portrait — sits behind the card, calmed by a
-          surface scrim so text contrast holds in light and dark. */}
-      <div className="pointer-events-none absolute inset-0">
-        <Image
-          src="/images/footer/footerjohn-pressure.jpeg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-center opacity-[0.07] dark:opacity-[0.16]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-cu-surface-abyss via-cu-surface-abyss/80 to-cu-surface-abyss" />
-      </div>
+      <CtaBackdrop />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
