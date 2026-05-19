@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 import { TeaserGrid } from "@/components/lead-magnets/TeaserGrid";
 import { leadMagnetsByGroup } from "@/lib/lead-magnets";
 
@@ -24,6 +25,36 @@ export default function FreeToolsIndexPage() {
           <TeaserGrid magnets={leadMagnetsByGroup("free-tools")} />
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Built to be used, not filed"
+        body="Checklists, cheat sheets and swipe files for the real conversation."
+        lead={{
+          eyebrow: "The toolkit",
+          title: "Get deal-ready",
+          body: "Prepare the deal a lender will actually fund.",
+        }}
+        points={[
+          {
+            icon: "ShieldCheck",
+            eyebrow: "Readiness checklists",
+            title: "Self-score before you apply",
+            body: "The same ground a credit team covers.",
+          },
+          {
+            icon: "Layers",
+            eyebrow: "Cheat sheets",
+            title: "Decode a term sheet",
+            body: "Structures, ratios and jargon, in plain English.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Access",
+          title: "Instant access, no fluff",
+          body: "Sent and unlocked the moment you ask.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Beyond the tools"

@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
@@ -154,6 +155,36 @@ export default function AgriculturePage() {
           </div>
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Seasonal, asset-backed rural capital"
+        body="Funding that follows the agricultural cycle, secured against real rural assets."
+        lead={{
+          eyebrow: "Operators",
+          title: "Built around the season",
+          body: "Repayment shaped to cash flow, not a fixed calendar month.",
+        }}
+        points={[
+          {
+            icon: "Sprout",
+            eyebrow: "Agribusiness",
+            title: "Operations, expansion, transition",
+            body: "Capital for the work happening on the land.",
+          },
+          {
+            icon: "Landmark",
+            eyebrow: "Asset-backed",
+            title: "Conservative rural security",
+            body: "Lending against the value of real rural property.",
+          },
+        ]}
+        wide={{
+          eyebrow: "The cycle",
+          title: "Capital that follows the cycle",
+          body: "Structured for seasonal income and asset value.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Map your scenario"

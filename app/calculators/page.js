@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 import { CALCULATORS } from "@/lib/calculators";
 import {
   Building,
@@ -92,6 +93,36 @@ export default function CalculatorsPage() {
           </p>
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Model it before you commit"
+        body="Practical tools that show the mechanics a lender or investor actually applies."
+        lead={{
+          eyebrow: "The tools",
+          title: "Run the numbers",
+          body: "Feasibility, cost of capital, serviceability — your figures.",
+        }}
+        points={[
+          {
+            icon: "Calculator",
+            eyebrow: "Feasibility & cost",
+            title: "Residual land value & true cost",
+            body: "What a site carries and what finance really costs.",
+          },
+          {
+            icon: "LineChart",
+            eyebrow: "Yield & cover",
+            title: "DSCR, investor yield, stress",
+            body: "Does the deal stack at the assessed rate?",
+          },
+        ]}
+        wide={{
+          eyebrow: "Caveat",
+          title: "A starting point, not an answer",
+          body: "Indicative modelling — the decision is a conversation.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Beyond the numbers"

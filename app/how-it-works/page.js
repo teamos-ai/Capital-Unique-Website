@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { Eye, Compass, FileCheck, Send } from "lucide-react";
 
@@ -179,6 +180,36 @@ export default function HowItWorksPage() {
         body="Capital Unique serves borrowers with complex needs and structured ambitions. This is not for everyone, and that is intentional."
         items={FIT}
         columns={4}
+      />
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="From conversation to capital"
+        body="A clear path — four steps, one decision-maker, no surprises."
+        lead={{
+          eyebrow: "The process",
+          title: "Describe the scenario",
+          body: "Plain language, no forms to wade through.",
+        }}
+        points={[
+          {
+            icon: "Compass",
+            eyebrow: "Map the structure",
+            title: "Frame options and constraints",
+            body: "What's possible, what isn't, and why.",
+          },
+          {
+            icon: "Handshake",
+            eyebrow: "Explore options",
+            title: "Take a clear summary forward",
+            body: "Into a focused, decisive conversation.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Clarity",
+          title: "Arrive already clear",
+          body: "Shorter calls, sharper decisions, less wasted time.",
+        }}
       />
 
       <CTABlock

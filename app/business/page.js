@@ -2,6 +2,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
+import { BentoSection } from "@/components/shared/BentoSection";
 
 export const metadata = {
   alternates: { canonical: "/business" },
@@ -162,6 +163,36 @@ export default function BusinessPage() {
           </div>
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Capital shaped to how your business runs"
+        body="Funding structured around timing, cash flow and the assets you actually have — not a policy template."
+        lead={{
+          eyebrow: "Operators",
+          title: "Built around real conditions",
+          body: "We read the business first, then design the capital to fit it.",
+        }}
+        points={[
+          {
+            icon: "Zap",
+            eyebrow: "Speed",
+            title: "Decisions in days, not quarters",
+            body: "Fast assessment when timing is the real constraint.",
+          },
+          {
+            icon: "ShieldCheck",
+            eyebrow: "When banks say no",
+            title: "Capital outside the policy box",
+            body: "Non-conforming scenarios considered on their merits.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Structure",
+          title: "The right structure beats the cheapest rate",
+          body: "Terms that fit the deal — assessed by a person, end to end.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Prepare"

@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 
 export const metadata = {
   alternates: { canonical: "/faq" },
@@ -138,6 +139,36 @@ export default function FAQPage() {
           ))}
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Clarity, before the conversation"
+        body="Straight answers to the questions that matter most."
+        lead={{
+          eyebrow: "Common questions",
+          title: "How it actually works",
+          body: "What we do, what we don't, and how fast.",
+        }}
+        points={[
+          {
+            icon: "Scale",
+            eyebrow: "What we don't do",
+            title: "Wholesale & commercial only",
+            body: "No consumer credit; no Australian Credit Licence.",
+          },
+          {
+            icon: "Clock",
+            eyebrow: "How fast",
+            title: "Indicative timeframes, set honestly",
+            body: "Speed depends on the scenario — we say so plainly.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Direct",
+          title: "Still unsure? Ask John",
+          body: "A person answers — not an auto-reply.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Still have questions"

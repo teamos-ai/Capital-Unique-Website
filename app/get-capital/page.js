@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 import { ArrowRight, Building2, Landmark } from "lucide-react";
 
 export const metadata = {
@@ -171,6 +172,36 @@ export default function GetCapitalPage() {
           </div>
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Two pathways, one decision-maker"
+        body="Whether you're borrowing or deploying capital, the conversation starts the same way."
+        lead={{
+          eyebrow: "Borrowers",
+          title: "Capital for complex scenarios",
+          body: "Fast, considered decisions when the bank won't move.",
+        }}
+        points={[
+          {
+            icon: "Handshake",
+            eyebrow: "For investors",
+            title: "Structured private credit",
+            body: "Security-first opportunities for wholesale investors.",
+          },
+          {
+            icon: "Clock",
+            eyebrow: "Fast & considered",
+            title: "Speed when it's the constraint",
+            body: "Moving quickly without skipping the thinking.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Principal-led",
+          title: "One principal, end to end",
+          body: "From first conversation to funded outcome — same person.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Get capital"

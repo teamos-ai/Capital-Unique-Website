@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
@@ -141,6 +142,36 @@ export default function PropertyDevelopmentPage() {
           </div>
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Funding from site to settlement"
+        body="Clear structures for complex property deals — when the bank won't move on timing or presales."
+        lead={{
+          eyebrow: "Developers",
+          title: "When the bank won't move",
+          body: "Non-bank capital that reads feasibilities for a living.",
+        }}
+        points={[
+          {
+            icon: "Layers",
+            eyebrow: "The capital stack",
+            title: "Senior to equity, used deliberately",
+            body: "The least expensive money the deal can safely carry.",
+          },
+          {
+            icon: "Clock",
+            eyebrow: "Staged to delivery",
+            title: "Drawdowns aligned to the program",
+            body: "Funding that tracks the build, not the calendar.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Presentation",
+          title: "Presented to get a fast yes",
+          body: "Conservative numbers, an evidenced exit, risks named first.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Property in motion"

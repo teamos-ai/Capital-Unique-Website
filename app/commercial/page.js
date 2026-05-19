@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
+import { BentoSection } from "@/components/shared/BentoSection";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { StackedList } from "@/components/shared/StackedList";
 
@@ -149,6 +150,36 @@ export default function CommercialPage() {
           </div>
         </div>
       </section>
+
+      <BentoSection
+        eyebrow="In practice"
+        heading="Finance built around how your business runs"
+        body="Commercial property and operating capital, structured for the real picture — not a serviceability template."
+        lead={{
+          eyebrow: "Operators",
+          title: "Read the deal, not the box",
+          body: "We assess the asset, the income and the structure together.",
+        }}
+        points={[
+          {
+            icon: "Building2",
+            eyebrow: "Asset-aware",
+            title: "Lending that understands the property",
+            body: "The asset and the lease, not just the spreadsheet.",
+          },
+          {
+            icon: "Scale",
+            eyebrow: "Stress-tested",
+            title: "Sized the way a credit team will",
+            body: "Assessed at the rate that actually gets applied.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Structure",
+          title: "Know it stacks before you apply",
+          body: "Surface the weak points before a lender does.",
+        }}
+      />
 
       <CTABlock
         eyebrow="Move forward"
