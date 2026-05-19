@@ -25,6 +25,7 @@ export default function FreeToolsIndexPage() {
         heading="Built to be used, not filed"
         body="Checklists, cheat sheets and swipe files for the real conversation."
         lead={{
+          image: "/images/office/document-signing-warm-001.png",
           eyebrow: "The toolkit",
           title: "Get deal-ready",
           body: "Prepare the deal a lender will actually fund.",
@@ -44,6 +45,7 @@ export default function FreeToolsIndexPage() {
           },
         ]}
         wide={{
+          image: "/images/office/document-signing-cool-001.png",
           eyebrow: "Access",
           title: "Instant access, no fluff",
           body: "Sent and unlocked the moment you ask.",

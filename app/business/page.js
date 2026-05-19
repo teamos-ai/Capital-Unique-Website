@@ -96,6 +96,7 @@ export default function BusinessPage() {
         heading="What working with us looks like"
         body="Funding structured around timing, cash flow and the assets you actually have — not a policy template."
         lead={{
+          image: "/images/people/clients-casual-meeting-001.png",
           eyebrow: "Operators",
           title: "Built around real conditions",
           body: "We read the business first, then design the capital to fit it.",
@@ -115,6 +116,7 @@ export default function BusinessPage() {
           },
         ]}
         wide={{
+          image: "/images/office/desk-laptop-tablet-planning-001.png",
           eyebrow: "Structure",
           title: "The right structure beats the cheapest rate",
           body: "Terms that fit the deal — assessed by a person, end to end.",

@@ -80,6 +80,7 @@ export default function PropertyDevelopmentPage() {
         heading="Funding from site to settlement"
         body="Clear structures for complex property deals — when the bank won't move on timing or presales."
         lead={{
+          image: "/images/editorial/construction-executive-site-overlook-sunset.png",
           eyebrow: "Developers",
           title: "When the bank won't move",
           body: "Non-bank capital that reads feasibilities for a living.",
@@ -99,6 +100,7 @@ export default function PropertyDevelopmentPage() {
           },
         ]}
         wide={{
+          image: "/images/office/development-meeting-scale-model-sunset.png",
           eyebrow: "Presentation",
           title: "Presented to get a fast yes",
           body: "Conservative numbers, an evidenced exit, risks named first.",

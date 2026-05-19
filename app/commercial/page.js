@@ -73,6 +73,7 @@ export default function CommercialPage() {
         heading="Finance built around how your business runs"
         body="Commercial property and operating capital, structured for the real picture — not a serviceability template."
         lead={{
+          image: "/images/office/boardroom-harbour-view-sunset-001.png",
           eyebrow: "Operators",
           title: "Read the deal, not the box",
           body: "We assess the asset, the income and the structure together.",
@@ -92,6 +93,7 @@ export default function CommercialPage() {
           },
         ]}
         wide={{
+          image: "/images/people/warehouse-operator-tablet-001.png",
           eyebrow: "Structure",
           title: "Know it stacks before you apply",
           body: "Surface the weak points before a lender does.",

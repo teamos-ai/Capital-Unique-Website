@@ -96,6 +96,7 @@ export default function AgriculturePage() {
         heading="Seasonal, asset-backed rural capital"
         body="Funding that follows the agricultural cycle, secured against real rural assets — not a metro serviceability template."
         lead={{
+          image: "/images/editorial/agriculture-tractor-crop-field-sunset.png",
           eyebrow: "Operators",
           title: "Built around the season",
           body: "Repayment shaped to cash flow, not a fixed calendar month.",
@@ -115,6 +116,7 @@ export default function AgriculturePage() {
           },
         ]}
         wide={{
+          image: "/images/people/owner-client-meeting-001.png",
           eyebrow: "The cycle",
           title: "Capital that follows the cycle",
           body: "Structured for seasonal income and underlying asset value.",

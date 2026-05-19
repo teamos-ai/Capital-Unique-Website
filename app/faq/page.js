@@ -115,6 +115,7 @@ export default function FAQPage() {
         heading="Clarity, before the conversation"
         body="Straight answers to the questions that matter most."
         lead={{
+          image: "/images/people/owner-seated-cafe.jpeg",
           eyebrow: "Common questions",
           title: "How it actually works",
           body: "What we do, what we don't, and how fast.",
@@ -134,6 +135,7 @@ export default function FAQPage() {
           },
         ]}
         wide={{
+          image: "/images/editorial/codrington-headshot-bw.jpeg",
           eyebrow: "Direct",
           title: "Still unsure? Ask John",
           body: "A person answers — not an auto-reply.",

@@ -88,6 +88,7 @@ export default function PrivateCapitalPage() {
         heading="How private capital works here"
         body="Bespoke capital where structure, timing and discretion matter more than policy."
         lead={{
+          image: "/images/editorial/codrington-chess-strategy.jpeg",
           eyebrow: "Principals",
           title: "Structure over policy",
           body: "Decided on merit by a person — not a credit template.",
@@ -107,6 +108,7 @@ export default function PrivateCapitalPage() {
           },
         ]}
         wide={{
+          image: "/images/editorial/owner-portrait-cuff.png",
           eyebrow: "Access",
           title: "One decision-maker, end to end",
           body: "No committees, no hand-offs — just judgement.",

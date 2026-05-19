@@ -44,6 +44,7 @@ export default function GuidesPage() {
         heading="Frameworks worth keeping"
         body="Considered reading for borrowers, developers and wholesale investors."
         lead={{
+          image: "/images/books/walnut-bookshelf.jpeg",
           eyebrow: "The library",
           title: "Think clearly before you act",
           body: "The trade-offs, the structure, and the questions to ask.",
@@ -63,6 +64,7 @@ export default function GuidesPage() {
           },
         ]}
         wide={{
+          image: "/images/books/cu-branded-books.png",
           eyebrow: "Access",
           title: "Sent and unlocked instantly",
           body: "Twenty seconds, no autoresponder ladder.",

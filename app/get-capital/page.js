@@ -82,6 +82,7 @@ export default function GetCapitalPage() {
         heading="Built around the deal, not the bank box"
         body="Whether you're borrowing or deploying capital, the conversation starts the same way."
         lead={{
+          image: "/images/people/owner-handshake-lounge-001.png",
           eyebrow: "Borrowers",
           title: "Capital for complex scenarios",
           body: "Fast, considered decisions when the bank won't move.",
@@ -101,6 +102,7 @@ export default function GetCapitalPage() {
           },
         ]}
         wide={{
+          image: "/images/people/owner-portrait-navy-001.png",
           eyebrow: "Principal-led",
           title: "One principal, end to end",
           body: "From first conversation to funded outcome — same person.",

@@ -116,6 +116,7 @@ export default function ConstructionPage() {
         heading="Staged funding aligned to delivery risk"
         body="Construction capital drawn to the build, with the cost of finance exposed early."
         lead={{
+          image: "/images/people/construction-worker-window-install-001.png",
           eyebrow: "Builders",
           title: "Drawn to the build",
           body: "Progress payments matched to delivery, not estimates.",
@@ -135,6 +136,7 @@ export default function ConstructionPage() {
           },
         ]}
         wide={{
+          image: "/images/editorial/construction-rooftop-aerial-sunset.png",
           eyebrow: "Cost",
           title: "Capitalised cost, exposed early",
           body: "See the true cost of construction finance before you commit.",

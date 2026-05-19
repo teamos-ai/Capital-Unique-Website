@@ -96,6 +96,7 @@ export default function HowItWorksPage() {
         heading="Four steps, one decision-maker"
         body="A clear path from first conversation to funded outcome — no surprises."
         lead={{
+          image: "/images/people/client-meeting-female-advisor-golden-001.png",
           eyebrow: "The process",
           title: "Describe the scenario",
           body: "Plain language, no forms to wade through.",
@@ -115,6 +116,7 @@ export default function HowItWorksPage() {
           },
         ]}
         wide={{
+          image: "/images/people/team-reviewing-document.png",
           eyebrow: "Clarity",
           title: "Arrive already clear",
           body: "Shorter calls, sharper decisions, less wasted time.",

@@ -27,6 +27,7 @@ export default function CalculatorsPage() {
         heading="Model it before you commit"
         body="Practical tools that show the mechanics a lender or investor actually applies."
         lead={{
+          image: "/images/office/blueprint-review-001.png",
           eyebrow: "The tools",
           title: "Run the numbers",
           body: "Feasibility, cost of capital, serviceability — your figures.",
@@ -46,6 +47,7 @@ export default function CalculatorsPage() {
           },
         ]}
         wide={{
+          image: "/images/office/executive-desk-signing-skyline-sunset.png",
           eyebrow: "Caveat",
           title: "A starting point, not an answer",
           body: "Indicative modelling — the decision is a conversation.",

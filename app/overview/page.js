@@ -72,6 +72,7 @@ export default function OverviewPage() {
         heading="Deploy capital with clarity"
         body="Structured private credit for wholesale investors and family offices."
         lead={{
+          image: "/images/office/boardroom-round-table-aerial-001.png",
           eyebrow: "Investors",
           title: "Considered deal flow",
           body: "Opportunities assessed and structured before they reach you.",
@@ -91,6 +92,7 @@ export default function OverviewPage() {
           },
         ]}
         wide={{
+          image: "/images/people/handshake-meeting.jpeg",
           eyebrow: "Eligibility",
           title: "Wholesale & sophisticated only",
           body: "General information — not a product offer or personal advice.",
