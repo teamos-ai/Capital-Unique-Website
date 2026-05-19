@@ -104,6 +104,18 @@
   --chart-4: var(--cu-brandy-light);
   --chart-5: var(--cu-inkwell-light);
 
+  /* ── ICONOGRAPHY (squircle tile system) ─────────────────────────
+     Single source of truth for the brand icon treatment. `fg` is an
+     alias of Brandy Punch, so it auto-flips orange (dark) ↔ inkwell
+     (light) with the rest of the system — no new colours introduced.
+     Light baseline below; `.dark` overrides surface/border/shadow. */
+  --cu-icon-fg:      var(--cu-brandy-punch);
+  --cu-icon-surface: #FFFFFF;
+  --cu-icon-border:  rgba(12, 13, 15, 0.08);
+  --cu-icon-shadow:  0 1px 2px rgba(12, 13, 15, 0.06),
+                     0 6px 16px rgba(12, 13, 15, 0.10);
+  --cu-icon-radius:  30%;
+
   /* Sidebar (light) */
   --sidebar:                       #EEEEEE;
   --sidebar-foreground:            var(--cu-neutral-darkest);
@@ -144,6 +156,13 @@
   --input-background:     var(--cu-surface-ember);
   --switch-background:    var(--cu-neutral-dark);
   --ring:                 var(--cu-brandy-light);
+
+  /* Iconography — dark tile is an elevated neutral surface, not white,
+     so it reads as a raised chip on "The Vault" without glare. */
+  --cu-icon-surface: var(--cu-surface-char);
+  --cu-icon-border:  oklch(1 0 0 / 0.08);
+  --cu-icon-shadow:  0 1px 2px rgba(0, 0, 0, 0.50),
+                     0 8px 20px rgba(0, 0, 0, 0.45);
 
   /* Sidebar (dark) */
   --sidebar:                       var(--cu-surface-abyss);
@@ -277,6 +296,10 @@ html:not(.dark) {
   --color-cu-neutral-darker:   var(--cu-neutral-darker);
   --color-cu-neutral-darkest:  var(--cu-neutral-darkest);
 
+  --color-cu-icon-fg:      var(--cu-icon-fg);
+  --color-cu-icon-surface: var(--cu-icon-surface);
+  --color-cu-icon-border:  var(--cu-icon-border);
+
   --color-cu-surface-void:  var(--cu-surface-void);
   --color-cu-surface-abyss: var(--cu-surface-abyss);
   --color-cu-surface-vault: var(--cu-surface-vault);
@@ -317,6 +340,42 @@ html:not(.dark) {
   --radius-cu-xl:   1rem;      /* 16px */
   --radius-cu-2xl:  1.5rem;    /* 24px */
   --radius-cu-pill: 9999px;
+}
+
+/* ───────────────────────────────────────────────
+   ICONOGRAPHY — the canonical "squircle tile".
+   The ONLY sanctioned brand icon container. Adaptive
+   by theme via the --cu-icon-* tokens above. The glyph
+   inherits `currentColor` from --cu-icon-fg (Brandy in
+   dark, Inkwell in light). Untitled-UI-inspired glyph
+   spec is applied at the component (2px stroke, round
+   caps/joins, 24px grid).
+─────────────────────────────────────────────── */
+@layer components {
+  .cu-icon-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--cu-icon-fg);
+    background: var(--cu-icon-surface);
+    border: 1px solid var(--cu-icon-border);
+    border-radius: var(--cu-icon-radius);
+    box-shadow: var(--cu-icon-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .cu-icon-tile svg {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Subtle lift when the enclosing card is hovered. */
+  .group:hover .cu-icon-tile {
+    border-color: color-mix(in oklch, var(--cu-icon-fg) 35%, transparent);
+  }
 }
 
 @layer base {

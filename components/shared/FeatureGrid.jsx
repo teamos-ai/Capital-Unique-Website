@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import * as LucideIcons from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 
 export function FeatureGrid({
   eyebrow,
@@ -61,25 +61,21 @@ export function FeatureGrid({
         <div
           className={`mt-12 grid grid-cols-1 gap-5 ${colsClass} lg:gap-6 lg:mt-16`}
         >
-          {items.map((item, i) => {
-            const Icon = item.iconName ? LucideIcons[item.iconName] : null;
-            return (
-              <FeatureCard
-                key={item.title}
-                item={item}
-                Icon={Icon}
-                index={i}
-                variant={variant}
-              />
-            );
-          })}
+          {items.map((item, i) => (
+            <FeatureCard
+              key={item.title}
+              item={item}
+              index={i}
+              variant={variant}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function FeatureCard({ item, Icon, index, variant }) {
+function FeatureCard({ item, index, variant }) {
   const isFlat = variant === "flat";
 
   return (
@@ -95,16 +91,13 @@ function FeatureCard({ item, Icon, index, variant }) {
           : "rounded-2xl border border-border bg-cu-surface-vault p-7 transition-colors hover:bg-cu-surface-char"
       }
     >
-      {Icon && (
-        <div
-          className={
-            isFlat
-              ? "mb-4 inline-flex text-cu-brandy"
-              : "mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy"
-          }
-        >
-          <Icon size={isFlat ? 22 : 20} strokeWidth={1.5} />
-        </div>
+      {item.iconName && (
+        <BrandIcon
+          name={item.iconName}
+          size="md"
+          variant={isFlat ? "bare" : "tile"}
+          className={isFlat ? "mb-4" : "mb-5"}
+        />
       )}
       {item.eyebrow && <p className="heading-eyebrow mb-2">{item.eyebrow}</p>}
       <h3 className="heading-card">{item.title}</h3>

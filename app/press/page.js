@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
-import { Download, Mail, Phone, ExternalLink } from "lucide-react";
+import { Mail, Phone, ExternalLink } from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
@@ -182,9 +183,7 @@ export default function PressPage() {
                     {asset.note}
                   </p>
                 </div>
-                <div className="mt-1 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy group-hover:text-cu-brandy-light">
-                  <Download size={16} />
-                </div>
+                <BrandIcon name="Download" size="sm" className="mt-1" />
               </a>
             ))}
           </div>

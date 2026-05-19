@@ -1,37 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  Zap,
-  ShieldCheck,
-  Clock,
-  Building2,
-  Landmark,
-  TrendingUp,
-  Layers,
-  HardHat,
-  Sprout,
-  Handshake,
-  Compass,
-  Scale,
-  FileText,
-  Calculator,
-  Wrench,
-  Gauge,
-  Lock,
-  Users,
-  Target,
-  LineChart,
-  ImageIcon,
-} from "lucide-react";
-
-// Icons passed as strings (component refs can't cross the
-// server→client boundary).
-const ICONS = {
-  Zap, ShieldCheck, Clock, Building2, Landmark, TrendingUp, Layers,
-  HardHat, Sprout, Handshake, Compass, Scale, FileText, Calculator,
-  Wrench, Gauge, Lock, Users, Target, LineChart,
-};
+import { ImageIcon } from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 
 const FADE_IN = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
@@ -92,7 +63,6 @@ export function BentoSection({
 }
 
 function Tile({ tone, icon, eyebrow, title, body, image }) {
-  const Icon = ICONS[icon];
   const isImageTile = tone === "large" || tone === "large-wide";
 
   return (
@@ -129,8 +99,8 @@ function Tile({ tone, icon, eyebrow, title, body, image }) {
         </div>
       )}
       <div className="flex flex-col gap-3 p-8 lg:p-10">
-        {tone === "icon" && Icon && (
-          <Icon className="mb-2 h-6 w-6 text-cu-brandy" strokeWidth={1.5} />
+        {tone === "icon" && icon && (
+          <BrandIcon name={icon} size="md" className="mb-2" />
         )}
         {eyebrow && <p className="heading-eyebrow">{eyebrow}</p>}
         <h3 className="heading-card">{title}</h3>

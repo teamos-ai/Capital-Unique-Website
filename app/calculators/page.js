@@ -2,37 +2,9 @@ import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { BentoSection } from "@/components/shared/BentoSection";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 import { CALCULATORS } from "@/lib/calculators";
-import {
-  Building,
-  Clock,
-  BarChart3,
-  HardHat,
-  Receipt,
-  TrendingUp,
-  Home,
-  House,
-  Landmark,
-  PiggyBank,
-  ScrollText,
-  ArrowRightLeft,
-  ArrowRight,
-} from "lucide-react";
-
-const ICONS = {
-  Building,
-  Clock,
-  BarChart3,
-  HardHat,
-  Receipt,
-  TrendingUp,
-  Home,
-  House,
-  Landmark,
-  PiggyBank,
-  ScrollText,
-  ArrowRightLeft,
-};
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   alternates: { canonical: "/calculators" },
@@ -84,16 +56,13 @@ export default function CalculatorsPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {CALCULATORS.map((calc) => {
-              const Icon = ICONS[calc.icon] ?? Building;
               return (
                 <Link
                   key={calc.slug}
                   href={`/calculators/${calc.slug}`}
                   className="group flex flex-col rounded-2xl border border-border bg-cu-surface-vault p-8 transition-colors hover:bg-cu-surface-char"
                 >
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
-                    <Icon size={20} strokeWidth={1.5} />
-                  </div>
+                  <BrandIcon name={calc.icon} size="md" className="mb-5" />
                   <p className="text-xs uppercase tracking-[0.2em] text-cu-brandy">
                     {calc.eyebrow}
                   </p>

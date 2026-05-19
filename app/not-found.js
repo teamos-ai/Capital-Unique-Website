@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Home, MessageSquare, Search } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 
 export const metadata = {
   title: "Page not found",
@@ -9,19 +10,19 @@ export const metadata = {
 
 const QUICK_LINKS = [
   {
-    icon: Home,
+    iconName: "Home",
     label: "Home",
     href: "/",
     body: "Capital intelligently applied — start here.",
   },
   {
-    icon: MessageSquare,
+    iconName: "MessageSquare",
     label: "Speak with John",
     href: "/contact",
     body: "If you were looking for something specific, just ask.",
   },
   {
-    icon: Search,
+    iconName: "Search",
     label: "Site map",
     href: "/sitemap",
     body: "Every page on the site, in one place.",
@@ -58,9 +59,7 @@ export default function NotFound() {
             href={link.href}
             className="group rounded-2xl border border-border bg-cu-surface-vault p-6 transition-colors hover:bg-cu-surface-char"
           >
-            <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
-              <link.icon size={18} strokeWidth={1.5} />
-            </div>
+            <BrandIcon name={link.iconName} size="sm" className="mb-4" />
             <p className="font-serif text-lg font-semibold leading-tight">
               {link.label}
             </p>

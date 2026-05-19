@@ -2,7 +2,8 @@ import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { BentoSection } from "@/components/shared/BentoSection";
-import { ArrowRight, Building2, Landmark } from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   alternates: { canonical: "/get-capital" },
@@ -13,7 +14,7 @@ export const metadata = {
 
 const PATHWAYS = [
   {
-    icon: Building2,
+    iconName: "Building2",
     eyebrow: "For borrowers",
     title: "Strategic capital for complex decisions",
     body: "We work with businesses, developers, and investors who need funding structured around real-world objectives—not standardised lending models.",
@@ -21,7 +22,7 @@ const PATHWAYS = [
     cta: "Explore borrower pathway",
   },
   {
-    icon: Landmark,
+    iconName: "Landmark",
     eyebrow: "For investors",
     title: "Deploy capital with structure and control",
     body: "Capital Unique works with private investors and family offices seeking governed opportunities with clear terms, defined risk, and long-term alignment.",
@@ -130,9 +131,7 @@ export default function GetCapitalPage() {
                 href={p.href}
                 className="group flex flex-col rounded-2xl border border-border bg-cu-surface-vault p-8 transition-colors hover:bg-cu-surface-char md:p-10"
               >
-                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
-                  <p.icon size={20} strokeWidth={1.5} />
-                </div>
+                <BrandIcon name={p.iconName} size="md" className="mb-6" />
                 <p className="mb-2 text-xs uppercase tracking-[0.2em] text-cu-brandy">
                   {p.eyebrow}
                 </p>

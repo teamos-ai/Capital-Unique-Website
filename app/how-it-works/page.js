@@ -2,7 +2,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { CTABlock } from "@/components/shared/CTABlock";
 import { BentoSection } from "@/components/shared/BentoSection";
 import { FeatureGrid } from "@/components/shared/FeatureGrid";
-import { Eye, Compass, FileCheck, Send } from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 
 export const metadata = {
   alternates: { canonical: "/how-it-works" },
@@ -16,25 +16,25 @@ const STEPS = [
     n: "01",
     title: "Understand the deal",
     body: "We discuss your business objectives, timing, and structure so we can understand what you're trying to achieve.",
-    icon: Eye,
+    iconName: "Eye",
   },
   {
     n: "02",
     title: "Assess options",
     body: "We review the information and identify the most suitable funding approach based on your needs.",
-    icon: Compass,
+    iconName: "Compass",
   },
   {
     n: "03",
     title: "Confirm terms",
     body: "We clearly explain the proposed terms, costs, and conditions before anything moves forward.",
-    icon: FileCheck,
+    iconName: "FileCheck",
   },
   {
     n: "04",
     title: "Deploy funding",
     body: "Once agreed, we manage the process through to funding and remain involved as the capital is deployed.",
-    icon: Send,
+    iconName: "Send",
   },
 ];
 
@@ -144,9 +144,7 @@ export default function HowItWorksPage() {
                   className="rounded-2xl border border-border bg-cu-surface-vault p-8"
                 >
                   <div className="mb-5 flex items-center gap-4">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
-                      <step.icon size={20} strokeWidth={1.5} />
-                    </div>
+                    <BrandIcon name={step.iconName} size="md" />
                     <span className="font-serif text-2xl font-semibold tracking-tight text-cu-neutral-light">
                       {step.n}
                     </span>

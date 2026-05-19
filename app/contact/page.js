@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
-import { Mail, MessageSquare, Phone, MapPin, Clock, Smartphone, Printer } from "lucide-react";
+import { MapPin, Clock, Smartphone, Printer } from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 import { COMPANY } from "@/lib/company-info";
 
 export const metadata = {
@@ -11,21 +12,21 @@ export const metadata = {
 
 const CHANNELS = [
   {
-    icon: MessageSquare,
+    iconName: "MessageSquare",
     title: "Start with Charles A.I",
     body: "Map your scenario before the call. Charles A.I helps you arrive prepared.",
     href: "/charles-ai",
     cta: "Open Charles A.I",
   },
   {
-    icon: Mail,
+    iconName: "Mail",
     title: "Email John directly",
     body: "Detailed scenarios, supporting documents, or questions before a conversation.",
     href: COMPANY.emailHref,
     cta: COMPANY.email,
   },
   {
-    icon: Phone,
+    iconName: "Phone",
     title: "Call the office",
     body: "Direct access to John during business hours. No call centre, no triage.",
     href: COMPANY.phoneOfficeHref,
@@ -170,9 +171,7 @@ export default function ContactPage() {
                 href={c.href}
                 className="group rounded-2xl border border-border bg-cu-surface-vault p-6 transition-colors hover:bg-cu-surface-char"
               >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
-                  <c.icon size={18} strokeWidth={1.5} />
-                </div>
+                <BrandIcon name={c.iconName} size="sm" className="mb-4" />
                 <h3 className="font-serif text-lg font-semibold leading-tight tracking-tight">
                   {c.title}
                 </h3>

@@ -4,7 +4,7 @@
 // Use for principles, values, or anywhere a card grid would feel busy.
 
 import { motion } from "motion/react";
-import * as LucideIcons from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 
 export function StackedList({
   eyebrow,
@@ -38,7 +38,6 @@ export function StackedList({
         {/* Right: stacked list */}
         <ol className="flex flex-col">
           {items.map((item, i) => {
-            const Icon = item.iconName ? LucideIcons[item.iconName] : null;
             const isLast = i === items.length - 1;
             return (
               <motion.li
@@ -51,13 +50,9 @@ export function StackedList({
                   isLast ? "" : "border-b border-border/60"
                 }`}
               >
-                <div className="flex-shrink-0 pt-1">
-                  {Icon ? (
-                    <Icon
-                      size={22}
-                      strokeWidth={1.5}
-                      className="text-cu-brandy"
-                    />
+                <div className="flex-shrink-0 pt-0.5">
+                  {item.iconName ? (
+                    <BrandIcon name={item.iconName} size="md" />
                   ) : (
                     <span className="font-serif text-xl font-medium text-cu-brandy tabular-nums">
                       {String(i + 1).padStart(2, "0")}

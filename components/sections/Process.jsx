@@ -2,32 +2,33 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { Eye, Compass, FileCheck, Send, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { BrandIcon } from "@/components/shared/BrandIcon";
 
 const STEPS = [
   {
     n: "01",
     title: "Understand the deal",
     body: "We discuss your business objectives, timing, and structure so we can understand what you're trying to achieve.",
-    icon: Eye,
+    iconName: "Eye",
   },
   {
     n: "02",
     title: "Assess options",
     body: "We review the information and identify the most suitable funding approach based on your needs.",
-    icon: Compass,
+    iconName: "Compass",
   },
   {
     n: "03",
     title: "Confirm terms",
     body: "We clearly explain the proposed terms, costs, and conditions before anything moves forward.",
-    icon: FileCheck,
+    iconName: "FileCheck",
   },
   {
     n: "04",
     title: "Deploy funding",
     body: "Once agreed, we manage the process through to funding and remain involved as the capital is deployed.",
-    icon: Send,
+    iconName: "Send",
   },
 ];
 
@@ -76,9 +77,7 @@ export function Process() {
                 className="rounded-2xl border border-border bg-cu-surface-vault p-7 transition-colors hover:bg-cu-surface-char"
               >
                 <div className="mb-5 flex items-center gap-4">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-cu-brandy-darkest text-cu-brandy">
-                    <step.icon size={20} strokeWidth={1.5} />
-                  </div>
+                  <BrandIcon name={step.iconName} size="md" />
                   <span className="font-serif text-2xl font-semibold tracking-tight text-cu-neutral-light tabular-nums">
                     {step.n}
                   </span>
