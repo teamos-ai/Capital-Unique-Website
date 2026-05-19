@@ -161,6 +161,34 @@
   .legal-prose em {
     font-style: italic;
   }
+
+  /* ─── Iconography: the canonical "squircle tile" ──────────
+     The only sanctioned brand icon container. Adaptive by theme
+     via the --cu-icon-* tokens (theme.css): Brandy-orange glyph
+     on an elevated dark chip in dark mode; Inkwell-blue glyph on
+     a soft white chip in light mode. Glyph spec is Untitled-UI-
+     inspired (24px grid, 2px stroke, round caps/joins). */
+  .cu-icon-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--cu-icon-fg);
+    background: var(--cu-icon-surface);
+    border: 1px solid var(--cu-icon-border);
+    border-radius: var(--cu-icon-radius);
+    box-shadow: var(--cu-icon-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .cu-icon-tile svg {
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .group:hover .cu-icon-tile {
+    border-color: color-mix(in oklch, var(--cu-icon-fg) 35%, transparent);
+  }
 }
 
 /* ─── Brand scrollbars ────────────────────────────────────────────

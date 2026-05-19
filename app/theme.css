@@ -342,41 +342,12 @@ html:not(.dark) {
   --radius-cu-pill: 9999px;
 }
 
-/* ───────────────────────────────────────────────
-   ICONOGRAPHY — the canonical "squircle tile".
-   The ONLY sanctioned brand icon container. Adaptive
-   by theme via the --cu-icon-* tokens above. The glyph
-   inherits `currentColor` from --cu-icon-fg (Brandy in
-   dark, Inkwell in light). Untitled-UI-inspired glyph
-   spec is applied at the component (2px stroke, round
-   caps/joins, 24px grid).
-─────────────────────────────────────────────── */
-@layer components {
-  .cu-icon-tile {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: var(--cu-icon-fg);
-    background: var(--cu-icon-surface);
-    border: 1px solid var(--cu-icon-border);
-    border-radius: var(--cu-icon-radius);
-    box-shadow: var(--cu-icon-shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease,
-      border-color 0.2s ease;
-  }
-
-  .cu-icon-tile svg {
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  /* Subtle lift when the enclosing card is hovered. */
-  .group:hover .cu-icon-tile {
-    border-color: color-mix(in oklch, var(--cu-icon-fg) 35%, transparent);
-  }
-}
+/* NOTE: the .cu-icon-tile component class lives in app/globals.css
+   inside the existing @layer components block (declared AFTER the
+   tailwindcss import). It must NOT be declared here — theme.css is
+   imported before tailwindcss, so a @layer components here would
+   register that layer first and let Tailwind's base/Preflight
+   override every component utility (section-pad, headings, etc.). */
 
 @layer base {
   * {
