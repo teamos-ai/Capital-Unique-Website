@@ -136,7 +136,7 @@ export default function ConstructionPage() {
           },
         ]}
         wide={{
-          image: "/images/editorial/construction-rooftop-aerial-sunset.png",
+          image: "/images/people/tradesmen-work-van-loading-001.png",
           eyebrow: "Cost",
           title: "Capitalised cost, exposed early",
           body: "See the true cost of construction finance before you commit.",

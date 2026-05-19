@@ -7,7 +7,7 @@ import { createContext, useContext } from "react";
 export const PERSONA_IMAGES = [
   { src: "/images/editorial/codrington-headshot-bw.jpeg", alt: "John Codrington" },
   { src: "/images/people/owner-seated-lounge.jpeg", alt: "John Codrington" },
-  { src: "/images/editorial/owner-portrait-cuff.png", alt: "John Codrington" },
+  { src: "/images/people/owner-seated-cafe.jpeg", alt: "John Codrington" },
   { src: "/images/people/owner-handing-document.png", alt: "John Codrington" },
 ];
 

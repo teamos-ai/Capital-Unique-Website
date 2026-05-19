@@ -100,7 +100,7 @@ export default function PropertyDevelopmentPage() {
           },
         ]}
         wide={{
-          image: "/images/office/development-meeting-scale-model-sunset.png",
+          image: "/images/people/codrington-presenting-chart.jpeg",
           eyebrow: "Presentation",
           title: "Presented to get a fast yes",
           body: "Conservative numbers, an evidenced exit, risks named first.",

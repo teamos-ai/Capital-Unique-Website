@@ -102,7 +102,7 @@ export default function GetCapitalPage() {
           },
         ]}
         wide={{
-          image: "/images/people/owner-portrait-navy-001.png",
+          image: "/images/people/clients-couple-car-001.jpeg",
           eyebrow: "Principal-led",
           title: "One principal, end to end",
           body: "From first conversation to funded outcome — same person.",

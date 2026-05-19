@@ -108,7 +108,7 @@ export default function PrivateCapitalPage() {
           },
         ]}
         wide={{
-          image: "/images/editorial/owner-portrait-cuff.png",
+          image: "/images/office/reception-bench-painting.jpeg",
           eyebrow: "Access",
           title: "One decision-maker, end to end",
           body: "No committees, no hand-offs — just judgement.",
