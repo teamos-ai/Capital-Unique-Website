@@ -75,6 +75,36 @@ export default function PropertyDevelopmentPage() {
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Funding from site to settlement"
+        body="Clear structures for complex property deals — when the bank won't move on timing or presales."
+        lead={{
+          eyebrow: "Developers",
+          title: "When the bank won't move",
+          body: "Non-bank capital that reads feasibilities for a living.",
+        }}
+        points={[
+          {
+            icon: "Layers",
+            eyebrow: "The capital stack",
+            title: "Senior to equity, used deliberately",
+            body: "The least expensive money the deal can safely carry.",
+          },
+          {
+            icon: "Clock",
+            eyebrow: "Staged to delivery",
+            title: "Drawdowns aligned to the program",
+            body: "Funding that tracks the build, not the calendar.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Presentation",
+          title: "Presented to get a fast yes",
+          body: "Conservative numbers, an evidenced exit, risks named first.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-4xl">
           <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
@@ -142,36 +172,6 @@ export default function PropertyDevelopmentPage() {
           </div>
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Funding from site to settlement"
-        body="Clear structures for complex property deals — when the bank won't move on timing or presales."
-        lead={{
-          eyebrow: "Developers",
-          title: "When the bank won't move",
-          body: "Non-bank capital that reads feasibilities for a living.",
-        }}
-        points={[
-          {
-            icon: "Layers",
-            eyebrow: "The capital stack",
-            title: "Senior to equity, used deliberately",
-            body: "The least expensive money the deal can safely carry.",
-          },
-          {
-            icon: "Clock",
-            eyebrow: "Staged to delivery",
-            title: "Drawdowns aligned to the program",
-            body: "Funding that tracks the build, not the calendar.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Presentation",
-          title: "Presented to get a fast yes",
-          body: "Conservative numbers, an evidenced exit, risks named first.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Property in motion"

@@ -91,6 +91,36 @@ export default function BusinessPage() {
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="What working with us looks like"
+        body="Funding structured around timing, cash flow and the assets you actually have — not a policy template."
+        lead={{
+          eyebrow: "Operators",
+          title: "Built around real conditions",
+          body: "We read the business first, then design the capital to fit it.",
+        }}
+        points={[
+          {
+            icon: "Zap",
+            eyebrow: "Speed",
+            title: "Decisions in days, not quarters",
+            body: "Fast assessment when timing is the real constraint.",
+          },
+          {
+            icon: "ShieldCheck",
+            eyebrow: "When banks say no",
+            title: "Capital outside the policy box",
+            body: "Non-conforming scenarios considered on their merits.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Structure",
+          title: "The right structure beats the cheapest rate",
+          body: "Terms that fit the deal — assessed by a person, end to end.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-4xl">
           <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
@@ -163,36 +193,6 @@ export default function BusinessPage() {
           </div>
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Capital shaped to how your business runs"
-        body="Funding structured around timing, cash flow and the assets you actually have — not a policy template."
-        lead={{
-          eyebrow: "Operators",
-          title: "Built around real conditions",
-          body: "We read the business first, then design the capital to fit it.",
-        }}
-        points={[
-          {
-            icon: "Zap",
-            eyebrow: "Speed",
-            title: "Decisions in days, not quarters",
-            body: "Fast assessment when timing is the real constraint.",
-          },
-          {
-            icon: "ShieldCheck",
-            eyebrow: "When banks say no",
-            title: "Capital outside the policy box",
-            body: "Non-conforming scenarios considered on their merits.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Structure",
-          title: "The right structure beats the cheapest rate",
-          body: "Terms that fit the deal — assessed by a person, end to end.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Prepare"

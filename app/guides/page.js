@@ -39,6 +39,36 @@ export default function GuidesPage() {
         body="Considered frameworks for non-standard capital decisions. Each one is built to help you think clearly — the trade-offs, the structure, and the questions to ask."
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Frameworks worth keeping"
+        body="Considered reading for borrowers, developers and wholesale investors."
+        lead={{
+          eyebrow: "The library",
+          title: "Think clearly before you act",
+          body: "The trade-offs, the structure, and the questions to ask.",
+        }}
+        points={[
+          {
+            icon: "FileText",
+            eyebrow: "For borrowers",
+            title: "How non-bank capital works",
+            body: "When it beats the bank, and what it really costs.",
+          },
+          {
+            icon: "TrendingUp",
+            eyebrow: "For investors",
+            title: "A disciplined private-credit lens",
+            body: "How risk is priced and what to watch for.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Access",
+          title: "Sent and unlocked instantly",
+          body: "Twenty seconds, no autoresponder ladder.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-5xl">
           <TeaserGrid magnets={leadMagnetsByGroup("guides")} />
@@ -73,36 +103,6 @@ export default function GuidesPage() {
           </div>
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Frameworks worth keeping"
-        body="Considered reading for borrowers, developers and wholesale investors."
-        lead={{
-          eyebrow: "The library",
-          title: "Think clearly before you act",
-          body: "The trade-offs, the structure, and the questions to ask.",
-        }}
-        points={[
-          {
-            icon: "FileText",
-            eyebrow: "For borrowers",
-            title: "How non-bank capital works",
-            body: "When it beats the bank, and what it really costs.",
-          },
-          {
-            icon: "TrendingUp",
-            eyebrow: "For investors",
-            title: "A disciplined private-credit lens",
-            body: "How risk is priced and what to watch for.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Access",
-          title: "Sent and unlocked instantly",
-          body: "Twenty seconds, no autoresponder ladder.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Beyond the framework"

@@ -50,6 +50,36 @@ export default function CalculatorsPage() {
         body="Six tools that model the mechanics of a scenario the way a lender or a disciplined investor actually would. Work the numbers, then have the real conversation."
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Model it before you commit"
+        body="Practical tools that show the mechanics a lender or investor actually applies."
+        lead={{
+          eyebrow: "The tools",
+          title: "Run the numbers",
+          body: "Feasibility, cost of capital, serviceability — your figures.",
+        }}
+        points={[
+          {
+            icon: "Calculator",
+            eyebrow: "Feasibility & cost",
+            title: "Residual land value & true cost",
+            body: "What a site carries and what finance really costs.",
+          },
+          {
+            icon: "LineChart",
+            eyebrow: "Yield & cover",
+            title: "DSCR, investor yield, stress",
+            body: "Does the deal stack at the assessed rate?",
+          },
+        ]}
+        wide={{
+          eyebrow: "Caveat",
+          title: "A starting point, not an answer",
+          body: "Indicative modelling — the decision is a conversation.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -93,36 +123,6 @@ export default function CalculatorsPage() {
           </p>
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Model it before you commit"
-        body="Practical tools that show the mechanics a lender or investor actually applies."
-        lead={{
-          eyebrow: "The tools",
-          title: "Run the numbers",
-          body: "Feasibility, cost of capital, serviceability — your figures.",
-        }}
-        points={[
-          {
-            icon: "Calculator",
-            eyebrow: "Feasibility & cost",
-            title: "Residual land value & true cost",
-            body: "What a site carries and what finance really costs.",
-          },
-          {
-            icon: "LineChart",
-            eyebrow: "Yield & cover",
-            title: "DSCR, investor yield, stress",
-            body: "Does the deal stack at the assessed rate?",
-          },
-        ]}
-        wide={{
-          eyebrow: "Caveat",
-          title: "A starting point, not an answer",
-          body: "Indicative modelling — the decision is a conversation.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Beyond the numbers"

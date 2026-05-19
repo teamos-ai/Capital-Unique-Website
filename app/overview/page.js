@@ -67,6 +67,36 @@ export default function OverviewPage() {
         secondaryCta={{ label: "Speak with John", href: "/contact" }}
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Deploy capital with clarity"
+        body="Structured private credit for wholesale investors and family offices."
+        lead={{
+          eyebrow: "Investors",
+          title: "Considered deal flow",
+          body: "Opportunities assessed and structured before they reach you.",
+        }}
+        points={[
+          {
+            icon: "ShieldCheck",
+            eyebrow: "Security-first",
+            title: "Conservative, real-property security",
+            body: "Where you rank matters more than the headline rate.",
+          },
+          {
+            icon: "TrendingUp",
+            eyebrow: "Risk-priced",
+            title: "Return that reflects the risk",
+            body: "Paid for the risk taken — not the risk understated.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Eligibility",
+          title: "Wholesale & sophisticated only",
+          body: "General information — not a product offer or personal advice.",
+        }}
+      />
+
       <FeatureGrid
         eyebrow="What sets us apart"
         heading="What sets us apart from traditional lending"
@@ -188,36 +218,6 @@ export default function OverviewPage() {
           </div>
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Deploy capital with clarity"
-        body="Structured private credit for wholesale investors and family offices."
-        lead={{
-          eyebrow: "Investors",
-          title: "Considered deal flow",
-          body: "Opportunities assessed and structured before they reach you.",
-        }}
-        points={[
-          {
-            icon: "ShieldCheck",
-            eyebrow: "Security-first",
-            title: "Conservative, real-property security",
-            body: "Where you rank matters more than the headline rate.",
-          },
-          {
-            icon: "TrendingUp",
-            eyebrow: "Risk-priced",
-            title: "Return that reflects the risk",
-            body: "Paid for the risk taken — not the risk understated.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Eligibility",
-          title: "Wholesale & sophisticated only",
-          body: "General information — not a product offer or personal advice.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Move forward"

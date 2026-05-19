@@ -91,6 +91,36 @@ export default function HowItWorksPage() {
         secondaryCta={{ label: "Speak with John", href: "/contact" }}
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Four steps, one decision-maker"
+        body="A clear path from first conversation to funded outcome — no surprises."
+        lead={{
+          eyebrow: "The process",
+          title: "Describe the scenario",
+          body: "Plain language, no forms to wade through.",
+        }}
+        points={[
+          {
+            icon: "Compass",
+            eyebrow: "Map the structure",
+            title: "Frame options and constraints",
+            body: "What's possible, what isn't, and why.",
+          },
+          {
+            icon: "Handshake",
+            eyebrow: "Explore options",
+            title: "Take a clear summary forward",
+            body: "Into a focused, decisive conversation.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Clarity",
+          title: "Arrive already clear",
+          body: "Shorter calls, sharper decisions, less wasted time.",
+        }}
+      />
+
       {/* Process */}
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-7xl">
@@ -180,36 +210,6 @@ export default function HowItWorksPage() {
         body="Capital Unique serves borrowers with complex needs and structured ambitions. This is not for everyone, and that is intentional."
         items={FIT}
         columns={4}
-      />
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="From conversation to capital"
-        body="A clear path — four steps, one decision-maker, no surprises."
-        lead={{
-          eyebrow: "The process",
-          title: "Describe the scenario",
-          body: "Plain language, no forms to wade through.",
-        }}
-        points={[
-          {
-            icon: "Compass",
-            eyebrow: "Map the structure",
-            title: "Frame options and constraints",
-            body: "What's possible, what isn't, and why.",
-          },
-          {
-            icon: "Handshake",
-            eyebrow: "Explore options",
-            title: "Take a clear summary forward",
-            body: "Into a focused, decisive conversation.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Clarity",
-          title: "Arrive already clear",
-          body: "Shorter calls, sharper decisions, less wasted time.",
-        }}
       />
 
       <CTABlock

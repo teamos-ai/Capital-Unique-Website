@@ -110,6 +110,36 @@ export default function FAQPage() {
         body="Common questions about Capital Unique, non-bank lending, and how our capital advisory services work. If you don't find your answer here, get in touch."
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Clarity, before the conversation"
+        body="Straight answers to the questions that matter most."
+        lead={{
+          eyebrow: "Common questions",
+          title: "How it actually works",
+          body: "What we do, what we don't, and how fast.",
+        }}
+        points={[
+          {
+            icon: "Scale",
+            eyebrow: "What we don't do",
+            title: "Wholesale & commercial only",
+            body: "No consumer credit; no Australian Credit Licence.",
+          },
+          {
+            icon: "Clock",
+            eyebrow: "How fast",
+            title: "Indicative timeframes, set honestly",
+            body: "Speed depends on the scenario — we say so plainly.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Direct",
+          title: "Still unsure? Ask John",
+          body: "A person answers — not an auto-reply.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-3xl">
           {FAQ_GROUPS.map((group) => (
@@ -139,36 +169,6 @@ export default function FAQPage() {
           ))}
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Clarity, before the conversation"
-        body="Straight answers to the questions that matter most."
-        lead={{
-          eyebrow: "Common questions",
-          title: "How it actually works",
-          body: "What we do, what we don't, and how fast.",
-        }}
-        points={[
-          {
-            icon: "Scale",
-            eyebrow: "What we don't do",
-            title: "Wholesale & commercial only",
-            body: "No consumer credit; no Australian Credit Licence.",
-          },
-          {
-            icon: "Clock",
-            eyebrow: "How fast",
-            title: "Indicative timeframes, set honestly",
-            body: "Speed depends on the scenario — we say so plainly.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Direct",
-          title: "Still unsure? Ask John",
-          body: "A person answers — not an auto-reply.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Still have questions"

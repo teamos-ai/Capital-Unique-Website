@@ -83,6 +83,36 @@ export default function PrivateCapitalPage() {
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="How private capital works here"
+        body="Bespoke capital where structure, timing and discretion matter more than policy."
+        lead={{
+          eyebrow: "Principals",
+          title: "Structure over policy",
+          body: "Decided on merit by a person — not a credit template.",
+        }}
+        points={[
+          {
+            icon: "Lock",
+            eyebrow: "Discreet",
+            title: "Considered quietly",
+            body: "Handled personally, with confidentiality assumed.",
+          },
+          {
+            icon: "Compass",
+            eyebrow: "Bespoke",
+            title: "Built around the scenario",
+            body: "A structure designed for the deal, not a product.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Access",
+          title: "One decision-maker, end to end",
+          body: "No committees, no hand-offs — just judgement.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-4xl">
           <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
@@ -156,36 +186,6 @@ export default function PrivateCapitalPage() {
           </p>
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Discreet financing for non-standard scenarios"
-        body="Bespoke capital where structure, timing and discretion matter more than policy."
-        lead={{
-          eyebrow: "Principals",
-          title: "Structure over policy",
-          body: "Decided on merit by a person — not a credit template.",
-        }}
-        points={[
-          {
-            icon: "Lock",
-            eyebrow: "Discreet",
-            title: "Considered quietly",
-            body: "Handled personally, with confidentiality assumed.",
-          },
-          {
-            icon: "Compass",
-            eyebrow: "Bespoke",
-            title: "Built around the scenario",
-            body: "A structure designed for the deal, not a product.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Access",
-          title: "One decision-maker, end to end",
-          body: "No committees, no hand-offs — just judgement.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Begin with structure"

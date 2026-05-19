@@ -20,14 +20,8 @@ export default function FreeToolsIndexPage() {
         body="Checklists, cheat sheets and swipe files built to be used, not filed. Each one is sent and unlocked instantly."
       />
 
-      <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
-        <div className="mx-auto max-w-5xl">
-          <TeaserGrid magnets={leadMagnetsByGroup("free-tools")} />
-        </div>
-      </section>
-
       <BentoSection
-        eyebrow="In practice"
+        eyebrow="The approach"
         heading="Built to be used, not filed"
         body="Checklists, cheat sheets and swipe files for the real conversation."
         lead={{
@@ -55,6 +49,12 @@ export default function FreeToolsIndexPage() {
           body: "Sent and unlocked the moment you ask.",
         }}
       />
+
+      <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mx-auto max-w-5xl">
+          <TeaserGrid magnets={leadMagnetsByGroup("free-tools")} />
+        </div>
+      </section>
 
       <CTABlock
         eyebrow="Beyond the tools"

@@ -91,6 +91,36 @@ export default function AgriculturePage() {
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Seasonal, asset-backed rural capital"
+        body="Funding that follows the agricultural cycle, secured against real rural assets — not a metro serviceability template."
+        lead={{
+          eyebrow: "Operators",
+          title: "Built around the season",
+          body: "Repayment shaped to cash flow, not a fixed calendar month.",
+        }}
+        points={[
+          {
+            icon: "Sprout",
+            eyebrow: "Agribusiness",
+            title: "Operations, expansion, transition",
+            body: "Capital for the work actually happening on the land.",
+          },
+          {
+            icon: "Landmark",
+            eyebrow: "Asset-backed",
+            title: "Conservative rural security",
+            body: "Lending against the value of real rural property.",
+          },
+        ]}
+        wide={{
+          eyebrow: "The cycle",
+          title: "Capital that follows the cycle",
+          body: "Structured for seasonal income and underlying asset value.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-4xl">
           <p className="mb-5 text-xs uppercase tracking-[0.25em] text-cu-brandy">
@@ -155,36 +185,6 @@ export default function AgriculturePage() {
           </div>
         </div>
       </section>
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Seasonal, asset-backed rural capital"
-        body="Funding that follows the agricultural cycle, secured against real rural assets."
-        lead={{
-          eyebrow: "Operators",
-          title: "Built around the season",
-          body: "Repayment shaped to cash flow, not a fixed calendar month.",
-        }}
-        points={[
-          {
-            icon: "Sprout",
-            eyebrow: "Agribusiness",
-            title: "Operations, expansion, transition",
-            body: "Capital for the work happening on the land.",
-          },
-          {
-            icon: "Landmark",
-            eyebrow: "Asset-backed",
-            title: "Conservative rural security",
-            body: "Lending against the value of real rural property.",
-          },
-        ]}
-        wide={{
-          eyebrow: "The cycle",
-          title: "Capital that follows the cycle",
-          body: "Structured for seasonal income and asset value.",
-        }}
-      />
 
       <CTABlock
         eyebrow="Map your scenario"

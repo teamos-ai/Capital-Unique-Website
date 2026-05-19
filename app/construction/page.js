@@ -111,6 +111,36 @@ export default function ConstructionPage() {
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
+      <BentoSection
+        eyebrow="The approach"
+        heading="Staged funding aligned to delivery risk"
+        body="Construction capital drawn to the build, with the cost of finance exposed early."
+        lead={{
+          eyebrow: "Builders",
+          title: "Drawn to the build",
+          body: "Progress payments matched to delivery, not estimates.",
+        }}
+        points={[
+          {
+            icon: "HardHat",
+            eyebrow: "Progress-aware",
+            title: "Funding that tracks the program",
+            body: "Each draw released against real, verified progress.",
+          },
+          {
+            icon: "Gauge",
+            eyebrow: "Risk-staged",
+            title: "Priced to the stage",
+            body: "Cost reflects delivery risk, not a flat assumption.",
+          },
+        ]}
+        wide={{
+          eyebrow: "Cost",
+          title: "Capitalised cost, exposed early",
+          body: "See the true cost of construction finance before you commit.",
+        }}
+      />
+
       <section className="bg-cu-surface-abyss section-pad px-6 lg:px-10">
         <div className="mx-auto max-w-3xl">
           <p className="heading-eyebrow mb-5">How it works</p>
@@ -183,36 +213,6 @@ export default function ConstructionPage() {
         body="Construction capital suits real projects with real timelines. It does not suit speculation or rate-first conversations."
         items={FIT}
         background="abyss"
-      />
-
-      <BentoSection
-        eyebrow="In practice"
-        heading="Staged funding aligned to delivery risk"
-        body="Construction capital drawn to the build, with the cost of finance exposed early."
-        lead={{
-          eyebrow: "Builders",
-          title: "Drawn to the build",
-          body: "Progress payments matched to delivery, not estimates.",
-        }}
-        points={[
-          {
-            icon: "HardHat",
-            eyebrow: "Progress-aware",
-            title: "Funding that tracks the program",
-            body: "Each draw released against real, verified progress.",
-          },
-          {
-            icon: "Gauge",
-            eyebrow: "Risk-staged",
-            title: "Priced to the stage",
-            body: "Cost reflects delivery risk, not a flat assumption.",
-          },
-        ]}
-        wide={{
-          eyebrow: "Cost",
-          title: "Capitalised cost, exposed early",
-          body: "See the true cost of construction finance before you commit.",
-        }}
       />
 
       <CTABlock
