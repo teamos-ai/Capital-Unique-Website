@@ -116,7 +116,7 @@ export default function HowItWorksPage() {
           },
         ]}
         wide={{
-          image: "/images/people/team-reviewing-document.png",
+          image: "/images/people/clients-walking-conversation-cafe-001.png",
           eyebrow: "Clarity",
           title: "Arrive already clear",
           body: "Shorter calls, sharper decisions, less wasted time.",

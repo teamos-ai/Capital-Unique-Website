@@ -92,7 +92,7 @@ export default function OverviewPage() {
           },
         ]}
         wide={{
-          image: "/images/people/handshake-meeting.jpeg",
+          image: "/images/people/clients-cafe-conversation-women-001.png",
           eyebrow: "Eligibility",
           title: "Wholesale & sophisticated only",
           body: "General information — not a product offer or personal advice.",
