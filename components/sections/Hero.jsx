@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { InteractiveGridPattern } from "@/components/shared/InteractiveGridPattern";
 
 const HEADLINE_WORDS = ["Capital", "Intelligently", "Applied."];
 
@@ -23,7 +24,14 @@ export function Hero() {
       ref={sectionRef}
       className="relative overflow-hidden bg-background section-pad-hero px-6 lg:px-10"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-y-16 lg:grid-cols-[1.1fr_1fr] lg:gap-x-16 xl:gap-x-24">
+      <InteractiveGridPattern
+        width={32}
+        height={32}
+        squares={[50, 25]}
+        className="[mask-image:radial-gradient(60%_60%_at_50%_45%,white,transparent)]"
+        squaresClassName="hover:fill-cu-brandy/30"
+      />
+      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-y-16 lg:grid-cols-[1.1fr_1fr] lg:gap-x-16 xl:gap-x-24">
         {/* Left: copy + CTAs */}
         <div className="flex flex-col justify-center max-w-2xl">
           <motion.p

@@ -189,6 +189,24 @@
   .group:hover .cu-icon-tile {
     border-color: color-mix(in oklch, var(--cu-icon-fg) 35%, transparent);
   }
+
+  /* ─── Interactive grid (hero background) ──────────────────
+     The squircle-tile trick again: drive stroke + hover fill
+     through `var(--cu-brandy-punch)` so the colour follows the
+     same Brandy→Inkwell theme flip (orange in dark, blue in
+     light). We can't use Tailwind's stroke-cu-brandy/12 utility
+     for this because Tailwind v4 with an opacity modifier inlines
+     the colour at build time and the runtime var is lost. */
+  .cu-grid-square {
+    fill: transparent;
+    stroke: color-mix(in oklab, var(--cu-brandy-punch) 12%, transparent);
+    transition: fill 250ms ease-out, stroke 250ms ease-out;
+  }
+  .cu-grid-square:hover {
+    fill: color-mix(in oklab, var(--cu-brandy-punch) 30%, transparent);
+    stroke: color-mix(in oklab, var(--cu-brandy-punch) 45%, transparent);
+    transition-duration: 80ms;
+  }
 }
 
 /* ─── Brand scrollbars ────────────────────────────────────────────

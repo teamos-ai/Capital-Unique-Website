@@ -1,4 +1,5 @@
 import { CharlesCommandBar } from "@/components/charles/CharlesCommandBar";
+import { InteractiveGridPattern } from "@/components/shared/InteractiveGridPattern";
 
 export const metadata = {
   alternates: { canonical: "/charles-ai" },
@@ -9,8 +10,15 @@ export const metadata = {
 
 export default function CharlesAIPage() {
   return (
-    <section className="bg-background section-pad-hero px-6 lg:px-10">
-      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+    <section className="relative overflow-hidden bg-background section-pad-hero px-6 lg:px-10">
+      <InteractiveGridPattern
+        width={32}
+        height={32}
+        squares={[50, 25]}
+        className="[mask-image:radial-gradient(60%_60%_at_50%_45%,white,transparent)]"
+        squaresClassName="hover:fill-cu-brandy/30"
+      />
+      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center">
         <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border bg-cu-surface-vault py-1.5 pl-2 pr-4">
           <span className="relative inline-flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cu-brandy opacity-60" />
