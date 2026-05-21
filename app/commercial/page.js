@@ -93,7 +93,7 @@ export default function CommercialPage() {
           },
         ]}
         wide={{
-          image: "/images/people/warehouse-operator-tablet-001.png",
+          image: "/images/editorial/commercial-architectural-rendering-001.png",
           eyebrow: "Structure",
           title: "Know it stacks before you apply",
           body: "Surface the weak points before a lender does.",
