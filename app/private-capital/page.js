@@ -88,7 +88,7 @@ export default function PrivateCapitalPage() {
         heading="How private capital works here"
         body="Bespoke capital where structure, timing and discretion matter more than policy."
         lead={{
-          image: "/images/editorial/codrington-chess-strategy.jpeg",
+          image: "/images/people/clients-chess-garden-001.png",
           eyebrow: "Principals",
           title: "Structure over policy",
           body: "Decided on merit by a person — not a credit template.",
