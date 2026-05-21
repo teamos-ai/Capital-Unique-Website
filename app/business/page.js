@@ -116,7 +116,7 @@ export default function BusinessPage() {
           },
         ]}
         wide={{
-          image: "/images/office/desk-laptop-tablet-planning-001.png",
+          image: "/images/people/cafe-barista-customer-002.png",
           eyebrow: "Structure",
           title: "The right structure beats the cheapest rate",
           body: "Terms that fit the deal — assessed by a person, end to end.",
