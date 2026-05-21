@@ -207,6 +207,76 @@
     stroke: color-mix(in oklab, var(--cu-brandy-punch) 45%, transparent);
     transition-duration: 80ms;
   }
+
+  /* ─── Light rays (hero background) ─────────────────────────
+     Two soft conic-gradient "fans" of beams falling from the top
+     of the container, blurred and gently drifting. Colour rides
+     var(--cu-brandy-punch) so it flips orange↔inkwell with the
+     theme. The bottom fade-mask on the wrapper stops the rays
+     blooming into the next section. Reduced-motion is already
+     covered globally in theme.css. */
+  .cu-light-rays {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 55%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      black 55%,
+      transparent 100%
+    );
+  }
+  .cu-light-rays-beam {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 130vw;
+    max-width: 1800px;
+    aspect-ratio: 1 / 1.2;
+    transform: translateX(-50%);
+    filter: blur(28px);
+    background: conic-gradient(
+      from 180deg at 50% 0%,
+      transparent 0deg,
+      color-mix(in oklab, var(--cu-brandy-punch) 16%, transparent) 8deg,
+      transparent 20deg,
+      transparent 60deg,
+      color-mix(in oklab, var(--cu-brandy-punch) 12%, transparent) 72deg,
+      transparent 88deg,
+      transparent 130deg,
+      color-mix(in oklab, var(--cu-brandy-punch) 14%, transparent) 142deg,
+      transparent 158deg,
+      transparent 180deg
+    );
+  }
+  .cu-light-rays-beam-a {
+    animation: cu-rays-drift-a 22s ease-in-out infinite;
+  }
+  .cu-light-rays-beam-b {
+    animation: cu-rays-drift-b 30s ease-in-out infinite;
+    opacity: 0.7;
+  }
+  @keyframes cu-rays-drift-a {
+    0%,
+    100% {
+      transform: translateX(-50%) rotate(8deg);
+    }
+    50% {
+      transform: translateX(-50%) rotate(-6deg);
+    }
+  }
+  @keyframes cu-rays-drift-b {
+    0%,
+    100% {
+      transform: translateX(-50%) rotate(-10deg);
+    }
+    50% {
+      transform: translateX(-50%) rotate(12deg);
+    }
+  }
 }
 
 /* ─── Brand scrollbars ────────────────────────────────────────────

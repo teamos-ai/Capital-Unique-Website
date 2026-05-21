@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
+import { LightRays } from "@/components/shared/LightRays";
 
 export function PageHero({
   eyebrow,
@@ -14,9 +15,10 @@ export function PageHero({
   const alignClass = align === "center" ? "mx-auto text-center" : "";
 
   return (
-    <section className="bg-background section-pad-hero px-6 lg:px-10">
+    <section className="relative overflow-hidden bg-background section-pad-hero px-6 lg:px-10">
+      <LightRays />
       <div
-        className={`mx-auto max-w-5xl ${alignClass}`}
+        className={`relative z-10 mx-auto max-w-5xl ${alignClass}`}
       >
         {eyebrow && (
           <motion.p
