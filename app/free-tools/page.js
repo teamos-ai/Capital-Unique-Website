@@ -62,7 +62,7 @@ export default function FreeToolsIndexPage() {
         eyebrow="Beyond the tools"
         heading="When you'd rather just talk it through"
         body="Tools get you prepared. A scenario gets decided in a conversation — with one person, end to end."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

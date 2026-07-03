@@ -79,7 +79,7 @@ export function LeadMagnetShell({ magnet, children }) {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-md bg-cu-brandy px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-cu-brandy-light"
             >
-              Speak with John
+              Speak with Team
               <ArrowRight size={15} />
             </Link>
             <Link

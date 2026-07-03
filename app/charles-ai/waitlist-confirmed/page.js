@@ -71,7 +71,7 @@ export default function WaitlistConfirmedPage() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-md bg-cu-brandy px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-cu-brandy-light transition-colors"
             >
-              Speak with John now
+              Speak with Team now
               <ArrowRight size={16} />
             </Link>
             {SOCIAL_FOLLOW && (

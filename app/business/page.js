@@ -87,7 +87,7 @@ export default function BusinessPage() {
         eyebrow="Business"
         heading="Capital structured for real business conditions"
         body="We work with business owners and operators who need capital shaped around complexity—timing, cash flow, assets, and structure—rather than standard bank criteria."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -201,7 +201,7 @@ export default function BusinessPage() {
         heading="Start with Charles A.I"
         body="Charles A.I helps you clarify your scenario before speaking with our team. It's preparation, not advice—a smart first step for business owners navigating complex capital decisions."
         primaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
-        secondaryCta={{ label: "Speak with John", href: "/contact" }}
+        secondaryCta={{ label: "Speak with Team", href: "/contact" }}
       />
     </>
   );

@@ -73,7 +73,7 @@ export default function GetCapitalPage() {
         eyebrow="Get Capital"
         heading="Capital, without the constraints of banks."
         body="Capital Unique operates where traditional lending ends. We connect borrowers seeking flexible finance with investors looking to deploy capital intelligently—quietly, clearly, and with intent."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -208,7 +208,7 @@ export default function GetCapitalPage() {
         eyebrow="Get capital"
         heading="Capital designed around your strategy"
         body="Development deals, acquisitions, and complex strategies require more than standard lending models. Let's discuss what's possible."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

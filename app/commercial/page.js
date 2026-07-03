@@ -64,7 +64,7 @@ export default function CommercialPage() {
         eyebrow="Commercial"
         heading="Commercial finance for operating businesses"
         body="Capital structured around how your business actually runs. When banks stall, we focus on what can move."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -187,7 +187,7 @@ export default function CommercialPage() {
         eyebrow="Move forward"
         heading="Ready to structure your commercial capital"
         body="Capital structured around how your business actually runs. Let's discuss your scenario."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

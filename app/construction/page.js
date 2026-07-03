@@ -107,7 +107,7 @@ export default function ConstructionPage() {
         eyebrow="Construction"
         heading="Construction capital for active projects"
         body="Staged funding aligned to your build timeline, draws, and delivery risk."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -221,7 +221,7 @@ export default function ConstructionPage() {
         eyebrow="Structure your build"
         heading="Ready to structure your build"
         body="Construction capital works when timing, draws, and risk are clear from the start."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

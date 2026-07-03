@@ -23,7 +23,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "Where is Capital Unique based?",
-        a: "Capital Unique is an Australian firm based in Victoria. We work with clients across Australia.",
+        a: "Capital Unique is an Australian firm based in New South Wales. We work with clients across Australia.",
       },
     ],
   },
@@ -176,7 +176,7 @@ export default function FAQPage() {
         eyebrow="Still have questions"
         heading="Get a direct answer"
         body="If your question isn't covered above, the fastest way to get a clear answer is a direct conversation."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

@@ -65,7 +65,7 @@ export default async function CalculatorPage({ params }) {
         eyebrow="Beyond the numbers"
         heading="A number is a starting point, not an answer"
         body="These tools model the mechanics. The decision depends on structure, timing and the specifics of your scenario — that's the conversation worth having."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

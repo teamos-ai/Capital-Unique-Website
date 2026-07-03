@@ -88,7 +88,7 @@ export default function HowItWorksPage() {
         heading="Understanding the path forward"
         body="Non-bank capital works differently than traditional lending. This page explains how Capital Unique approaches complex scenarios with structure and discipline."
         primaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
-        secondaryCta={{ label: "Speak with John", href: "/contact" }}
+        secondaryCta={{ label: "Speak with Team", href: "/contact" }}
       />
 
       <BentoSection
@@ -216,7 +216,7 @@ export default function HowItWorksPage() {
         eyebrow="Move forward"
         heading="Ready to move forward"
         body="Start with Charles A.I to map your scenario, or speak directly with our team for guidance."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

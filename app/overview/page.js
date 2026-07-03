@@ -64,7 +64,7 @@ export default function OverviewPage() {
         heading="Capital designed around your strategy."
         body="We provide tailored funding solutions for businesses, developers, and investors who value clarity, speed, and structure. Whether you're building, acquiring, or repositioning capital, we design finance to match your objectives."
         primaryCta={{ label: "Get capital", href: "/get-capital" }}
-        secondaryCta={{ label: "Speak with John", href: "/contact" }}
+        secondaryCta={{ label: "Speak with Team", href: "/contact" }}
       />
 
       <BentoSection
@@ -225,7 +225,7 @@ export default function OverviewPage() {
         eyebrow="Move forward"
         heading="Capital structured around real strategy"
         body="A conversation with Capital Unique begins with understanding your situation, without obligation or pressure."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

@@ -99,7 +99,7 @@ export default function CalculatorsPage() {
         eyebrow="Beyond the numbers"
         heading="Numbers tell part of the story"
         body="Calculators give you a starting point. The real conversation begins with understanding your situation, structure and timing."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

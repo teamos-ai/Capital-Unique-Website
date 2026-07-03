@@ -48,7 +48,7 @@ export function AboutHero() {
               href="/contact"
               className="inline-flex items-center rounded-md bg-cu-brandy px-6 py-3 text-sm font-medium text-white shadow-sm hover:bg-cu-brandy-light transition-colors"
             >
-              Speak with John
+              Speak with Team
             </Link>
             <Link
               href="/charles-ai"

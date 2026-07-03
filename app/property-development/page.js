@@ -71,7 +71,7 @@ export default function PropertyDevelopmentPage() {
         eyebrow="Property Development"
         heading="Capital for development"
         body="Clear structures for complex property deals. Capital designed to move when timing matters."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -180,7 +180,7 @@ export default function PropertyDevelopmentPage() {
         heading="Development deals structured for reality"
         body="Charles A.I helps you map your deal first. Structure. Timing. Fit. Arrive prepared. Have better conversations."
         primaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
-        secondaryCta={{ label: "Speak with John", href: "/contact" }}
+        secondaryCta={{ label: "Speak with Team", href: "/contact" }}
       />
     </>
   );

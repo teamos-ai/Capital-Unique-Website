@@ -87,7 +87,7 @@ export default function AgriculturePage() {
         eyebrow="Agriculture"
         heading="Capital for rural operations"
         body="Seasonal. Asset-backed. Built for how farming actually works. Capital structured around land, stock, equipment, and timing—not bank formulas."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -193,7 +193,7 @@ export default function AgriculturePage() {
         heading="Ready to move forward"
         body="Map your agricultural scenario with clarity before committing to a conversation. Charles A.I helps agricultural operators clarify their position, timing, and capital structure."
         primaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
-        secondaryCta={{ label: "Speak with John", href: "/contact" }}
+        secondaryCta={{ label: "Speak with Team", href: "/contact" }}
       />
     </>
   );

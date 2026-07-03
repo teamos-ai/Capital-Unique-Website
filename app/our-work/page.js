@@ -72,7 +72,7 @@ export default function OurWorkPage() {
         eyebrow="Our work"
         heading="Capital deployed, outcomes delivered"
         body="A selection of recent scenarios, anonymised. Each illustrates how we structure capital to fit the reality of a deal — timing, assets, and risk — rather than fitting deals into a template."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -147,7 +147,7 @@ export default function OurWorkPage() {
         eyebrow="Your scenario"
         heading="Every deal is its own structure"
         body="If something here resembles your situation, the next step is a direct conversation."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

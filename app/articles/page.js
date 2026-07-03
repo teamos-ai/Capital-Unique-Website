@@ -90,7 +90,7 @@ export default function ArticlesPage() {
         heading="Stay informed on private finance"
         body="Subscribe to receive new articles as they're published—no spam, just considered writing."
         primaryCta={{ label: "Subscribe", href: "#newsletter" }}
-        secondaryCta={{ label: "Speak with John", href: "/contact" }}
+        secondaryCta={{ label: "Speak with Team", href: "/contact" }}
       />
     </>
   );

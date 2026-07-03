@@ -242,25 +242,6 @@ export default function ContactPage() {
               <div className="h-px bg-border/60" />
 
               {/* Mobile */}
-              <div className="flex items-start gap-3">
-                <Smartphone
-                  size={18}
-                  strokeWidth={1.5}
-                  className="mt-0.5 flex-shrink-0 text-cu-brandy"
-                />
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-foreground">Mobile</p>
-                  <p className="mt-1.5 text-sm">
-                    <a
-                      href={COMPANY.phoneMobileHref}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {COMPANY.phoneMobile}
-                    </a>
-                  </p>
-                </div>
-              </div>
-
               {/* Fax */}
               <div className="flex items-start gap-3">
                 <Printer

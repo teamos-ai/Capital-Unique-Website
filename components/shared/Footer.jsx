@@ -162,7 +162,7 @@ export function Footer() {
             constitute personal financial, legal, or tax advice. Capital Unique
             does not hold an Australian Credit Licence and does not provide
             consumer credit, credit assistance, or financial product advice.
-            Services are limited to wholesale and commercial scenarios. See our{" "}
+            See our{" "}
             <Link
               href="/disclaimer"
               className="underline underline-offset-2 hover:text-foreground"

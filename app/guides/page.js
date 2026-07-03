@@ -110,7 +110,7 @@ export default function GuidesPage() {
         eyebrow="Beyond the framework"
         heading="When your scenario doesn't fit a guide"
         body="Frameworks help you think. Real scenarios deserve a direct conversation. We're ready when you are."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
     </>

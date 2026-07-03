@@ -89,13 +89,6 @@ export default function PressPage() {
                   <Phone size={14} />
                   {COMPANY.phoneOffice} (office)
                 </a>
-                <a
-                  href={COMPANY.phoneMobileHref}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-cu-brandy hover:text-cu-brandy-light"
-                >
-                  <Phone size={14} />
-                  {COMPANY.phoneMobile} (mobile)
-                </a>
               </div>
             </div>
             <div>

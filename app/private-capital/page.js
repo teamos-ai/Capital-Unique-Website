@@ -79,7 +79,7 @@ export default function PrivateCapitalPage() {
         eyebrow="Private Capital"
         heading="Private capital for complex scenarios"
         body="Structured, discreet financing designed for non-standard requirements that fall outside traditional bank lending. Capital Unique assesses your situation on its merits, not policy."
-        primaryCta={{ label: "Speak with John", href: "/contact" }}
+        primaryCta={{ label: "Speak with Team", href: "/contact" }}
         secondaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
       />
 
@@ -194,7 +194,7 @@ export default function PrivateCapitalPage() {
         heading="Clarity begins with structure"
         body="Private capital works when traditional lending cannot. Start with Charles A.I to clarify your fit."
         primaryCta={{ label: "Start with Charles A.I", href: "/charles-ai" }}
-        secondaryCta={{ label: "Speak with John", href: "/contact" }}
+        secondaryCta={{ label: "Speak with Team", href: "/contact" }}
       />
     </>
   );

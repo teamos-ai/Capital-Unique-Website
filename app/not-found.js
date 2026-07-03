@@ -17,7 +17,7 @@ const QUICK_LINKS = [
   },
   {
     iconName: "MessageSquare",
-    label: "Speak with John",
+    label: "Speak with Team",
     href: "/contact",
     body: "If you were looking for something specific, just ask.",
   },
