@@ -29,7 +29,7 @@ const COMMANDS = [
   },
   {
     cmd: "/scenario",
-    label: "Send a scenario to John",
+    label: "Send a scenario to the Team",
     desc: "Describe a structure or what-if and get a considered view.",
     icon: Send,
     href: "/contact",
@@ -171,7 +171,7 @@ export function CharlesCommandBar() {
                   </p>
                   <p className="mt-3 text-base leading-relaxed text-foreground">
                     Charles A.I is in active development. Until it&apos;s live,
-                    John will take this directly — you&apos;ll get a considered
+                    The Team will take this directly — you&apos;ll get a considered
                     answer, not an auto-reply.
                   </p>
                   <div className="mt-5 flex flex-wrap gap-3">
@@ -180,7 +180,7 @@ export function CharlesCommandBar() {
                       onClick={() => router.push("/contact")}
                       className="inline-flex items-center gap-2 rounded-md bg-cu-brandy px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-cu-brandy-light"
                     >
-                      Send this to John
+                      Send this to the Team
                       <Send size={15} />
                     </button>
                     <button
@@ -344,7 +344,7 @@ export function CharlesCommandBar() {
       </div>
 
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Charles A.I is in active development. Conversations are guided to John
+        Charles A.I is in active development. Conversations are guided to the Team
         until launch — you always reach a person.
       </p>
     </div>

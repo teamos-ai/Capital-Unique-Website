@@ -7,7 +7,7 @@ export const metadata = {
   alternates: { canonical: "/contact" },
   title: "Contact",
   description:
-    "Speak directly with John Codrington at Capital Unique. A conversation begins with understanding your situation, without obligation or pressure.",
+    "Speak directly with the Team at Capital Unique. A conversation begins with understanding your situation, without obligation or pressure.",
 };
 
 const CHANNELS = [
@@ -20,7 +20,7 @@ const CHANNELS = [
   },
   {
     iconName: "Mail",
-    title: "Email John directly",
+    title: "Email the Team directly",
     body: "Detailed scenarios, supporting documents, or questions before a conversation.",
     href: COMPANY.emailHref,
     cta: COMPANY.email,
@@ -28,7 +28,7 @@ const CHANNELS = [
   {
     iconName: "Phone",
     title: "Call the office",
-    body: "Direct access to John during business hours. No call centre, no triage.",
+    body: "Direct access to the Team during business hours. No call centre, no triage.",
     href: COMPANY.phoneOfficeHref,
     cta: COMPANY.phoneOffice,
   },
@@ -40,7 +40,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         heading="A direct conversation"
-        body="A conversation with Capital Unique begins with understanding your situation, without obligation or pressure. John reviews every enquiry personally."
+        body="A conversation with Capital Unique begins with understanding your situation, without obligation or pressure. The Team reviews every enquiry personally."
       />
 
       <section className="bg-cu-surface-abyss px-6 py-20 lg:px-10 lg:py-28">

@@ -137,7 +137,7 @@ export default function FAQPage() {
         wide={{
           image: "/images/editorial/codrington-headshot-bw.jpeg",
           eyebrow: "Direct",
-          title: "Still unsure? Ask John",
+          title: "Still unsure? Ask the Team",
           body: "A person answers — not an auto-reply.",
         }}
       />

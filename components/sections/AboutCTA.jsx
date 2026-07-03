@@ -26,7 +26,7 @@ export function AboutCTA() {
 
         <div className="relative z-10">
           <p className="heading-eyebrow mb-5">Direct conversation</p>
-          <h2 className="heading-section">Ready to speak with John</h2>
+          <h2 className="heading-section">Ready to speak with the Team</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
             A conversation with Capital Unique begins with understanding your
             situation, without obligation or pressure.

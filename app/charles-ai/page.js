@@ -35,7 +35,7 @@ export default function CharlesAIPage() {
         <p className="mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
           No vague advice. No forms to wade through. Describe your scenario —
           Charles maps the structure, timing and constraints before you speak
-          with John.
+          with the Team.
         </p>
         <CharlesCommandBar />
       </div>

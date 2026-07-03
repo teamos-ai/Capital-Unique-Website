@@ -26,7 +26,7 @@ const FAQ = [
   },
   {
     q: "Is this financial advice?",
-    a: "No. These guides are general information and education only — not personal financial, credit, tax or investment advice. For your specific scenario, speak with John directly.",
+    a: "No. These guides are general information and education only — not personal financial, credit, tax or investment advice. For your specific scenario, speak with the Team directly.",
   },
 ];
 

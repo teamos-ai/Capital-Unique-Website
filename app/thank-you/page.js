@@ -31,7 +31,7 @@ export default function ThankYouPage() {
             Thank you
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            Your message has reached us. John reviews every enquiry personally
+            Your message has reached us. The Team reviews every enquiry personally
             and we respond within one business day.
           </p>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">

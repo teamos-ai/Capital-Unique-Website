@@ -23,7 +23,7 @@ export function DocumentDelivery() {
             className="object-cover object-center"
           />
         </div>
-        <h1 className="heading-section mt-5">Deliver files directly to John</h1>
+        <h1 className="heading-section mt-5">Deliver files directly to the Team</h1>
         <p className="mt-3 text-base text-muted-foreground">
           John Codrington · Founder, {COMPANY.name}
         </p>

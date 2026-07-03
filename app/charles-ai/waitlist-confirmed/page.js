@@ -64,7 +64,7 @@ export default function WaitlistConfirmedPage() {
           </p>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
             In the meantime, if your scenario is time-sensitive, you can speak
-            with John directly.
+            with the Team directly.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
