@@ -3,6 +3,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { Mail, Phone, ExternalLink } from "lucide-react";
 import { BrandIcon } from "@/components/shared/BrandIcon";
 import { COMPANY } from "@/lib/company-info";
+import { CASE_STUDIES } from "@/lib/case-studies";
 
 export const metadata = {
   alternates: { canonical: "/press" },
@@ -10,24 +11,6 @@ export const metadata = {
   description:
     "Press contact, brand assets, and approved background for journalists writing about Capital Unique and the non-bank capital market in Australia.",
 };
-
-const QUOTES = [
-  {
-    quote:
-      "Non-bank capital is not an alternative to banking. It is a different discipline — slower to assess, faster to commit, and built around what a deal can actually service.",
-    context: "On the role of non-bank lending in the Australian market.",
-  },
-  {
-    quote:
-      "Speed is the consequence of clarity. When the structure is right, the timeline takes care of itself.",
-    context: "On how Capital Unique approaches deal structuring.",
-  },
-  {
-    quote:
-      "Sophisticated borrowers and investors do not need more options. They need fewer, better-structured ones — explained clearly.",
-    context: "On the principal-led model.",
-  },
-];
 
 const ASSETS = [
   {
@@ -123,30 +106,50 @@ export default function PressPage() {
       <section className="bg-background px-6 py-20 lg:px-10 lg:py-28">
         <div className="mx-auto max-w-5xl">
           <p className="text-xs uppercase tracking-[0.25em] text-cu-brandy">
-            Approved quotes
+            Case studies
           </p>
           <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
-            For attribution to John Codrington
+            Anonymised deal scenarios for background
           </h2>
-          <p className="mt-4 text-base text-muted-foreground">
-            The following statements are pre-approved for direct quotation. For
-            commentary on a specific topic, please email the press desk.
+          <p className="mt-4 max-w-2xl text-base text-muted-foreground">
+            Real engagements, anonymised, that journalists are welcome to draw
+            on when writing about Capital Unique and John Codrington. Each shows
+            how the firm structures capital in situations mainstream lenders
+            decline. Figures are rounded and clients are not identified. For
+            detail on a specific scenario, email the press desk.
           </p>
-          <div className="mt-12 space-y-6">
-            {QUOTES.map((q, i) => (
-              <blockquote
-                key={i}
-                className="rounded-2xl border border-border bg-cu-surface-vault p-8 md:p-10"
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {CASE_STUDIES.map((cs) => (
+              <article
+                key={cs.headline}
+                className="flex flex-col rounded-2xl border border-border bg-cu-surface-vault p-8 md:p-10"
               >
-                <p className="font-serif text-xl leading-snug text-foreground md:text-2xl">
-                  &ldquo;{q.quote}&rdquo;
+                <div className="flex items-baseline justify-between gap-4">
+                  <p className="text-xs uppercase tracking-[0.25em] text-cu-brandy">
+                    {cs.sector}
+                  </p>
+                  <p className="text-sm font-semibold text-cu-brandy">
+                    {cs.capital}
+                  </p>
+                </div>
+                <h3 className="mt-4 font-serif text-xl font-semibold leading-tight tracking-tight md:text-2xl">
+                  {cs.headline}
+                </h3>
+                <p className="mt-4 text-base text-muted-foreground">
+                  {cs.outcome}
                 </p>
-                <footer className="mt-4 text-sm text-muted-foreground">
-                  — John Codrington · {q.context}
-                </footer>
-              </blockquote>
+              </article>
             ))}
           </div>
+          <p className="mt-8 text-xs text-muted-foreground">
+            Case studies are anonymised. Capital figures are rounded and each
+            outcome is specific to that engagement; nothing here predicts or
+            guarantees a particular result. Further recent work is on our{" "}
+            <Link href="/our-work" className="underline hover:text-foreground">
+              Our Work
+            </Link>{" "}
+            page.
+          </p>
         </div>
       </section>
 
