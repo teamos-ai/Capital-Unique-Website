@@ -28,7 +28,7 @@ export default function CharlesAIPage() {
             Charles A.I
           </span>
           <span className="text-xs text-muted-foreground">
-            In active development
+            Live now
           </span>
         </div>
         <h1 className="heading-hero">Your shortcut to the right capital.</h1>

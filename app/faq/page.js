@@ -61,7 +61,7 @@ const FAQ_GROUPS = [
       },
       {
         q: "Is Charles A.I available now?",
-        a: "Charles A.I is on the waitlist. Join the waitlist on the Charles A.I page and we'll let you know when it's ready.",
+        a: "Yes — Charles is live. Head to the Charles A.I page, describe your scenario or run a quick calculation, and Charles will help you get things clear before you speak with the team.",
       },
     ],
   },

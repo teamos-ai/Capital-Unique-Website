@@ -271,7 +271,7 @@ export function CharlesCommandBar() {
       )}
 
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Charles A.I is in active development and gives general information only, not financial advice.
+        Charles A.I gives general information only, not financial advice.
         Conversations are guided to the team — you always reach a person.
       </p>
     </div>
