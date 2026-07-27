@@ -24,10 +24,20 @@ export function InteractiveGridPattern({
   ...props
 }) {
   const [horizontal, vertical] = squares;
+  const vbWidth = width * horizontal;
+  const vbHeight = height * vertical;
   return (
     <svg
-      width={width * horizontal}
-      height={height * vertical}
+      width={vbWidth}
+      height={vbHeight}
+      // viewBox + slice make the grid scale to *cover* and stay centred in
+      // the element at any viewport size. Without it the SVG has no viewBox,
+      // so the fixed-pixel grid anchors top-left and leaves the right/bottom
+      // bare on wide screens — which pushed the radial-mask "vignette"
+      // off-centre from the hero content (see /charles-ai). Covering +
+      // centring keeps the vignette wrapped symmetrically around the content.
+      viewBox={`0 0 ${vbWidth} ${vbHeight}`}
+      preserveAspectRatio="xMidYMid slice"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full",
         className

@@ -27,7 +27,7 @@ export function DonutChart({ data, centerLabel, centerValue }) {
   let offset = 0;
 
   return (
-    <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:gap-7">
+    <div className="flex flex-col items-center gap-5 sm:flex-row sm:gap-7">
       <svg viewBox="0 0 140 140" className="h-36 w-36 shrink-0 -rotate-90">
         <circle
           cx="70"

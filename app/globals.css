@@ -208,6 +208,20 @@
     transition-duration: 80ms;
   }
 
+  /* Radial vignette mask for the InteractiveGridPattern behind the heroes.
+     Fades the grid out toward the edges so it haloes the hero content.
+     Ships the -webkit- prefix alongside the standard property (like
+     .cu-light-rays) so the vignette still applies on pre-15.4 Safari —
+     without it the grid would show hard rectangular edges there. */
+  .cu-grid-vignette {
+    -webkit-mask-image: radial-gradient(
+      60% 60% at 50% 45%,
+      white,
+      transparent
+    );
+    mask-image: radial-gradient(60% 60% at 50% 45%, white, transparent);
+  }
+
   /* ─── Light rays (hero background) ─────────────────────────
      Two soft conic-gradient "fans" of beams falling from the top
      of the container, blurred and gently drifting. Colour rides

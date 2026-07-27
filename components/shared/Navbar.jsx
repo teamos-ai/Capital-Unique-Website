@@ -283,7 +283,9 @@ function DesktopNavItem({ item, isOpen, onOpen, onClose }) {
           >
             <div
               className={`rounded-xl border border-border bg-cu-surface-vault p-2 shadow-2xl shadow-black/40 backdrop-blur-xl ${
-                item.children.length > 4 ? "w-[640px]" : "min-w-[300px]"
+                item.children.length > 4
+                  ? "w-[min(640px,calc(100vw-2rem))]"
+                  : "min-w-[300px]"
               }`}
             >
               <div
