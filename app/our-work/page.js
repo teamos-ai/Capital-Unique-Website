@@ -10,58 +10,49 @@ export const metadata = {
 
 const CASE_STUDIES = [
   {
-    sector: "Property Development",
-    headline: "Bridging a settlement timing gap on a Melbourne mid-rise",
-    structure: "Senior secured · 9-month term · staged drawdown",
-    capital: "$8.2M",
+    sector: "Business",
+    headline: "Refinancing an expired corporate facility out of default",
+    structure: "Temporary facility to discharge the outgoing lender, then a long-term refinance",
+    capital: "$1.9M",
     outcome:
-      "Capital deployed within 14 days of initial conversation. Project settled on schedule and refinanced to construction funding ahead of feasibility window closing.",
-    tags: ["Bridging", "Property", "Melbourne"],
-  },
-  {
-    sector: "Commercial",
-    headline: "Working capital for a regional logistics operator through a transition",
-    structure: "Asset-backed facility · 24-month term · interest only",
-    capital: "$3.5M",
-    outcome:
-      "Funded through an ownership transition where bank lending paused. Operator retained customer contracts and completed handover without disruption.",
-    tags: ["Working capital", "Transition", "Commercial"],
-  },
-  {
-    sector: "Construction",
-    headline: "Cost-overrun rescue on a residential build in Brisbane",
-    structure: "Second mortgage · staged release tied to milestones",
-    capital: "$1.6M",
-    outcome:
-      "Released against verified progress with cost engineer sign-off at each draw. Project completed and handed over on revised timeline.",
-    tags: ["Construction", "Cost overrun", "Brisbane"],
+      "A corporate borrower's business facility had expired and a previous broker could not move it. Exit fees and a high default rate were mounting, and the principal was overseas on a family matter. We arranged a temporary facility to discharge the outgoing lender and negotiated favourable discharge terms. The matter has since settled, which restored order and eased the default costs. Once the remaining loan-to-value conditions are met, it refinances to a long-term principal and interest facility at a materially lower rate.",
+    tags: ["Refinance", "Non-bank", "Corporate"],
   },
   {
     sector: "Private Capital",
-    headline: "Discreet liquidity arrangement against a family office portfolio",
-    structure: "Asset-backed · bespoke covenants · long horizon",
-    capital: "Confidential",
+    headline: "A private facility to reset a corporate group after the 2020 pandemic",
+    structure: "Private facility across two securities, then a short-term bridge through the restructure",
+    capital: "$1.23M",
     outcome:
-      "Structured to match the client's tax position and trust arrangements. Capital available on standby with drawdown at the client's discretion.",
-    tags: ["Private capital", "Family office", "Bespoke"],
+      "A corporate group came through the 2020 pandemic with damaged credit files after circumstances outside their control, which put mainstream refinancing out of reach. We put a private facility in place to discharge the mortgages across both properties and finalise a company administration, which gave them room to restructure and repair their credit history. A short-term facility carried them through the delays, and we have since secured indicative approval for a long-term facility at a substantially better rate, subject to the final credit matters being resolved.",
+    tags: ["Private credit", "Restructure", "Corporate"],
+  },
+  {
+    sector: "Construction",
+    headline: "Completion capital for a builder whose lender would not fund the finish",
+    structure: "Additional construction funding secured against verified end value",
+    capital: "$900K",
+    outcome:
+      "A licensed building team had fully drawn their original construction facility, and their lender would not review or extend it to finish the works in progress. The project valuation showed there was still clear headroom to cover the additional funds. We secured approval for the funding needed to complete the build and bring the property to sale, so the team could move on to their next project.",
+    tags: ["Construction", "Completion capital", "Builders"],
   },
   {
     sector: "Agriculture",
-    headline: "Seasonal capital for a Riverina cropping operation",
-    structure: "Working capital · revolver aligned to harvest cycle",
-    capital: "$2.1M",
+    headline: "Refinancing a defaulted rural facility around a succession plan",
+    structure: "Family-office facility structured for succession and an eventual sale",
+    capital: "$400K",
     outcome:
-      "Capital aligned to planting and harvest timing rather than monthly servicing. Repaid in full at harvest with no extension required.",
-    tags: ["Agriculture", "Seasonal", "Riverina"],
+      "A farming partnership on a rural property had been placed in a poorly structured working-capital loan that quietly expired and fell into default, unnoticed for months while a steep default rate ran. Introduced through the owners' legal advisers, we discharged that facility and rebuilt the structure around their succession plan. That cleared the way to sell the property and move to the coast for retirement. We arranged the facility through one of our family-office relationships that specialises in rural property.",
+    tags: ["Agriculture", "Succession", "Refinance"],
   },
   {
-    sector: "Business",
-    headline: "Growth capital for a specialist services business acquiring a competitor",
-    structure: "Term loan · 36-month amortisation · earn-out aligned",
-    capital: "$4.8M",
+    sector: "Property Development",
+    headline: "Development funding for an agistment property built for the equine market",
+    structure: "Development facility covering council approvals and construction",
+    capital: "$565K",
     outcome:
-      "Capital structured around the acquisition earn-out so servicing matched cashflow ramp. Acquisition completed; business doubled in 18 months.",
-    tags: ["Acquisition", "Business", "Services"],
+      "A landowner running an agistment operation in Victoria wanted to develop the site for the equine market with accommodation cabins, fencing and stabling, but the project fell outside what traditional lenders would fund. The cabin kits were already on hand. We funded the council approval fees and construction costs, and put the balance toward an investment property purchase. On completion, the improved asset positions the owner to refinance to an institutional lender.",
+    tags: ["Development", "Rural land", "Council approvals"],
   },
 ];
 
