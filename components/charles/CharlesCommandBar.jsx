@@ -1,12 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Script from "next/script";
 import { AnimatePresence, motion } from "motion/react";
 import {
   Search,
   Plus,
   ArrowUp,
-  CornerDownLeft,
   Sparkles,
   Briefcase,
   Send,
@@ -14,8 +14,9 @@ import {
   GitCompareArrows,
   Layers,
   Loader2,
-  Check,
+  X,
 } from "lucide-react";
+import { HANDOVER_FORM, handoverFormSrc, GHL_FORM_HOST } from "@/lib/ghl-forms";
 
 // Charles opens with this (display-only — not sent to the model, which gets
 // its identity from the system prompt).
@@ -39,8 +40,6 @@ const CHIPS = [
   { text: "/compare bridging vs term debt" },
   { text: "/stack construction — senior + mezzanine" },
 ];
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function CharlesCommandBar() {
   const inputRef = useRef(null);
@@ -332,41 +331,36 @@ function TypingDots() {
   );
 }
 
-// ── Lead capture ─────────────────────────────────────────────────────────
+// ── Lead capture — embeds the GHL "Hand Over to John" form ────────────────
+// The form is a cross-origin GHL iframe (it owns submission + John's workflow).
+// We wrap it in a design-system card that flips with the site theme, pass the
+// current theme (?cu) so the form's own custom CSS/JS can match it, remount it
+// when the theme flips, and pass a short transcript (?conversation) that a
+// hidden field in the form builder can receive.
+function useSiteTheme() {
+  const [theme, setTheme] = useState("dark");
+  useEffect(() => {
+    const read = () =>
+      setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+    read();
+    const obs = new MutationObserver(read);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+  return theme;
+}
+
+function buildTranscript(messages) {
+  return messages
+    .filter((m) => (m.role === "user" || m.role === "assistant") && !m.error && m.content?.trim())
+    .slice(-10)
+    .map((m) => `${m.role === "user" ? "Client" : "Charles"}: ${m.content.trim()}`)
+    .join("\n");
+}
+
 function LeadCapture({ messages }) {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [consent, setConsent] = useState(false);
-  const [state, setState] = useState("idle"); // idle | submitting | done | error
-
-  const valid = name.trim() && EMAIL_RE.test(email.trim()) && consent;
-
-  async function submit(e) {
-    e.preventDefault();
-    if (!valid || state === "submitting") return;
-    setState("submitting");
-    const firstUser = messages.find((m) => m.role === "user")?.content || "";
-    try {
-      const res = await fetch("/api/charles/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), messages, summary: firstUser.slice(0, 300) }),
-      });
-      setState(res.ok ? "done" : "error");
-    } catch {
-      setState("error");
-    }
-  }
-
-  if (state === "done") {
-    return (
-      <div className="mt-5 flex items-center gap-3 rounded-2xl border border-cu-brandy/40 bg-cu-brandy-darkest px-5 py-4 text-sm text-cu-brandy-lighter">
-        <Check size={18} className="shrink-0" />
-        <span>You&apos;re in — the team will be in touch personally. Thanks for the detail.</span>
-      </div>
-    );
-  }
+  const theme = useSiteTheme();
 
   if (!open) {
     return (
@@ -383,57 +377,43 @@ function LeadCapture({ messages }) {
     );
   }
 
+  const src = handoverFormSrc({ theme, conversation: buildTranscript(messages) });
+
   return (
-    <form onSubmit={submit} className="mt-5 rounded-2xl border border-border bg-cu-surface-vault p-5">
-      <p className="text-sm font-medium text-foreground">Leave your details and the team will follow up.</p>
-      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          aria-label="Your name"
-          className="rounded-md border border-border bg-input-background px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email address"
-          aria-label="Email address"
-          className="rounded-md border border-border bg-input-background px-3.5 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-cu-brandy-light"
-        />
-      </div>
-      <label className="mt-3 flex cursor-pointer items-start gap-2.5 text-xs leading-relaxed text-muted-foreground">
-        <input
-          type="checkbox"
-          checked={consent}
-          onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 h-3.5 w-3.5 shrink-0 accent-cu-brandy"
-        />
-        <span>By sending this, you agree the team may contact you about your enquiry. Your chat is shared with the team so they can help.</span>
-      </label>
-      {state === "error" && (
-        <p className="mt-3 text-xs text-[oklch(0.7_0.15_25)]">
-          That didn&apos;t go through. Try again, or email hello@capitalunique.com directly.
-        </p>
-      )}
-      <div className="mt-4 flex items-center gap-3">
-        <button
-          type="submit"
-          disabled={!valid || state === "submitting"}
-          className="inline-flex items-center gap-2 rounded-md bg-cu-brandy px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-cu-brandy-light disabled:opacity-40"
-        >
-          {state === "submitting" ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
-          Send to the team
-        </button>
+    <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-cu-surface-vault">
+      <div className="flex items-start justify-between gap-4 border-b border-border px-5 py-3.5">
+        <div>
+          <p className="text-sm font-medium text-foreground">Hand this to John</p>
+          <p className="mt-0.5 text-xs text-muted-foreground">
+            Leave your details and the team will follow up personally.
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          aria-label="Close"
+          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-cu-surface-char hover:text-foreground"
         >
-          Not yet
+          <X size={16} />
         </button>
       </div>
-    </form>
+      <iframe
+        key={theme}
+        src={src}
+        title={HANDOVER_FORM.name}
+        id={`inline-${HANDOVER_FORM.id}`}
+        data-layout="{'id':'INLINE'}"
+        data-form-name={HANDOVER_FORM.name}
+        data-height={String(HANDOVER_FORM.height)}
+        data-layout-iframe-id={`inline-${HANDOVER_FORM.id}`}
+        data-form-id={HANDOVER_FORM.id}
+        data-trigger-type="alwaysShow"
+        data-activation-type="alwaysActivated"
+        data-deactivation-type="neverDeactivate"
+        className="block w-full bg-cu-surface-vault"
+        style={{ height: `${HANDOVER_FORM.height}px`, border: "none" }}
+      />
+      <Script src={`${GHL_FORM_HOST}/js/form_embed.js`} strategy="afterInteractive" />
+    </div>
   );
 }
