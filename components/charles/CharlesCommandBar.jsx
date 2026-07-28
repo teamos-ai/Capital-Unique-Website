@@ -65,6 +65,15 @@ export function CharlesCommandBar() {
     if (el) el.scrollTop = el.scrollHeight;
   }, [messages]);
 
+  // Auto-grow the textarea to fit pasted / multi-line content (capped, then
+  // it scrolls). Resets to one line when the field is cleared after sending.
+  useEffect(() => {
+    const el = inputRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 192)}px`;
+  }, [input]);
+
   const setLastAssistant = useCallback((content, error = false) => {
     setMessages((prev) => {
       const copy = [...prev];
@@ -170,20 +179,27 @@ export function CharlesCommandBar() {
 
         {/* Input row */}
         <div className="relative z-10">
-          <div className="flex items-center gap-3 px-5 pt-5">
-            <Search size={18} className="shrink-0 text-muted-foreground" />
-            <input
+          <div className="flex items-start gap-3 px-5 pt-5">
+            <Search size={18} className="mt-1 shrink-0 text-muted-foreground" />
+            <textarea
               ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onFocus={() => setFocused(true)}
               onBlur={() => setTimeout(() => setFocused(false), 120)}
               onKeyDown={onKeyDown}
-              placeholder={started ? "Reply to Charles, or type / for actions" : "Ask Charles, or type / for actions"}
+              rows={1}
+              placeholder={
+                started
+                  ? "Reply to Charles — paste dot points or figures if it's easier"
+                  : "Ask Charles, or paste your scenario — dot points welcome"
+              }
               aria-label="Ask Charles A.I"
-              className="w-full bg-transparent py-1 text-base text-foreground placeholder:text-muted-foreground focus:outline-none"
+              className="max-h-48 w-full resize-none overflow-y-auto bg-transparent py-1 text-base leading-relaxed text-foreground placeholder:text-muted-foreground focus:outline-none"
             />
-            <kbd className="hidden shrink-0 rounded border border-border px-1.5 py-0.5 text-[11px] text-muted-foreground sm:block">/</kbd>
+            <kbd className="mt-1 hidden shrink-0 rounded border border-border px-1.5 py-0.5 text-[11px] text-muted-foreground sm:block">
+              ↵
+            </kbd>
           </div>
 
           {/* Slash menu */}
@@ -281,7 +297,7 @@ export function CharlesCommandBar() {
 function UserBubble({ children }) {
   return (
     <div className="mb-4 flex justify-end">
-      <div className="max-w-[85%] rounded-2xl rounded-br-md bg-cu-brandy px-4 py-2.5 text-sm leading-relaxed text-white">
+      <div className="max-w-[85%] whitespace-pre-wrap break-words rounded-2xl rounded-br-md bg-cu-brandy px-4 py-2.5 text-sm leading-relaxed text-white">
         {children}
       </div>
     </div>
@@ -294,7 +310,7 @@ function CharlesBubble({ children, pending }) {
       <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cu-brandy-darkest text-cu-brandy">
         <Sparkles size={14} />
       </span>
-      <div className="max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-tl-md bg-cu-surface-char px-4 py-2.5 text-sm leading-relaxed text-foreground/90">
+      <div className="max-w-[85%] whitespace-pre-wrap break-words rounded-2xl rounded-tl-md bg-cu-surface-char px-4 py-2.5 text-sm leading-relaxed text-foreground/90">
         {pending ? <TypingDots /> : children}
       </div>
     </div>
