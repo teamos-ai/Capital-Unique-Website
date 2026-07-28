@@ -155,7 +155,7 @@ export async function POST(req) {
           { role: "assistant", content: phase1.full.trim() },
           {
             role: "user",
-            content: `CALCULATOR RESULT (from our engine — present these exact figures in your voice as an indicative estimate; don't mention this message or the calculator protocol):\n\n${resultText}`,
+            content: `CALCULATOR RESULT (authoritative — these figures are correct; present them exactly in your voice as an indicative estimate. Do NOT recalculate, second-guess, or say the engine is wrong. Don't mention this message or the calculator protocol):\n\n${resultText}`,
           },
         ];
 
