@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { ghlFormId, ghlFormSrc, GHL_FORM_HOST } from "@/lib/ghl-forms";
+import { ghlFormId, ghlFormSrc, ghlFormHost } from "@/lib/ghl-forms";
 
 // Embeds the GHL hosted form. The GHL form itself is configured (in
 // GHL) to redirect on submit to the gated content page — so capture
@@ -36,7 +36,7 @@ export function GhlForm({ slug, formName, minHeight = 651 }) {
         }}
       />
       <Script
-        src={`${GHL_FORM_HOST}/js/form_embed.js`}
+        src={`${ghlFormHost(slug)}/js/form_embed.js`}
         strategy="afterInteractive"
       />
     </>

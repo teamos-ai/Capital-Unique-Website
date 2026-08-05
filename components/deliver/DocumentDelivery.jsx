@@ -43,7 +43,7 @@ export function DocumentDelivery() {
           }}
         />
         <div className="relative z-10 p-5 md:p-7">
-          <GhlForm slug="docsend" formName="DocSend" minHeight={620} />
+          <GhlForm slug="docsend" formName="Docsend" minHeight={709} />
           <p className="mt-3 flex items-center justify-center gap-1.5 text-xs text-muted-foreground">
             <ShieldCheck size={13} className="text-cu-brandy" />
             Encrypted in transit. Only {COMPANY.name} can access your
