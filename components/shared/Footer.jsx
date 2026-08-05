@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FOOTER_NAV, LEGAL_NAV } from "@/lib/nav";
 import { COMPANY } from "@/lib/company-info";
+import { BUILT_BY } from "@/lib/site";
 
 function LinkedInIcon(props) {
   return (
@@ -202,6 +203,17 @@ export function Footer() {
                 className="hover:text-foreground"
               >
                 {COMPANY.phoneOffice}
+              </a>
+            </p>
+            <p className="mt-3">
+              Built by{" "}
+              <a
+                href={BUILT_BY.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cu-brandy-light"
+              >
+                {BUILT_BY.name}
               </a>
             </p>
           </div>
