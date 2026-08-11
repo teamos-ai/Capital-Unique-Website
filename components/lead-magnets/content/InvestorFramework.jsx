@@ -1,10 +1,12 @@
 import { Callout, List } from "../LeadMagnetShell";
 import { BookReader } from "../BookReader";
+import { lmImage } from "@/lib/lead-magnet-images";
 
 export default function InvestorFramework() {
   return (
     <BookReader
       cover={{
+        image: lmImage("cover-private-lending"),
         kicker: "Wholesale investors only",
         title: "Private Lending: A Wholesale Investor's Framework",
         subtitle: "Income, risk and what to watch for in Australian private credit.",

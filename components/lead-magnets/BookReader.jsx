@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import HTMLFlipBook from "react-pageflip";
 import {
   AnimatePresence,
@@ -287,11 +288,28 @@ function Controls({ atStart, atEnd, onPrev, onNext, hint }) {
 function CoverFace({ cover }) {
   return (
     <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border bg-cu-surface-vault">
+      {/* cover.image is an entry from lib/lead-magnet-images. The guide
+          covers are 3:2, which matches this region at the book's 420×560
+          page (52% of 560 ≈ 291 tall), so the crop is negligible. */}
+      {/* No overflow-hidden here — the kicker pill below deliberately
+          hangs past this box; the outer cover already clips the corners. */}
       <div className="relative h-[52%] w-full shrink-0 bg-gradient-to-b from-cu-surface-char to-cu-surface-ember">
-        <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
-          <ImageIcon size={28} strokeWidth={1.4} />
-          <span className="text-[11px] uppercase tracking-[0.2em]">Image</span>
-        </div>
+        {cover?.image ? (
+          <Image
+            src={cover.image.src}
+            alt={cover.image.alt}
+            fill
+            sizes="(max-width: 767px) 100vw, 460px"
+            className="object-cover"
+            // The book page is the drag/flip target.
+            draggable={false}
+          />
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
+            <ImageIcon size={28} strokeWidth={1.4} />
+            <span className="text-[11px] uppercase tracking-[0.2em]">Image</span>
+          </div>
+        )}
         <div className="absolute inset-x-0 -bottom-[18px] z-10 flex justify-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-cu-surface-vault px-4 py-1.5 text-xs font-medium text-foreground shadow-md shadow-black/10 dark:shadow-black/40">
             <BookOpen size={14} strokeWidth={1.7} className="text-cu-brandy" />

@@ -1,3 +1,4 @@
+import { lmImage } from "@/lib/lead-magnet-images";
 import { Lead, Callout } from "../LeadMagnetShell";
 import { SwipeDeck } from "../SwipeDeck";
 
@@ -18,6 +19,7 @@ export default function ObjectionHandlingSwipeFile() {
         intro="Ten swipes. The objection, then the response that resolves it."
         cards={[
           {
+            image: lmImage("objection-living-room-through-glass"),
             title: "“Presales are too thin.”",
             body: (
               <>
@@ -38,6 +40,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-panels-light-gap"),
             title: "“The margin is tight.”",
             body: (
               <>
@@ -57,6 +60,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-pavilion-house-dusk"),
             title: "“Limited developer track record.”",
             body: (
               <>
@@ -76,6 +80,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-balcony-night-reflection"),
             title: "“The valuation looks optimistic.”",
             body: (
               <>
@@ -94,6 +99,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-entry-door-boots"),
             title: "“The exit isn’t certain.”",
             body: (
               <>
@@ -111,6 +117,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-rebar-bundle"),
             title: "“Construction cost risk.”",
             body: (
               <>
@@ -130,6 +137,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-leather-folio-open"),
             title: "“Timing is too tight.”",
             body: (
               <>
@@ -148,6 +156,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-leather-strap-steel-blocks"),
             title: "“Leverage is too high.”",
             body: (
               <>
@@ -166,6 +175,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-dovetail-joint"),
             title: "“The structure is complex.”",
             body: (
               <>
@@ -184,6 +194,7 @@ export default function ObjectionHandlingSwipeFile() {
             ),
           },
           {
+            image: lmImage("objection-booth-conversation"),
             title: "“Why did the bank decline?”",
             body: (
               <>

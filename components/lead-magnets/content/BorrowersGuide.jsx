@@ -1,10 +1,12 @@
 import { Callout, List } from "../LeadMagnetShell";
 import { BookReader } from "../BookReader";
+import { lmImage } from "@/lib/lead-magnet-images";
 
 export default function BorrowersGuide() {
   return (
     <BookReader
       cover={{
+        image: lmImage("cover-the-borrowers-guide"),
         kicker: "The Borrower's Guide",
         title: "The Borrower's Guide to Non-Bank Capital",
         subtitle:

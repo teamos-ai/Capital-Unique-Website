@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import Image from "next/image";
 import {
   AnimatePresence,
   motion,
@@ -81,14 +82,21 @@ function Card({
       }}
       className="absolute inset-0 flex cursor-grab touch-pan-y flex-col overflow-hidden rounded-[1.75rem] border border-border bg-cu-surface-vault shadow-2xl shadow-black/10 dark:shadow-black/50"
     >
-      {/* Image region (placeholder until an image is supplied) */}
+      {/* Image region (placeholder until an image is supplied).
+          card.image is an entry from lib/lead-magnet-images — the deck
+          series are 16:9, which is almost exactly this region's shape at
+          the card's 400px max width, so `cover` crops next to nothing. */}
       <div className="relative h-[40%] w-full shrink-0 bg-cu-surface-char">
         {card.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={card.image}
-            alt={card.title}
-            className="h-full w-full object-cover"
+          <Image
+            src={card.image.src}
+            alt={card.image.alt}
+            fill
+            sizes="(max-width: 432px) 100vw, 400px"
+            className="object-cover"
+            // The card itself is the drag target — a native image drag
+            // would fight the swipe gesture.
+            draggable={false}
           />
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-b from-cu-surface-char to-cu-surface-ember text-muted-foreground">

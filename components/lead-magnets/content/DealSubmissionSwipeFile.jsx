@@ -1,3 +1,4 @@
+import { lmImage } from "@/lib/lead-magnet-images";
 import { Lead, Callout } from "../LeadMagnetShell";
 import { SwipeDeck } from "../SwipeDeck";
 
@@ -17,6 +18,7 @@ export default function DealSubmissionSwipeFile() {
         intro="Five swipes. This is the whole deal on a single page. If it doesn't fit, it isn't clear enough yet."
         cards={[
           {
+            image: lmImage("deal-summary-blank-sheet-lightfall"),
             title: "The ask, in one line",
             body: (
               <>
@@ -35,6 +37,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("deal-summary-commercial-building-night"),
             title: "The security",
             body: (
               <p>
@@ -48,6 +51,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("deal-summary-written-page-pen"),
             title: "The numbers",
             body: (
               <p>
@@ -60,6 +64,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("deal-summary-door-ajar-light"),
             title: "The exit",
             body: (
               <p>
@@ -72,6 +77,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("deal-summary-adviser-two-points"),
             title: "The risks, named first",
             body: (
               <p>
@@ -93,6 +99,7 @@ export default function DealSubmissionSwipeFile() {
         intro="Eight swipes. Ask these before you engage. The answers tell you who you're dealing with."
         cards={[
           {
+            image: lmImage("lender-questions-paper-stack-edge"),
             title: "The true cost",
             body: (
               <>
@@ -110,6 +117,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-questions-stone-block-corner"),
             title: "The default rate",
             body: (
               <>
@@ -127,6 +135,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-questions-adviser-desk-folio"),
             title: "Decision & speed",
             body: (
               <>
@@ -143,6 +152,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-questions-brass-valve-wheel"),
             title: "Conditions to draw",
             body: (
               <>
@@ -159,6 +169,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-questions-padlock-key-open"),
             title: "Discharge & exit fees",
             body: (
               <>
@@ -175,6 +186,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-questions-notebook-page-turn"),
             title: "If the exit slips",
             body: (
               <>
@@ -191,6 +203,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-questions-construction-crane-dusk"),
             title: "Certainty of funding",
             body: (
               <>
@@ -207,6 +220,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-questions-hand-pen-blank-page"),
             title: "What would decline it",
             body: (
               <>
@@ -232,6 +246,7 @@ export default function DealSubmissionSwipeFile() {
         intro="Twelve swipes. Have these ready before you submit and you remove the lender's reasons to slow down."
         cards={[
           {
+            image: lmImage("document-list-file-stack-blank-sheet"),
             title: "One-page deal summary",
             body: (
               <p>
@@ -242,6 +257,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-townhouse-row-night"),
             title: "Asset details & valuation basis",
             body: (
               <p>
@@ -252,6 +268,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-paper-stacks-tall-short"),
             title: "Current debt position",
             body: (
               <p>
@@ -263,6 +280,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-site-plan-scale-ruler"),
             title: "Feasibility (development)",
             body: (
               <p>
@@ -274,6 +292,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-property-photo-prints"),
             title: "Sales / comparable evidence",
             body: (
               <p>
@@ -284,6 +303,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-brass-hierarchy-nodes"),
             title: "Entity & ownership chart",
             body: (
               <p>
@@ -295,6 +315,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-leather-ledgers-stacked"),
             title: "Financials",
             body: (
               <p>
@@ -305,6 +326,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-broker-briefcase-portrait"),
             title: "Director / guarantor position",
             body: (
               <p>
@@ -315,6 +337,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-development-aerial-night"),
             title: "Track record",
             body: (
               <p>
@@ -326,6 +349,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-site-plans-review-dusk"),
             title: "Approvals & build contract",
             body: (
               <p>
@@ -336,6 +360,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-signing-at-home-lamp"),
             title: "Exit evidence",
             body: (
               <p>
@@ -347,6 +372,7 @@ export default function DealSubmissionSwipeFile() {
             ),
           },
           {
+            image: lmImage("document-list-pen-on-page-corner"),
             title: "Risk note",
             body: (
               <p>

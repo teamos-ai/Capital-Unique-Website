@@ -1,10 +1,12 @@
 import { Callout, List } from "../LeadMagnetShell";
 import { BookReader } from "../BookReader";
+import { lmImage } from "@/lib/lead-magnet-images";
 
 export default function WhenTheBankSaysNo() {
   return (
     <BookReader
       cover={{
+        image: lmImage("cover-when-the-banks-say-no"),
         kicker: "A Developer's Guide",
         title: "When the Bank Says No",
         subtitle:

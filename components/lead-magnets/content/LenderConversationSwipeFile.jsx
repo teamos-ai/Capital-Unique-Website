@@ -1,3 +1,4 @@
+import { lmImage } from "@/lib/lead-magnet-images";
 import { Lead, Callout } from "../LeadMagnetShell";
 import { SwipeDeck } from "../SwipeDeck";
 
@@ -17,6 +18,7 @@ export default function LenderConversationSwipeFile() {
         intro="Eight swipes. Adapt the wording; keep the structure."
         cards={[
           {
+            image: lmImage("lender-conversation-adviser-explaining"),
             title: "Open with the deal in one line",
             body: (
               <>
@@ -37,6 +39,7 @@ export default function LenderConversationSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-conversation-key-on-envelope"),
             title: "Lead with the exit, not the rate",
             body: (
               <>
@@ -56,6 +59,7 @@ export default function LenderConversationSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-conversation-plumb-bob"),
             title: "Name the risk first",
             body: (
               <>
@@ -74,6 +78,7 @@ export default function LenderConversationSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-conversation-weight-on-pages"),
             title: "Show conservative numbers",
             body: (
               <>
@@ -92,6 +97,7 @@ export default function LenderConversationSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-conversation-booth-meeting"),
             title: "Ask the cost question properly",
             body: (
               <>
@@ -111,6 +117,7 @@ export default function LenderConversationSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-conversation-balance-scale"),
             title: "Handle the price push",
             body: (
               <>
@@ -130,6 +137,7 @@ export default function LenderConversationSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-conversation-empty-boardroom"),
             title: "Test their speed and authority",
             body: (
               <>
@@ -149,6 +157,7 @@ export default function LenderConversationSwipeFile() {
             ),
           },
           {
+            image: lmImage("lender-conversation-corridor-handoff"),
             title: "Close with a next step",
             body: (
               <>

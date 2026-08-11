@@ -1,11 +1,14 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ArrowLeft, Lock, CheckCircle2 } from "lucide-react";
+import { GROUP_HERO } from "@/lib/lead-magnet-images";
 
 // Gated content-page shell. Reached only via the GHL form redirect
 // (page is noindex + unlisted). Renders standalone regardless.
 export function LeadMagnetShell({ magnet, children }) {
   const backHref = magnet.group === "guides" ? "/guides" : "/free-tools";
   const backLabel = magnet.group === "guides" ? "All guides" : "All free tools";
+  const hero = GROUP_HERO[magnet.group];
 
   return (
     <article className="bg-background">
@@ -65,29 +68,47 @@ export function LeadMagnetShell({ magnet, children }) {
         </div>
       </div>
 
-      {/* CTA */}
+      {/* CTA — carries the group hero. Both heroes are full-length 4:5
+          portraits (the subjects run to the bottom of the frame), so the
+          box is held at 4:5 and width-capped rather than letterboxed. */}
       <section className="px-6 py-16 lg:px-10 lg:py-20">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-cu-surface-vault p-8 text-center md:p-12">
-          <p className="heading-eyebrow mb-4">Next step</p>
-          <h2 className="heading-card">Have the real conversation</h2>
-          <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground">
-            A framework gets you ready. A scenario gets decided in a
-            conversation — with one person, end to end.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-cu-brandy px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-cu-brandy-light"
-            >
-              Speak with Team
-              <ArrowRight size={15} />
-            </Link>
-            <Link
-              href="/charles-ai"
-              className="inline-flex items-center rounded-md border border-border bg-transparent px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-cu-surface-char"
-            >
-              Workshop it with Charles A.I
-            </Link>
+        <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-cu-surface-vault p-8 md:p-12">
+          <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:gap-10">
+            {hero && (
+              <div className="relative aspect-[4/5] w-full max-w-[14rem] shrink-0 overflow-hidden rounded-xl border border-border md:w-60 md:max-w-none">
+                <Image
+                  src={hero.src}
+                  alt={hero.alt}
+                  fill
+                  sizes="(max-width: 768px) 224px, 240px"
+                  className="object-cover"
+                />
+              </div>
+            )}
+
+            <div className="text-center md:flex-1 md:text-left">
+              <p className="heading-eyebrow mb-4">Next step</p>
+              <h2 className="heading-card">Have the real conversation</h2>
+              <p className="mx-auto mt-3 max-w-xl text-base text-muted-foreground md:mx-0">
+                A framework gets you ready. A scenario gets decided in a
+                conversation — with one person, end to end.
+              </p>
+              <div className="mt-7 flex flex-wrap justify-center gap-3 md:justify-start">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-md bg-cu-brandy px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-cu-brandy-light"
+                >
+                  Speak with Team
+                  <ArrowRight size={15} />
+                </Link>
+                <Link
+                  href="/charles-ai"
+                  className="inline-flex items-center rounded-md border border-border bg-transparent px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-cu-surface-char"
+                >
+                  Workshop it with Charles A.I
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
