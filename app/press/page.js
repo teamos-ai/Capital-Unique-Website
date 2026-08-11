@@ -25,8 +25,9 @@ const ASSETS = [
   },
   {
     label: "Brand guidelines (PDF)",
-    href: "#brand-guidelines",
-    note: "Colour, typography, voice, and usage notes.",
+    href: "/brand/capital-unique-brand-guidelines.pdf",
+    note: "Colour, typography, voice, and usage notes — plus the compliance language required when describing Capital Unique.",
+    download: true,
   },
 ];
 
@@ -169,6 +170,7 @@ export default function PressPage() {
               <a
                 key={asset.label}
                 href={asset.href}
+                download={asset.download ? "" : undefined}
                 className="group flex items-start justify-between gap-6 rounded-2xl border border-border bg-cu-surface-vault p-6 transition-colors hover:bg-cu-surface-char md:p-8"
               >
                 <div>
