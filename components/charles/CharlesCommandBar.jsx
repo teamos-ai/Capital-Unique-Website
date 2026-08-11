@@ -16,7 +16,7 @@ import {
   Loader2,
   X,
 } from "lucide-react";
-import { HANDOVER_FORM, handoverFormSrc, GHL_FORM_HOST } from "@/lib/ghl-forms";
+import { HANDOVER_FORM, handoverFormSrc, ghlFormHost } from "@/lib/ghl-forms";
 
 // Charles opens with this (display-only — not sent to the model, which gets
 // its identity from the system prompt).
@@ -413,7 +413,7 @@ function LeadCapture({ messages }) {
         className="block w-full bg-cu-surface-vault"
         style={{ height: `${HANDOVER_FORM.height}px`, border: "none" }}
       />
-      <Script src={`${GHL_FORM_HOST}/js/form_embed.js`} strategy="afterInteractive" />
+      <Script src={`${ghlFormHost("handover")}/js/form_embed.js`} strategy="afterInteractive" />
     </div>
   );
 }
