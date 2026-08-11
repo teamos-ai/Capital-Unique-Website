@@ -16,7 +16,13 @@ import {
   Loader2,
   X,
 } from "lucide-react";
-import { HANDOVER_FORM, handoverFormSrc, ghlFormHost } from "@/lib/ghl-forms";
+import {
+  HANDOVER_FORM,
+  HANDOVER_TRANSCRIPT_MAX,
+  handoverFormSrc,
+  ghlFormHost,
+} from "@/lib/ghl-forms";
+import { extractLead } from "@/lib/charles/lead-extract";
 
 // Charles opens with this (display-only — not sent to the model, which gets
 // its identity from the system prompt).
@@ -350,12 +356,34 @@ function useSiteTheme() {
   return theme;
 }
 
+// The transcript John reads in the CRM. Built newest-last, but trimmed from the
+// FRONT when it exceeds the URL budget — the tail carries the details that were
+// just agreed (name, number, latest figures), so it's the part worth keeping.
+// A marker is prepended when anything was dropped, so John can tell the
+// conversation didn't start where it appears to.
 function buildTranscript(messages) {
-  return messages
-    .filter((m) => (m.role === "user" || m.role === "assistant") && !m.error && m.content?.trim())
-    .slice(-10)
-    .map((m) => `${m.role === "user" ? "Client" : "Charles"}: ${m.content.trim()}`)
-    .join("\n");
+  const lines = messages
+    .filter(
+      (m) =>
+        (m.role === "user" || m.role === "assistant") &&
+        !m.error &&
+        m.content?.trim()
+    )
+    .map((m) => `${m.role === "user" ? "Client" : "Charles"}: ${m.content.trim()}`);
+
+  const kept = [];
+  let budget = HANDOVER_TRANSCRIPT_MAX;
+  for (let i = lines.length - 1; i >= 0; i--) {
+    const cost = lines[i].length + 1;
+    if (cost > budget) break;
+    budget -= cost;
+    kept.unshift(lines[i]);
+  }
+
+  const dropped = lines.length - kept.length;
+  return dropped > 0
+    ? `[earlier ${dropped} message${dropped === 1 ? "" : "s"} trimmed]\n${kept.join("\n")}`
+    : kept.join("\n");
 }
 
 function LeadCapture({ messages }) {
@@ -377,7 +405,11 @@ function LeadCapture({ messages }) {
     );
   }
 
-  const src = handoverFormSrc({ theme, conversation: buildTranscript(messages) });
+  const src = handoverFormSrc({
+    theme,
+    conversation: buildTranscript(messages),
+    lead: extractLead(messages),
+  });
 
   return (
     <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-cu-surface-vault">
