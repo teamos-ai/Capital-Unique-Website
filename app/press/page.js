@@ -20,9 +20,13 @@ const ASSET_CARD_CLASS =
 
 const ASSETS = [
   {
-    label: "Brand mark (SVG, PNG)",
-    href: "#brand-mark",
-    note: "Logo on dark background and on light. SVG and 2× PNG.",
+    // Was "SVG, PNG" pointing at a #brand-mark anchor that never existed.
+    // No vector artwork exists for these marks, so the label now describes
+    // what the pack actually contains.
+    label: "Logo pack (ZIP)",
+    href: "/brand/capital-unique-logo-pack.zip",
+    note: "Coin and horizontal lockups, bronze and silver, as transparent PNGs. Includes usage notes and the rule for which lockup goes on which background.",
+    download: true,
   },
   {
     // Three approved portraits exist, so this row opens a picker rather than
