@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { Mail, Phone, ExternalLink } from "lucide-react";
 import { BrandIcon } from "@/components/shared/BrandIcon";
+import { PortraitPicker } from "@/components/press/PortraitPicker";
 import { COMPANY } from "@/lib/company-info";
 import { CASE_STUDIES } from "@/lib/case-studies";
 
@@ -12,6 +13,11 @@ export const metadata = {
     "Press contact, brand assets, and approved background for journalists writing about Capital Unique and the non-bank capital market in Australia.",
 };
 
+// Shared by the plain download links and by PortraitPicker's trigger, so the
+// three rows stay visually identical even though one of them is a button.
+const ASSET_CARD_CLASS =
+  "group flex items-start justify-between gap-6 rounded-2xl border border-border bg-cu-surface-vault p-6 transition-colors hover:bg-cu-surface-char md:p-8";
+
 const ASSETS = [
   {
     label: "Brand mark (SVG, PNG)",
@@ -19,9 +25,11 @@ const ASSETS = [
     note: "Logo on dark background and on light. SVG and 2× PNG.",
   },
   {
+    // Three approved portraits exist, so this row opens a picker rather than
+    // committing the reader to one file. Rendered by PortraitPicker.
+    kind: "portraits",
     label: "John Codrington portrait (high-res)",
-    href: "/images/about/john-codrington.jpg",
-    note: "Approved press portrait. Credit not required but appreciated.",
+    note: "Three approved press portraits to choose from. Credit not required but appreciated.",
   },
   {
     label: "Brand guidelines (PDF)",
@@ -166,24 +174,33 @@ export default function PressPage() {
             Logos, portrait, and brand guidelines
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-5">
-            {ASSETS.map((asset) => (
-              <a
-                key={asset.label}
-                href={asset.href}
-                download={asset.download ? "" : undefined}
-                className="group flex items-start justify-between gap-6 rounded-2xl border border-border bg-cu-surface-vault p-6 transition-colors hover:bg-cu-surface-char md:p-8"
-              >
-                <div>
-                  <p className="font-serif text-lg font-semibold leading-tight md:text-xl">
-                    {asset.label}
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {asset.note}
-                  </p>
-                </div>
-                <BrandIcon name="Download" size="sm" className="mt-1" />
-              </a>
-            ))}
+            {ASSETS.map((asset) =>
+              asset.kind === "portraits" ? (
+                <PortraitPicker
+                  key={asset.label}
+                  label={asset.label}
+                  note={asset.note}
+                  cardClassName={ASSET_CARD_CLASS}
+                />
+              ) : (
+                <a
+                  key={asset.label}
+                  href={asset.href}
+                  download={asset.download ? "" : undefined}
+                  className={ASSET_CARD_CLASS}
+                >
+                  <div>
+                    <p className="font-serif text-lg font-semibold leading-tight md:text-xl">
+                      {asset.label}
+                    </p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      {asset.note}
+                    </p>
+                  </div>
+                  <BrandIcon name="Download" size="sm" className="mt-1" />
+                </a>
+              )
+            )}
           </div>
           <p className="mt-8 text-xs text-muted-foreground">
             For high-resolution assets not listed here (event photography,
