@@ -116,7 +116,8 @@ export default function AgriculturePage() {
           },
         ]}
         wide={{
-          image: "/images/people/owner-client-meeting-001.png",
+          // 21:9 crop — matches the wide tile, so neither subject is cut off.
+          image: "/images/people/owner-client-meeting-21x9.jpeg",
           eyebrow: "The cycle",
           title: "Capital that follows the cycle",
           body: "Structured for seasonal income and underlying asset value.",

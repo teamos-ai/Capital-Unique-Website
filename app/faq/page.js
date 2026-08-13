@@ -115,7 +115,10 @@ export default function FAQPage() {
         heading="Clarity, before the conversation"
         body="Straight answers to the questions that matter most."
         lead={{
-          image: "/images/people/owner-seated-cafe.jpeg",
+          // 16:9 crop — matches the lead tile's aspect exactly, so the subject
+          // isn't cropped. The 4:3 original is still used elsewhere (About
+          // hero, press picker, DocSend avatar) where a taller crop is right.
+          image: "/images/people/owner-seated-cafe-16x9.jpeg",
           eyebrow: "Common questions",
           title: "How it actually works",
           body: "What we do, what we don't, and how fast.",
@@ -135,7 +138,9 @@ export default function FAQPage() {
           },
         ]}
         wide={{
-          image: "/images/editorial/codrington-headshot-bw.jpeg",
+          // 21:9 crop — matches the wide tile. The 4:3 original stays in the
+          // calculator persona strip.
+          image: "/images/editorial/codrington-headshot-bw-21x9.jpeg",
           eyebrow: "Direct",
           title: "Still unsure? Ask the Team",
           body: "A person answers — not an auto-reply.",
